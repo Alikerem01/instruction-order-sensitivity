@@ -1,0 +1,4 @@
+[2026-10-04T16:00:29Z] phi4mini: new run smoke_20261004-1558_51d293c: 5 unique prompts (5 ids), 1 batches of 16
+[2026-10-04T16:00:58Z] R4 check passed: effective generation config matches the allow-list
+[2026-10-04T16:01:04Z] batch 1/1 done in 6.1s (5 prompts, 0 hit the length limit)
+[2026-10-04T16:01:04Z] phi4mini: complete -- 5 records in generations.jsonl

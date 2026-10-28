@@ -1,0 +1,161 @@
+# Experiment configuration (brief §5). Values here are read by src/; do not edit after the G3 freeze
+# without a DESIGN_DEVIATIONS.md entry and a recorded design decision.
+
+seed: 20261003
+
+evaluation_set:
+  version: benchmark_v1
+  # family key -> task-id prefix, number of main and pilot tasks (brief §5.2)
+  families:
+    F1_QA:             {prefix: qa,  main: 20, pilot: 2}
+    F2_CLASSIFICATION: {prefix: cls, main: 20, pilot: 2}
+    F3_SUMMARIZATION:  {prefix: sum, main: 20, pilot: 2}
+    F4_EXTRACTION:     {prefix: ext, main: 20, pilot: 2}
+    F5_TRANSFORMATION: {prefix: trf, main: 20, pilot: 2}
+  f2_main_per_class: 5
+  synthetic_records_per_family: 22
+
+# Source datasets, pinned to a Hub commit and to the SHA-256 of the parquet file actually read.
+# Resolved with huggingface_hub on 2026-10-04.
+datasets:
+  F1_QA:
+    hf_id: rajpurkar/squad
+    config: plain_text
+    split: validation
+    revision: 7b6d24c440a36b6815f21b70d25016731768db1f
+    file: plain_text/validation-00000-of-00001.parquet
+    file_sha256: 8c6646d36bd5a95061e076788cf3161d11f6f3e7d625dac7a83bbed0a49f69f7
+    license: CC BY-SA 4.0
+  F2_CLASSIFICATION:
+    hf_id: fancyzhx/ag_news
+    config: default
+    split: test
+    revision: eb185aade064a813bc0b7f42de02595523103ca4
+    file: data/test-00000-of-00001.parquet
+    file_sha256: 71de87ec66bc5737752a2502204dfa6d7fe9856ade3ea444dc6317789a4f13fb
+    license: unknown (Hugging Face metadata)
+    label_names: [World, Sports, Business, Sci/Tech]
+  F3_SUMMARIZATION:
+    hf_id: EdinburghNLP/xsum
+    config: default
+    split: test
+    revision_ref: refs/convert/parquet
+    revision: 03339c27cd655c3369346bacb533293f222a9d42
+    file: default/test/0000.parquet
+    file_sha256: 224e9dbc6fed987759c1954603b43cb280b8d475d78893779130aa707d967ed7
+    license: unknown (Hugging Face metadata)
+
+# Calibration state (brief §5.6). Slot -> key in configs/prompt_strings.yaml.
+# Round 0 = the default strings. Only the pre-specified rule may change T2 or T4.
+calibration_round: 0
+active_instructions:
+  T1: T1_FORMAT
+  T2: T2_LENGTH
+  T3: T3_CARDINALITY
+  T4: T4_NO_COMMA
+  T5: T5_VERBATIM
+length_limit_words: 25   # 20 if T2_LENGTH_20 becomes active
+# The calibration rule (brief §5.6) is decided on these models only (decision D06 §4, declared before any pilot
+# result was seen); a model added later inherits the frozen strings.
+calibration_models: [smollm2, qwen25, phi4mini]
+
+prompts:
+  n_orders: 10            # P01-P10, Williams design (src/orders.py)
+  n_format_variants: 10   # V01-V10 (src/prompt_builder.py)
+  expected:
+    main:  {ids: 2000, unique_texts: 1900}
+    pilot: {ids: 200, unique_texts: 190}
+    smoke: {ids: 5, unique_texts: 5}
+    pilot_bs1: {ids: 100, unique_texts: 100}   # order arm of the pilot prompts (addition A3)
+    smoke_gemma: {ids: 5, unique_texts: 5}
+    pilot_gemma: {ids: 200, unique_texts: 190}
+
+generation:
+  # Greedy decoding with a GenerationConfig built from scratch (brief §5.7).
+  do_sample: false
+  num_beams: 1
+  max_new_tokens: 512     # 768 only if >2% of pilot outputs hit the limit (brief §5.6)
+  repetition_penalty: 1.0
+  dtype: bfloat16
+  batch_size: 16
+  padding_side: left
+  attn_implementation: sdpa
+  max_infra_retries: 2    # retries of the same batch after an infrastructure error; never for content
+  required_gpu_substring: A100
+  sort_key: [n_input_tokens, prompt_id]
+
+# experimental: true -> Colab A100 and bfloat16 required. Phase-level batch_size overrides generation.batch_size.
+# prompt_arms restricts a phase to some arms of its prompts file. Only analysis_eligible phases enter analyses.
+phases:
+  smoke:
+    prompts_file: data/benchmark_v1/prompts_smoke.jsonl
+    tasks_file: data/benchmark_v1/tasks_pilot.jsonl
+    models: [smollm2, qwen25, phi4mini]
+    experimental: true
+    passes: 2             # design addition A1: second pass in the same session, separate run id
+    analysis_eligible: false
+  pilot:
+    prompts_file: data/benchmark_v1/prompts_pilot.jsonl
+    tasks_file: data/benchmark_v1/tasks_pilot.jsonl
+    models: [smollm2, qwen25, phi4mini]
+    experimental: true
+    analysis_eligible: false
+  pilot_bs1:
+    # Design addition A3: batch-invariance check (technical noise floor) after the batch-16 pilot.
+    # The 100 order-arm pilot texts per model at batch size 1; never enters any main analysis.
+    prompts_file: data/benchmark_v1/prompts_pilot.jsonl
+    prompt_arms: [order]
+    tasks_file: data/benchmark_v1/tasks_pilot.jsonl
+    models: [smollm2, qwen25, phi4mini]
+    experimental: true
+    batch_size: 1
+    analysis_eligible: false
+  main:
+    prompts_file: data/benchmark_v1/prompts_main.jsonl
+    tasks_file: data/benchmark_v1/tasks_main.jsonl
+    models: [smollm2, qwen25, phi4mini, gemma4e4b]   # gemma4e4b added by decision D06
+    experimental: true
+    # Decision G2 §2.1 (option B): batch size 1 for all four models and both arms. The A3 check found that
+    # batch composition alone changed 20-30% of the texts at batch size 16.
+    batch_size: 1
+    # Decision G2 §3.2 (A6): at the start of each model's main run, the 5 smoke prompts (order-arm pilot texts,
+    # first pilot task per family, P01) are generated at batch size 1 and compared byte for byte with the
+    # model's batch-1 pilot outputs. Non-analysed replicate records; a difference in an identical environment
+    # stops the run. The reference file is built after Gemma's pilot (scripts/make_a6_reference.py).
+    determinism_check:
+      prompts_file: data/benchmark_v1/prompts_smoke.jsonl
+      reference_file: results/qc/a6_reference.json
+      reference_phases: {smollm2: pilot_bs1, qwen25: pilot_bs1, phi4mini: pilot_bs1, gemma4e4b: pilot_gemma}
+    analysis_eligible: true
+  # Fourth model (decision D06): Gemma-only phases with separate run folders; the three-model runs stay as they are.
+  smoke_gemma:
+    prompts_file: data/benchmark_v1/prompts_smoke.jsonl
+    tasks_file: data/benchmark_v1/tasks_pilot.jsonl
+    models: [gemma4e4b]
+    experimental: true
+    passes: 2
+    analysis_eligible: false
+  pilot_gemma:      # after the G2 decision, with the final strings; never used for calibration
+    # Decision G2 §2.2 (option B): one Gemma pilot at batch size 1 with all 190 texts (both arms); the former
+    # pilot_bs1_gemma phase is dropped. Used for pipeline checks, E3 difficulty (order arm) and A6.
+    prompts_file: data/benchmark_v1/prompts_pilot.jsonl
+    tasks_file: data/benchmark_v1/tasks_pilot.jsonl
+    models: [gemma4e4b]
+    experimental: true
+    batch_size: 1
+    analysis_eligible: false
+  dryrun:
+    # Pipeline dry-run on the Mac only (implementation specification §2.6). Never analysed.
+    prompts_file: data/benchmark_v1/prompts_smoke.jsonl
+    tasks_file: data/benchmark_v1/tasks_pilot.jsonl
+    models: [smollm2_135m]
+    experimental: false
+    analysis_eligible: false
+    device: cpu
+    dtype: float32
+    batch_size: 2         # small batches so that the dry-run exercises interruption and resume
+
+analysis:
+  bootstrap_replicates: 5000
+  bootstrap_seed: 20261003
+  ci_level: 0.95

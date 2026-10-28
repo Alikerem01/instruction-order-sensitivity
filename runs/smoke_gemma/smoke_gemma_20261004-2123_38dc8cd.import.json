@@ -1,0 +1,162 @@
+{
+  "run_id": "smoke_gemma_20261004-2123_38dc8cd",
+  "phase": "smoke_gemma",
+  "imported_utc": "2026-10-04T22:07:14Z",
+  "verified_utc": "2026-10-04T22:07:14Z",
+  "passed": true,
+  "bundle_gitsha": "38dc8cdafcf6fd9a2bf4e6e12f74e9a401e19ad0",
+  "fixture": false,
+  "replicate_of": null,
+  "models": {
+    "gemma4e4b": {
+      "n_records": 5,
+      "finish_reason": {
+        "eos": 5
+      },
+      "environment": {
+        "device": "cuda",
+        "gpu_name": "NVIDIA A100-SXM4-80GB",
+        "cuda_version": "13.0",
+        "cudnn_version": 92700,
+        "python_version": "3.13.15",
+        "torch_version": "2.11.0+cu130",
+        "transformers_version": "5.17.0",
+        "tokenizers_version": "0.23.2",
+        "accelerate_version": "1.15.0",
+        "safetensors_version": "0.8.0",
+        "huggingface_hub_version": "1.33.0"
+      },
+      "generation_seconds_total": 12.22,
+      "n_sessions": 1,
+      "retries": 0
+    }
+  },
+  "models_not_in_run": [],
+  "checks": [
+    {
+      "check": "run_info phase and id match",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "bundle commit exists in this repository",
+      "passed": true,
+      "detail": "38dc8cdafcf6"
+    },
+    {
+      "check": "every bundled file matches the commit (SHA-256)",
+      "passed": true,
+      "detail": "27 files"
+    },
+    {
+      "check": "local prompts file equals the bundled one",
+      "passed": true,
+      "detail": "data/benchmark_v1/prompts_smoke.jsonl"
+    },
+    {
+      "check": "env.json present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "models present in the run",
+      "passed": true,
+      "detail": "present=['gemma4e4b']; not in this run=[]"
+    },
+    {
+      "check": "gemma4e4b: run_meta status is complete",
+      "passed": true,
+      "detail": "complete"
+    },
+    {
+      "check": "gemma4e4b: generations.jsonl present and hash matches run_meta",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "gemma4e4b: generations.jsonl equals the concatenated batch files",
+      "passed": true,
+      "detail": "1 batches"
+    },
+    {
+      "check": "gemma4e4b: one record per unique prompt text (0 missing, 0 extra, 0 duplicate)",
+      "passed": true,
+      "detail": "5 records, 5 expected, missing=0, extra=0, duplicates=0"
+    },
+    {
+      "check": "gemma4e4b: prompt id groups and task ids match the prompts file",
+      "passed": true,
+      "detail": "5 prompt ids covered"
+    },
+    {
+      "check": "gemma4e4b: one environment and one setting for all records",
+      "passed": true,
+      "detail": "gpu_name=\"NVIDIA A100-SXM4-80GB\"; torch_version=\"2.11.0+cu130\"; transformers_version=\"5.17.0\"; dtype=\"bfloat16\""
+    },
+    {
+      "check": "gemma4e4b: every session ran in the run's first environment",
+      "passed": true,
+      "detail": "1 session(s)"
+    },
+    {
+      "check": "gemma4e4b: no session used the environment-override test hook (R5)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "gemma4e4b: records agree with run_meta environment",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "gemma4e4b: model id and revision match the pinned specification",
+      "passed": true,
+      "detail": "google/gemma-4-E4B-it@ee0ef6023621"
+    },
+    {
+      "check": "gemma4e4b: greedy generation config, identical for all records",
+      "passed": true,
+      "detail": "max_new_tokens=512, eos=[1, 106, 50]"
+    },
+    {
+      "check": "gemma4e4b: R4 fail-fast checks passed for every batch",
+      "passed": true,
+      "detail": "batches checked=1/1; logits processors=[]; stopping=['MaxLengthCriteria', 'EosTokenCriteria']"
+    },
+    {
+      "check": "gemma4e4b: no thinking markers in the outputs (thinking disabled, D06)",
+      "passed": true,
+      "detail": "markers ['<|think|>', '<|channel>', '<channel|>']"
+    },
+    {
+      "check": "gemma4e4b: output text, token counts and finish reasons are consistent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "gemma4e4b: batch size as configured for the phase (16)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "gemma4e4b: experimental phase ran on A100 in bfloat16",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "raw_files_sha256": {
+    "gemma4e4b/batches/batch_00000.jsonl": "301d746b4552f9210bcd5e890476e43be5e665d464ff3e499a07ff964b1d6a80",
+    "gemma4e4b/generations.jsonl": "301d746b4552f9210bcd5e890476e43be5e665d464ff3e499a07ff964b1d6a80"
+  },
+  "all_files_sha256": {
+    "bundle_manifest.json": "14997313e3a5caca70d024ab2b0b4ccd616691cba563e70bf9447ec52c573b1e",
+    "env.json": "f47598c630a4a5c7312e5f748b6123f876ea2c187154345fc5f2774ec91c8cfa",
+    "gemma4e4b/batch_plan.json": "0629a2ebfdd6bdecbb2ddd44cf9abc4be63cf649f452cdbd9c4a27d30b81de76",
+    "gemma4e4b/batches/batch_00000.jsonl": "301d746b4552f9210bcd5e890476e43be5e665d464ff3e499a07ff964b1d6a80",
+    "gemma4e4b/generate.log": "fafa416cc377802c0d4da462829626bca32e0b624844dc9f00c42bd29a07ef90",
+    "gemma4e4b/generations.jsonl": "301d746b4552f9210bcd5e890476e43be5e665d464ff3e499a07ff964b1d6a80",
+    "gemma4e4b/run_meta.json": "aeb03bac0ecff51fb68728e8e1774c5ec3be61aef398cb726723f314fc0f50f7",
+    "run_info.json": "cfaa255667e0cde27e303010874bc6badf4b9d847cebdb4f1582464a004ba961"
+  },
+  "analysis_eligible": false
+}

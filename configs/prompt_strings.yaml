@@ -1,0 +1,21 @@
+system: "You are a precise assistant. Follow all user instructions exactly."
+
+instructions:
+  T1_FORMAT: 'Return only a valid JSON object with exactly two keys: "answer" and "evidence".'
+  T2_LENGTH: 'In the JSON output, the "answer" value must be at most 25 words long.'
+  T3_CARDINALITY: 'In the JSON output, the "evidence" value must be a list of exactly two strings.'
+  T4_NO_COMMA: 'In the JSON output, the "answer" value must not contain any commas.'
+  T5_VERBATIM: 'In the JSON output, each "evidence" item must be copied exactly, as one contiguous span, from the INPUT text.'
+
+calibration_fallbacks:          # used only if the rule in §5.6 triggers
+  T2_LENGTH_20: 'In the JSON output, the "answer" value must be at most 20 words long.'
+  T4_LOWERCASE: 'In the JSON output, the "answer" value must be written entirely in lowercase letters.'
+
+task_directives:
+  F1_QA: |-
+    Answer the question below using only the passage in INPUT. Write the answer as one sentence in "answer".
+    Question: {question}
+  F2_CLASSIFICATION: 'Classify the news article in INPUT into exactly one of these categories: World, Sports, Business, Sci/Tech. In "answer", state the chosen category in one sentence.'
+  F3_SUMMARIZATION: 'Summarize the text in INPUT in one sentence that preserves its main factual content. Write the summary in "answer".'
+  F4_EXTRACTION: 'Identify the person, organization, city, date, and numerical value mentioned in INPUT. In "answer", state all five values in one sentence.'
+  F5_TRANSFORMATION: 'Rewrite the information in INPUT as one grammatical sentence that includes the project name, owner, status, deadline, and budget, without adding any new information. Write this sentence in "answer".'

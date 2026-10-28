@@ -1,0 +1,5 @@
+model,hf_id,parameters,parameters_stored,license,revision,chat_template_sha256,chat_template_note
+smollm2,HuggingFaceTB/SmolLM2-1.7B-Instruct,1.7B,1711376384,Apache-2.0,31b70e2e869a7173562077fd711b654946d38674,872be49dbb638044ad01b60388f48d469ff2980e5f0dccdc22ec907db54d0788,official template; system role native
+qwen25,Qwen/Qwen2.5-3B-Instruct,3.1B,3085938688,Qwen Research License (non-commercial),aa8e72537993ba99e69dfaafa59ed015b17504d1,cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f,official template; system role native
+phi4mini,microsoft/Phi-4-mini-instruct,3.8B,3836021760,MIT,cfbefacb99257ffa30c83adab238a50856ac3083,febf589225c9728ab791f52e8897d7607a823d45368f0a4c92fa68997b40cce9,official template; system role native; Hub remote code never used
+gemma4e4b,google/gemma-4-E4B-it,"4.5B effective (8B with embeddings), as stated in the model card",7996156490,Apache-2.0,ee0ef6023621cff504d758262d4e04895a5af4a2,0a2c8073c878ab1da004bee933a998606537bbb62016310352c7285c3f01c5b5,official template; native system turn; thinking disabled (enable_thinking=False)

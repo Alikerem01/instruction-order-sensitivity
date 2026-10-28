@@ -1,0 +1,282 @@
+# Pinned model revisions (implementation specification C0). Written by scripts/pin_models.py; do not edit by hand.
+# Generation reads hf_id, revision, eos_token_ids, pad_token_id and chat_template_sha256 from here.
+# hub_generation_config_not_used: the Hub defaults, recorded for transparency; generation builds its
+# GenerationConfig from scratch (brief §5.7) and never uses these values.
+pinned_at_utc: '2026-10-03T23:58:53Z'
+pinned_with:
+  transformers: 5.17.0
+  huggingface_hub: 1.33.0
+models:
+  smollm2:
+    hf_id: HuggingFaceTB/SmolLM2-1.7B-Instruct
+    revision: 31b70e2e869a7173562077fd711b654946d38674
+    hub_last_modified: '2025-04-21 20:51:14+00:00'
+    parameters_nominal: 1.7B
+    parameters_safetensors: 1711376384
+    license: Apache-2.0
+    license_hub_metadata: apache-2.0
+    architecture: LlamaForCausalLM
+    model_type: llama
+    native_class_module: transformers.models.llama.modeling_llama
+    trust_remote_code: false
+    hub_has_remote_code: false
+    torch_dtype_hub: torch.bfloat16
+    eos_token_ids:
+    - 2
+    eos_tokens:
+    - <|im_end|>
+    pad_token_id: 2
+    pad_token: <|im_end|>
+    tokenizer_class: GPT2Tokenizer
+    chat_template_sha256: 872be49dbb638044ad01b60388f48d469ff2980e5f0dccdc22ec907db54d0788
+    chat_template_checks:
+      system_message_count: 1
+      user_message_count: 1
+      template_tokens_equal_plain_tokenization: true
+      end_of_turn_tokens_in_template_vocab: true
+    render_prefix_without_system_message: |
+      <|im_start|>system
+      You are a helpful AI assistant named SmolLM, trained by Hugging Face<|im_end|>
+      <|im_start|>user
+    rendered_probe: |
+      <|im_start|>system
+      You are a precise assistant. Follow all user instructions exactly.<|im_end|>
+      <|im_start|>user
+      INSTRUCTIONS:
+      - probe
+
+      TASK:
+      probe
+
+      INPUT:
+      probe<|im_end|>
+      <|im_start|>assistant
+    hub_generation_config_not_used:
+      _from_model_config: true
+      bos_token_id: 1
+      eos_token_id: 2
+      pad_token_id: 2
+  qwen25:
+    hf_id: Qwen/Qwen2.5-3B-Instruct
+    revision: aa8e72537993ba99e69dfaafa59ed015b17504d1
+    hub_last_modified: '2024-09-25 12:33:00+00:00'
+    parameters_nominal: 3.1B
+    parameters_safetensors: 3085938688
+    license: Qwen Research License (non-commercial)
+    license_hub_metadata: qwen-research
+    architecture: Qwen2ForCausalLM
+    model_type: qwen2
+    native_class_module: transformers.models.qwen2.modeling_qwen2
+    trust_remote_code: false
+    hub_has_remote_code: false
+    torch_dtype_hub: torch.bfloat16
+    eos_token_ids:
+    - 151645
+    - 151643
+    eos_tokens:
+    - <|im_end|>
+    - <|endoftext|>
+    pad_token_id: 151643
+    pad_token: <|endoftext|>
+    tokenizer_class: Qwen2Tokenizer
+    chat_template_sha256: cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f
+    chat_template_checks:
+      system_message_count: 1
+      user_message_count: 1
+      template_tokens_equal_plain_tokenization: true
+      end_of_turn_tokens_in_template_vocab: true
+    render_prefix_without_system_message: |
+      <|im_start|>system
+      You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+      <|im_start|>user
+    rendered_probe: |
+      <|im_start|>system
+      You are a precise assistant. Follow all user instructions exactly.<|im_end|>
+      <|im_start|>user
+      INSTRUCTIONS:
+      - probe
+
+      TASK:
+      probe
+
+      INPUT:
+      probe<|im_end|>
+      <|im_start|>assistant
+    hub_generation_config_not_used:
+      bos_token_id: 151643
+      pad_token_id: 151643
+      do_sample: true
+      eos_token_id:
+      - 151645
+      - 151643
+      repetition_penalty: 1.05
+      temperature: 0.7
+      top_p: 0.8
+      top_k: 20
+  phi4mini:
+    hf_id: microsoft/Phi-4-mini-instruct
+    revision: cfbefacb99257ffa30c83adab238a50856ac3083
+    hub_last_modified: '2025-12-10 20:24:40+00:00'
+    parameters_nominal: 3.8B
+    parameters_safetensors: 3836021760
+    license: MIT
+    license_hub_metadata: mit
+    architecture: Phi3ForCausalLM
+    model_type: phi3
+    native_class_module: transformers.models.phi3.modeling_phi3
+    trust_remote_code: false
+    hub_has_remote_code: true
+    torch_dtype_hub: torch.bfloat16
+    eos_token_ids:
+    - 200020
+    - 199999
+    eos_tokens:
+    - <|end|>
+    - <|endoftext|>
+    pad_token_id: 199999
+    pad_token: <|endoftext|>
+    tokenizer_class: TokenizersBackend
+    chat_template_sha256: febf589225c9728ab791f52e8897d7607a823d45368f0a4c92fa68997b40cce9
+    chat_template_checks:
+      system_message_count: 1
+      user_message_count: 1
+      template_tokens_equal_plain_tokenization: true
+      end_of_turn_tokens_in_template_vocab: true
+    render_prefix_without_system_message: <|user|>
+    rendered_probe: |-
+      <|system|>You are a precise assistant. Follow all user instructions exactly.<|end|><|user|>INSTRUCTIONS:
+      - probe
+
+      TASK:
+      probe
+
+      INPUT:
+      probe<|end|><|assistant|>
+    hub_generation_config_not_used:
+      _from_model_config: true
+      bos_token_id: 199999
+      eos_token_id:
+      - 200020
+      - 199999
+      pad_token_id: 199999
+  gemma4e4b:
+    pinned_at_utc: '2026-10-04T19:44:14Z'
+    hf_id: google/gemma-4-E4B-it
+    revision: ee0ef6023621cff504d758262d4e04895a5af4a2
+    hub_last_modified: '2026-07-20 16:42:03+00:00'
+    parameters_nominal: E4B
+    parameters_safetensors: 7996156490
+    license: Apache-2.0
+    license_hub_metadata: apache-2.0
+    architecture: Gemma4ForConditionalGeneration
+    model_type: gemma4
+    native_class_module: transformers.models.gemma4.modeling_gemma4
+    trust_remote_code: false
+    hub_has_remote_code: false
+    torch_dtype_hub: torch.bfloat16
+    eos_token_ids:
+    - 1
+    - 106
+    - 50
+    eos_tokens:
+    - <eos>
+    - <turn|>
+    - <|tool_response>
+    pad_token_id: 0
+    pad_token: <pad>
+    tokenizer_class: GemmaTokenizer
+    chat_template_sha256: 0a2c8073c878ab1da004bee933a998606537bbb62016310352c7285c3f01c5b5
+    chat_template_checks:
+      system_message_count: 1
+      user_message_count: 1
+      template_tokens_equal_plain_tokenization: true
+      end_of_turn_tokens_in_template_vocab: true
+      no_thinking_markers_in_rendered_prompt: true
+      system_message_in_its_own_turn: true
+    render_prefix_without_system_message: |
+      <bos><|turn>user
+    rendered_probe: |
+      <bos><|turn>system
+      You are a precise assistant. Follow all user instructions exactly.<turn|>
+      <|turn>user
+      INSTRUCTIONS:
+      - probe
+
+      TASK:
+      probe
+
+      INPUT:
+      probe<turn|>
+      <|turn>model
+    hub_generation_config_not_used:
+      bos_token_id: 2
+      do_sample: true
+      eos_token_id:
+      - 1
+      - 106
+      - 50
+      pad_token_id: 0
+      temperature: 1.0
+      top_k: 64
+      top_p: 0.95
+    parameters_effective: 4.5B effective (8B with embeddings), as stated in the model card
+    parameters_instantiated: 7941100832
+    hub_gated: false
+    chat_template_kwargs:
+      enable_thinking: false
+    thinking_markers:
+    - <|think|>
+    - <|channel>
+    - <channel|>
+    usage_note: 'Official class Gemma4ForConditionalGeneration (multimodal: text, image, audio), loaded natively and used
+      for text-only inputs (input_ids and attention_mask only); native system role; thinking disabled with enable_thinking=False.'
+dryrun_models:
+  smollm2_135m:
+    hf_id: HuggingFaceTB/SmolLM2-135M-Instruct
+    revision: 12fd25f77366fa6b3b4b768ec3050bf629380bac
+    hub_last_modified: '2025-09-22 20:43:15+00:00'
+    parameters_nominal: 135M
+    parameters_safetensors: 134515008
+    license: Apache-2.0
+    license_hub_metadata: apache-2.0
+    architecture: LlamaForCausalLM
+    model_type: llama
+    native_class_module: transformers.models.llama.modeling_llama
+    trust_remote_code: false
+    hub_has_remote_code: false
+    torch_dtype_hub: torch.bfloat16
+    eos_token_ids:
+    - 2
+    eos_tokens:
+    - <|im_end|>
+    pad_token_id: 2
+    pad_token: <|im_end|>
+    tokenizer_class: GPT2Tokenizer
+    chat_template_sha256: 872be49dbb638044ad01b60388f48d469ff2980e5f0dccdc22ec907db54d0788
+    chat_template_checks:
+      system_message_count: 1
+      user_message_count: 1
+      template_tokens_equal_plain_tokenization: true
+      end_of_turn_tokens_in_template_vocab: true
+    render_prefix_without_system_message: |
+      <|im_start|>system
+      You are a helpful AI assistant named SmolLM, trained by Hugging Face<|im_end|>
+      <|im_start|>user
+    rendered_probe: |
+      <|im_start|>system
+      You are a precise assistant. Follow all user instructions exactly.<|im_end|>
+      <|im_start|>user
+      INSTRUCTIONS:
+      - probe
+
+      TASK:
+      probe
+
+      INPUT:
+      probe<|im_end|>
+      <|im_start|>assistant
+    hub_generation_config_not_used:
+      _from_model_config: true
+      bos_token_id: 1
+      eos_token_id: 2
+      pad_token_id: 2

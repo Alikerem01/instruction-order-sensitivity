@@ -1,0 +1,30 @@
+# Citation metadata (Citation File Format 1.2.0).
+cff-version: 1.2.0
+message: "If you use this code, the data or the model outputs, please cite the paper below."
+type: software
+title: "Same Instructions, Different Order: Instruction-Order Sensitivity in Small Open-Weight Language Models (code, data and outputs)"
+version: "1.0.0"
+authors:
+  - given-names: "Songül"
+    family-names: "ERDEM GÜLER"
+  - given-names: "Ali Kerem"
+    family-names: "GÜLER"
+  - given-names: "Emel"
+    family-names: "ARSLAN"
+preferred-citation:
+  type: conference-paper
+  title: "Same Instructions, Different Order: Instruction-Order Sensitivity in Small Open-Weight Language Models"
+  authors:
+    - given-names: "Songül"
+      family-names: "ERDEM GÜLER"
+    - given-names: "Ali Kerem"
+      family-names: "GÜLER"
+    - given-names: "Emel"
+      family-names: "ARSLAN"
+  year: 2026
+  conference:
+    name: "Uluslararası Yapay Zekâ ve Disiplinlerarası Uygulamalar Kongresi"
+    city: "Istanbul"
+    country: "TR"
+    date-start: "2026-10-21"
+    date-end: "2026-10-22"

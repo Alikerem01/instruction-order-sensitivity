@@ -1,0 +1,37 @@
+{
+  "model_key": "phi4mini",
+  "batch_size": 16,
+  "sort_key": [
+    "n_input_tokens",
+    "prompt_id"
+  ],
+  "n_unique_prompts": 5,
+  "n_prompt_ids": 5,
+  "n_batches": 1,
+  "batches": [
+    {
+      "batch_index": 0,
+      "prompt_sha256": [
+        "11fbe0f4f78242745b0965e85da7c9a04459af4bdb5d518624a009c910b1159d",
+        "cd4dcbeff06c201661157d0c9bbf78e0fa07dfa326c9c73d70cc5a501eab1293",
+        "823575259495d56613315bd444ee703738ce034260394e646f93c03bfec70053",
+        "62bb50e21d67ab4220e6967124cefedc7635ee81ba0fcc2580ca4695dcecfe63",
+        "7ecebb454f7605644c2cfacb43b267089a6b0bde98c47702dbdd328af9fc816e"
+      ],
+      "first_prompt_ids": [
+        "ext_p01__P01",
+        "trf_p01__P01",
+        "cls_p01__P01",
+        "qa_p01__P01",
+        "sum_p01__P01"
+      ],
+      "n_input_tokens": [
+        195,
+        198,
+        229,
+        264,
+        402
+      ]
+    }
+  ]
+}

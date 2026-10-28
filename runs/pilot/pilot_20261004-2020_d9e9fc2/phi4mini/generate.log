@@ -1,0 +1,15 @@
+[2026-10-04T20:24:22Z] phi4mini: new run pilot_20261004-2020_d9e9fc2: 190 unique prompts (200 ids), 12 batches of 16
+[2026-10-04T20:24:50Z] R4 check passed: effective generation config matches the allow-list
+[2026-10-04T20:24:56Z] batch 1/12 done in 5.8s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:25:01Z] batch 2/12 done in 4.8s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:25:06Z] batch 3/12 done in 4.5s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:25:10Z] batch 4/12 done in 4.2s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:25:15Z] batch 5/12 done in 4.7s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:25:19Z] batch 6/12 done in 4.6s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:25:24Z] batch 7/12 done in 5.2s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:25:28Z] batch 8/12 done in 3.9s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:25:33Z] batch 9/12 done in 4.9s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:25:38Z] batch 10/12 done in 5.1s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:25:45Z] batch 11/12 done in 6.7s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:25:53Z] batch 12/12 done in 7.6s (14 prompts, 0 hit the length limit)
+[2026-10-04T20:25:53Z] phi4mini: complete -- 190 records in generations.jsonl

@@ -1,0 +1,84 @@
+{
+  "run_id": "pilot_bs1_20261004-2033_d9e9fc2",
+  "phase": "pilot_bs1",
+  "analysis_eligible": false,
+  "fixture": false,
+  "replicate_of": null,
+  "models": {
+    "phi4mini": {
+      "n_prompt_ids": 100,
+      "parse_rule": {
+        "strict": 100
+      },
+      "evaluable_rate": 1.0,
+      "format_strict_rate": 1.0,
+      "truncated_rate": 0.0,
+      "verbatim_vs_min3_disagreements": 20,
+      "f1_token_vs_char_containment_disagreements": 0,
+      "f2_label_status": {
+        "single": 20
+      },
+      "error_tags": {
+        "evidence_count_1": 7,
+        "evidence_count_3plus": 2,
+        "evidence_not_verbatim": 22,
+        "evidence_duplicate": 3
+      },
+      "eval_file_sha256": "28e1611c3c4301aef060e6897fbfbe2fc203aab8304cadf83d07c6f40e1b7a6e"
+    },
+    "qwen25": {
+      "n_prompt_ids": 100,
+      "parse_rule": {
+        "strict": 82,
+        "none": 15,
+        "first_object": 3
+      },
+      "evaluable_rate": 0.85,
+      "format_strict_rate": 0.82,
+      "truncated_rate": 0.0,
+      "verbatim_vs_min3_disagreements": 21,
+      "f1_token_vs_char_containment_disagreements": 0,
+      "f2_label_status": {
+        "single": 19,
+        "none": 1
+      },
+      "error_tags": {
+        "leading_text": 3,
+        "trailing_text": 2,
+        "invalid_json": 15,
+        "extra_keys": 2,
+        "missing_answer": 2,
+        "missing_evidence": 2,
+        "evidence_not_list": 3,
+        "evidence_count_1": 26,
+        "evidence_not_verbatim": 14,
+        "evidence_duplicate": 1
+      },
+      "eval_file_sha256": "1ed9b2657ac61eb66b46ef5ca66d238c8513b42dda9c692fdcf226c5c025e9fc"
+    },
+    "smollm2": {
+      "n_prompt_ids": 100,
+      "parse_rule": {
+        "strict": 60,
+        "none": 40
+      },
+      "evaluable_rate": 0.6,
+      "format_strict_rate": 0.38,
+      "truncated_rate": 0.0,
+      "verbatim_vs_min3_disagreements": 18,
+      "f1_token_vs_char_containment_disagreements": 0,
+      "f2_label_status": {
+        "single": 20
+      },
+      "error_tags": {
+        "invalid_json": 40,
+        "missing_evidence": 22,
+        "evidence_count_3plus": 26,
+        "evidence_not_verbatim": 11,
+        "evidence_duplicate": 1
+      },
+      "eval_file_sha256": "04d74e0617a513c82d580443547d213d8841ccad3adc12dd89436ab9c6d2a692"
+    }
+  },
+  "note": "CHECK ONLY: this phase never enters any main analysis."
+}

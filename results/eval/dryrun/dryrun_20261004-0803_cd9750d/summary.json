@@ -1,0 +1,26 @@
+{
+  "run_id": "dryrun_20261004-0803_cd9750d",
+  "phase": "dryrun",
+  "analysis_eligible": false,
+  "fixture": false,
+  "replicate_of": null,
+  "models": {
+    "smollm2_135m": {
+      "n_prompt_ids": 5,
+      "parse_rule": {
+        "none": 5
+      },
+      "evaluable_rate": 0.0,
+      "format_strict_rate": 0.0,
+      "truncated_rate": 0.0,
+      "verbatim_vs_min3_disagreements": 0,
+      "f1_token_vs_char_containment_disagreements": 0,
+      "f2_label_status": {},
+      "error_tags": {
+        "invalid_json": 5
+      },
+      "eval_file_sha256": "9e8ae3d71d83e0f79cf99ece6fd79f0b273bd8c4cac194327582568c86ab8bc4"
+    }
+  },
+  "note": "CHECK ONLY: this phase never enters any main analysis."
+}

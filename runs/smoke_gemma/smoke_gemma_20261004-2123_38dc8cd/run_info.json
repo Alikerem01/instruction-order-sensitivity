@@ -1,0 +1,13 @@
+{
+  "run_id": "smoke_gemma_20261004-2123_38dc8cd",
+  "phase": "smoke_gemma",
+  "gitsha": "38dc8cdafcf6fd9a2bf4e6e12f74e9a401e19ad0",
+  "gitsha7": "38dc8cd",
+  "bundle": "colab_bundle_smoke_gemma_38dc8cd.zip",
+  "created_utc": "2026-10-04T21:23:35Z",
+  "models": [
+    "gemma4e4b"
+  ],
+  "replicate_of": null,
+  "pass": 1
+}

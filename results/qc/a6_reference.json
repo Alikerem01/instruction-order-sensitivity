@@ -1,0 +1,232 @@
+{
+  "decision": "G2 §3.2 (A6)",
+  "created_utc": "2026-10-05T19:01:16Z",
+  "check_prompts_file": "data/benchmark_v1/prompts_smoke.jsonl",
+  "check_prompts_file_sha256": "ed50bb41d1ad1be0bb7a2d0bae719204322d16d943804463b12f1ab95bac16f0",
+  "models": {
+    "smollm2": {
+      "phase": "pilot_bs1",
+      "run_id": "pilot_bs1_20261004-2033_d9e9fc2",
+      "batch_size": 1,
+      "environment_fingerprint": {
+        "device": "cuda",
+        "gpu_name": "NVIDIA A100-SXM4-80GB",
+        "cuda_version": "13.0",
+        "cudnn_version": 92700,
+        "python_version": "3.13.15",
+        "torch_version": "2.11.0+cu130",
+        "transformers_version": "5.17.0",
+        "tokenizers_version": "0.23.2",
+        "accelerate_version": "1.15.0",
+        "safetensors_version": "0.8.0",
+        "huggingface_hub_version": "1.33.0"
+      },
+      "generations_sha256": "552f18c95a37dcecacdd651363b2ec3f5d493a830b59778cac53f8b8000eac24",
+      "outputs": {
+        "62bb50e21d67ab4220e6967124cefedc7635ee81ba0fcc2580ca4695dcecfe63": {
+          "prompt_id": "qa_p01__P01",
+          "output_sha256": "74b86c6942dd9b123027f35750659288a800319f7ff5a99b4330b8f734692123",
+          "n_output_tokens": 16,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "e18cd836693acfbf6ce95f837c35025a9d8f9746b9904d50fa340f9f9c2476b6"
+        },
+        "823575259495d56613315bd444ee703738ce034260394e646f93c03bfec70053": {
+          "prompt_id": "cls_p01__P01",
+          "output_sha256": "4d53a913f526960ad3ee9ad376024d14c6ace570b53d286f6470ed1fae5d7caf",
+          "n_output_tokens": 61,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "ed90d655de10610a8358828c862830688b2ad722fae8507f51f4d976e6709146"
+        },
+        "7ecebb454f7605644c2cfacb43b267089a6b0bde98c47702dbdd328af9fc816e": {
+          "prompt_id": "sum_p01__P01",
+          "output_sha256": "25751c4f031689c43bd03d8ef58b67fb68db9a615bcc60c554d07db112cec608",
+          "n_output_tokens": 49,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "00738f1cae15e338b1e2510971dce8cd7fe12babfd3c22ebbfae61e1353483a7"
+        },
+        "11fbe0f4f78242745b0965e85da7c9a04459af4bdb5d518624a009c910b1159d": {
+          "prompt_id": "ext_p01__P01",
+          "output_sha256": "43b43690ad254f87a420eda3e2357bbd9ab587b97c3e7f7ee83e98ab4439d20a",
+          "n_output_tokens": 89,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "7296b2f96d4035da9f0f0cac813b31e95108b9c8b1b4322351a6757d2ed2602c"
+        },
+        "cd4dcbeff06c201661157d0c9bbf78e0fa07dfa326c9c73d70cc5a501eab1293": {
+          "prompt_id": "trf_p01__P01",
+          "output_sha256": "03c2a465d3ae315d41fd5f094996ae3566231b1f1aa4064674f8c88f005e155b",
+          "n_output_tokens": 46,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "eb8d7df50a61949a3604f0c758d9a2f315167aefb2dfb92cc4d57b830c543325"
+        }
+      }
+    },
+    "qwen25": {
+      "phase": "pilot_bs1",
+      "run_id": "pilot_bs1_20261004-2033_d9e9fc2",
+      "batch_size": 1,
+      "environment_fingerprint": {
+        "device": "cuda",
+        "gpu_name": "NVIDIA A100-SXM4-80GB",
+        "cuda_version": "13.0",
+        "cudnn_version": 92700,
+        "python_version": "3.13.15",
+        "torch_version": "2.11.0+cu130",
+        "transformers_version": "5.17.0",
+        "tokenizers_version": "0.23.2",
+        "accelerate_version": "1.15.0",
+        "safetensors_version": "0.8.0",
+        "huggingface_hub_version": "1.33.0"
+      },
+      "generations_sha256": "58f6cb286f266166de6cf61b44039af0362e243faac41175e1137b07773a36af",
+      "outputs": {
+        "62bb50e21d67ab4220e6967124cefedc7635ee81ba0fcc2580ca4695dcecfe63": {
+          "prompt_id": "qa_p01__P01",
+          "output_sha256": "acb0096fb3c6a60a221d6f8eee01b64992f9f5904c8acaec093b49fbfc09238b",
+          "n_output_tokens": 44,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "e18cd836693acfbf6ce95f837c35025a9d8f9746b9904d50fa340f9f9c2476b6"
+        },
+        "823575259495d56613315bd444ee703738ce034260394e646f93c03bfec70053": {
+          "prompt_id": "cls_p01__P01",
+          "output_sha256": "46ef16338e1b705c41d833ae11a929a34ea98898b9d54bf5995b5aac2821755c",
+          "n_output_tokens": 98,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "ed90d655de10610a8358828c862830688b2ad722fae8507f51f4d976e6709146"
+        },
+        "7ecebb454f7605644c2cfacb43b267089a6b0bde98c47702dbdd328af9fc816e": {
+          "prompt_id": "sum_p01__P01",
+          "output_sha256": "51ed158d500200089ec6092bf233ad90ae0e629f6647767c211e7fa9f2ffa4ef",
+          "n_output_tokens": 67,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "00738f1cae15e338b1e2510971dce8cd7fe12babfd3c22ebbfae61e1353483a7"
+        },
+        "11fbe0f4f78242745b0965e85da7c9a04459af4bdb5d518624a009c910b1159d": {
+          "prompt_id": "ext_p01__P01",
+          "output_sha256": "f5ea11ea7656815cff2dfd988ebbd78919cc7b027c54d27b1416d43e9fc3e894",
+          "n_output_tokens": 89,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "7296b2f96d4035da9f0f0cac813b31e95108b9c8b1b4322351a6757d2ed2602c"
+        },
+        "cd4dcbeff06c201661157d0c9bbf78e0fa07dfa326c9c73d70cc5a501eab1293": {
+          "prompt_id": "trf_p01__P01",
+          "output_sha256": "752292af28040edfce28a72da2079c6bf212258d5ba15a1477d567826287bd31",
+          "n_output_tokens": 76,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "eb8d7df50a61949a3604f0c758d9a2f315167aefb2dfb92cc4d57b830c543325"
+        }
+      }
+    },
+    "phi4mini": {
+      "phase": "pilot_bs1",
+      "run_id": "pilot_bs1_20261004-2033_d9e9fc2",
+      "batch_size": 1,
+      "environment_fingerprint": {
+        "device": "cuda",
+        "gpu_name": "NVIDIA A100-SXM4-80GB",
+        "cuda_version": "13.0",
+        "cudnn_version": 92700,
+        "python_version": "3.13.15",
+        "torch_version": "2.11.0+cu130",
+        "transformers_version": "5.17.0",
+        "tokenizers_version": "0.23.2",
+        "accelerate_version": "1.15.0",
+        "safetensors_version": "0.8.0",
+        "huggingface_hub_version": "1.33.0"
+      },
+      "generations_sha256": "b0f36e760c41628085335dc45d2a549968a0be93f061dc57c866187cc9e1f5b5",
+      "outputs": {
+        "62bb50e21d67ab4220e6967124cefedc7635ee81ba0fcc2580ca4695dcecfe63": {
+          "prompt_id": "qa_p01__P01",
+          "output_sha256": "12c633e28f757309b93c67ad495daf5fdce000a1730f9f6cba9bc02091f2217d",
+          "n_output_tokens": 73,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "721900233311b46eb78a11da581c912b20fe205a177a79d0b1663e6f178fdf95"
+        },
+        "823575259495d56613315bd444ee703738ce034260394e646f93c03bfec70053": {
+          "prompt_id": "cls_p01__P01",
+          "output_sha256": "bb4395bb88aab2792e6e538e22ab77b7c8adeb5d7486b5afdb6df770b109b17f",
+          "n_output_tokens": 64,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "54650de954dcbe1e55d0f3cba3bc57f6c27226259d1884b6fdb972141ed63499"
+        },
+        "7ecebb454f7605644c2cfacb43b267089a6b0bde98c47702dbdd328af9fc816e": {
+          "prompt_id": "sum_p01__P01",
+          "output_sha256": "22cc2808c0c3980be74d5f33f7f36cae5229964a28e4c20cae16bd597eb7967f",
+          "n_output_tokens": 108,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "c94658868a4a6edb3a3dc9898af5b28a312cc217b119650a55b1761eaa2ea670"
+        },
+        "11fbe0f4f78242745b0965e85da7c9a04459af4bdb5d518624a009c910b1159d": {
+          "prompt_id": "ext_p01__P01",
+          "output_sha256": "3514b729efd4c76bb9062774581aab0f4d987f66a0c9f2392d4c3250577057fb",
+          "n_output_tokens": 60,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "4e205d8cea2eb61c3a9c52f6904e9d0ebbfdd5335a70daed76f99892285e7fcb"
+        },
+        "cd4dcbeff06c201661157d0c9bbf78e0fa07dfa326c9c73d70cc5a501eab1293": {
+          "prompt_id": "trf_p01__P01",
+          "output_sha256": "1feda000cfbd65c74e184faf3b92da96ea069ad62ec945ff1f66cc5a102df7fe",
+          "n_output_tokens": 57,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "2227535cf1a07cd2d1a46a965a22056cdb4610a55989aecdb0789e24e6b94a9b"
+        }
+      }
+    },
+    "gemma4e4b": {
+      "phase": "pilot_gemma",
+      "run_id": "pilot_gemma_20261005-1529_ccc7919",
+      "batch_size": 1,
+      "environment_fingerprint": {
+        "device": "cuda",
+        "gpu_name": "NVIDIA A100-SXM4-80GB",
+        "cuda_version": "13.0",
+        "cudnn_version": 92700,
+        "python_version": "3.13.15",
+        "torch_version": "2.11.0+cu130",
+        "transformers_version": "5.17.0",
+        "tokenizers_version": "0.23.2",
+        "accelerate_version": "1.15.0",
+        "safetensors_version": "0.8.0",
+        "huggingface_hub_version": "1.33.0"
+      },
+      "generations_sha256": "541ea97f47700d49a3a6744a66789fc23b518caede38d89222ef0c401abbb129",
+      "outputs": {
+        "62bb50e21d67ab4220e6967124cefedc7635ee81ba0fcc2580ca4695dcecfe63": {
+          "prompt_id": "qa_p01__P01",
+          "output_sha256": "ed52f8d4f12f6d2b4689af584e5e7a11a5bf169b9a5bd0b435bf786f0d160da9",
+          "n_output_tokens": 83,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "29e58e6c2d5173f3922e3743b4feee3de0a2419ad9a35ba82af7239ac6e91539"
+        },
+        "823575259495d56613315bd444ee703738ce034260394e646f93c03bfec70053": {
+          "prompt_id": "cls_p01__P01",
+          "output_sha256": "8fb052890e013e9311d40270f0b856a006e263232dc34b2aa9f4999ebbf39604",
+          "n_output_tokens": 96,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "5fe0a6a73d709c223dca3b3139e1f24ad13e6de2040c972b48359e65e7465919"
+        },
+        "7ecebb454f7605644c2cfacb43b267089a6b0bde98c47702dbdd328af9fc816e": {
+          "prompt_id": "sum_p01__P01",
+          "output_sha256": "bb28dc45bfaaea12966fffcd4a58b7183b52482afff2025fdad057dd27b630cf",
+          "n_output_tokens": 91,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "cc05349765dded423736677df8a195db52f8a3d9c051081ea870e456d58247f8"
+        },
+        "11fbe0f4f78242745b0965e85da7c9a04459af4bdb5d518624a009c910b1159d": {
+          "prompt_id": "ext_p01__P01",
+          "output_sha256": "3186287219ef3064249419774d847602198c03a8f7579875ef2811a0c366fc6f",
+          "n_output_tokens": 92,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "2d383733209edc84fdda2c7fdefa9839f6d6ef9445388a46f2b3e811999f7076"
+        },
+        "cd4dcbeff06c201661157d0c9bbf78e0fa07dfa326c9c73d70cc5a501eab1293": {
+          "prompt_id": "trf_p01__P01",
+          "output_sha256": "3fab313780bc0770c9dee577679c470508e56035e9646c4f8d65896c00f853da",
+          "n_output_tokens": 82,
+          "finish_reason": "eos",
+          "rendered_prompt_sha256": "29834fdbeaad3795307857bb3891c8573d855f8de5ff31ece99d56264d6c8edd"
+        }
+      }
+    }
+  }
+}

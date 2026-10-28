@@ -1,0 +1,21 @@
+{
+  "run_id": "dryrun_20261004-0009_a8be3cb",
+  "phase": "dryrun",
+  "analysis_eligible": false,
+  "models": {
+    "smollm2_135m": {
+      "n_prompt_ids": 5,
+      "parse_rule": {
+        "none": 5
+      },
+      "evaluable_rate": 0.0,
+      "format_strict_rate": 0.0,
+      "truncated_rate": 0.0,
+      "error_tags": {
+        "invalid_json": 5
+      },
+      "eval_file_sha256": "97c41ea48a285d09598c0095e80d920b1547c97b257ac2b2098e311cd8668673"
+    }
+  },
+  "note": "PIPELINE CHECK ONLY: dry-run outputs of the dry-run model are never analysed."
+}

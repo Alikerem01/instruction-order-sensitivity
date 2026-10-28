@@ -1,0 +1,37 @@
+{
+  "check": "A1 run-to-run determinism",
+  "phase": "smoke",
+  "runs": [
+    "smoke_20261004-1558_51d293c",
+    "smoke_20261004-1601_51d293c"
+  ],
+  "models": {
+    "phi4mini": {
+      "n_compared": 5,
+      "n_only_in_one_run": 0,
+      "n_output_text_identical": 5,
+      "n_fully_identical": 5,
+      "byte_identical": true,
+      "same_environment": true,
+      "differing_prompt_ids": []
+    },
+    "qwen25": {
+      "n_compared": 5,
+      "n_only_in_one_run": 0,
+      "n_output_text_identical": 5,
+      "n_fully_identical": 5,
+      "byte_identical": true,
+      "same_environment": true,
+      "differing_prompt_ids": []
+    },
+    "smollm2": {
+      "n_compared": 5,
+      "n_only_in_one_run": 0,
+      "n_output_text_identical": 5,
+      "n_fully_identical": 5,
+      "byte_identical": true,
+      "same_environment": true,
+      "differing_prompt_ids": []
+    }
+  }
+}

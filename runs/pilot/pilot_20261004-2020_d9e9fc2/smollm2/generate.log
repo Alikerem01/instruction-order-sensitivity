@@ -1,0 +1,15 @@
+[2026-10-04T20:20:56Z] smollm2: new run pilot_20261004-2020_d9e9fc2: 190 unique prompts (200 ids), 12 batches of 16
+[2026-10-04T20:21:13Z] R4 check passed: effective generation config matches the allow-list
+[2026-10-04T20:21:18Z] batch 1/12 done in 4.1s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:21:21Z] batch 2/12 done in 3.7s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:21:25Z] batch 3/12 done in 4.1s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:21:30Z] batch 4/12 done in 4.3s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:21:34Z] batch 5/12 done in 4.1s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:21:37Z] batch 6/12 done in 2.6s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:21:38Z] batch 7/12 done in 1.6s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:21:39Z] batch 8/12 done in 1.2s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:21:40Z] batch 9/12 done in 0.7s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:21:42Z] batch 10/12 done in 2.3s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:21:46Z] batch 11/12 done in 3.2s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:21:48Z] batch 12/12 done in 2.1s (14 prompts, 0 hit the length limit)
+[2026-10-04T20:21:48Z] smollm2: complete -- 190 records in generations.jsonl

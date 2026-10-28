@@ -1,0 +1,108 @@
+{
+  "source_commit": "5f51d320d349e1aafff32214510569bb36e78b8b",
+  "files": 8489,
+  "texts_not_redistributed": {
+    "families": {
+      "F2_CLASSIFICATION": [
+        "input_text"
+      ],
+      "F3_SUMMARIZATION": [
+        "input_text",
+        "gold.summary"
+      ]
+    },
+    "prompt_families": [
+      "F2_CLASSIFICATION",
+      "F3_SUMMARIZATION"
+    ],
+    "files": [
+      "data/benchmark_v1/prompts_main.jsonl",
+      "data/benchmark_v1/prompts_pilot.jsonl",
+      "data/benchmark_v1/prompts_smoke.jsonl",
+      "data/benchmark_v1/tasks_main.jsonl",
+      "data/benchmark_v1/tasks_pilot.jsonl"
+    ]
+  },
+  "email_rule": "every e-mail address in released text replaced with '[email removed]' (decision G2 \u00a72.5)",
+  "redactions": [],
+  "wording_redactions": [
+    {
+      "file": "ANALYSIS_PLAN.md",
+      "original_sha256": "b1c4b4bd0c41c696ff0fc1a69dc5600467b21b318484631cf6077979599f1fb0",
+      "release_sha256": "f67c72f154c0f425dc86f72883d69213f39063509dbdf32a43d2245f1f559b90",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "configs/experiment.yaml",
+      "original_sha256": "7c3493787bf54f7785a4421a94fbdde24f401c9c9333dc4ca4ebabdf1d1d961f",
+      "release_sha256": "7fa1491c0b51cd4b4dd2f7b228c24fbdf62d842724713a77f6445acf3ac453ea",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "configs/models.yaml",
+      "original_sha256": "1d48f9fbf4fcd33ba39aecece8a90888a0044f1276c99782378955c24d626225",
+      "release_sha256": "73b16502b9bf9c7ebcdc01d02bb5dd700b9875f874b240c0dce0aaf9b552c9cf",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "src/evaluate.py",
+      "original_sha256": "045e0bed7645a087f61026d4422b39863b318d7ce4ac960a5d7564d86a40731b",
+      "release_sha256": "11673441d0512ca6734ad27517ad8b1bc6edff146e515bb319ac2110d3bbbc1b",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "src/evaluators/README.md",
+      "original_sha256": "2436564928249d5462c91a060ba54d10eab298241767b4c14b51bcdf790c7cf6",
+      "release_sha256": "71da80064e3c3cc90341b9252cc8d535fd53942121d483e88d316e963321e96b",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "src/evaluators/constraints.py",
+      "original_sha256": "2df1ba6dc280e6d33233835c0bd5df61f744129f7f31284ee4ff965c18e5b788",
+      "release_sha256": "c2dec4600b945541dad03bf7e018dd1fb8b32f036534321f22d17962b19fc733",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "src/evaluators/quality.py",
+      "original_sha256": "b857f0ef70f06f7bfdc1cd07933cc9e95ac192b5e107e7eff325565b408a9658",
+      "release_sha256": "ecf32bad92db41bcfffd60270b273b8e95f3b3482a32f02f93183220e391f616",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "src/evaluators/record.py",
+      "original_sha256": "26ce02ac66c1019197676262a3de4d1afbfba14e52110844ad5a70e5b20d08c8",
+      "release_sha256": "ca85789d0fa486205d76abf458fdc9fe4724ebae28333ef4b3c7aaa13b30e181",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "src/genconfig.py",
+      "original_sha256": "404412d40622d43440bb8de81c0779675d9d9675d0268fc1c29169ee2c557bf5",
+      "release_sha256": "6dd399e5c966834ad8c0a32199d885b431998b334009470778d01f56bd7d6474",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "src/generate.py",
+      "original_sha256": "977639fd8c8f51755d5145fb09f4dcaabf10bcd1ca83ba41a867260f01163de0",
+      "release_sha256": "0e3c6160306c78ce388826b1e976d8f766dce4c308f61cb3af494988ff4d7e05",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "src/phases.py",
+      "original_sha256": "478a8a9c1b50701114eb431210dd3a216625168358a2325c4ba261dfe481e481",
+      "release_sha256": "2784aafb488965f4e255b3e3bc783ff40f6b3ae30c88f669e56827c6840fa2ab",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "src/runs.py",
+      "original_sha256": "dc9ce0c2dd93e3335d81ef489b100fcb8eb07cfc8c64132e6e428823369705e7",
+      "release_sha256": "593e021130db4b255ea8db35ce3bda1c9176c9ff20c85a7e2cef9092bd303691",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    },
+    {
+      "file": "src/validate_integrity.py",
+      "original_sha256": "f3a5bb5e51ba4f78219b6a5b28f73cb5e684f93d955b7599c8dd6861271ec74b",
+      "release_sha256": "ac0a67aca9907b2303f9a204fc79b53f8d80d16b737cc6e02565b7802ab642ba",
+      "reason": "wording of internal references neutralised for the public release; behaviour and values unchanged"
+    }
+  ]
+}

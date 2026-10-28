@@ -1,0 +1,15 @@
+{
+  "run_id": "smoke_20261004-1558_51d293c",
+  "phase": "smoke",
+  "gitsha": "51d293c27491d0d9f333f12b31f97bfd9fb14931",
+  "gitsha7": "51d293c",
+  "bundle": "colab_bundle_smoke_51d293c.zip",
+  "created_utc": "2026-10-04T15:58:57Z",
+  "models": [
+    "smollm2",
+    "qwen25",
+    "phi4mini"
+  ],
+  "replicate_of": null,
+  "pass": 1
+}

@@ -1,0 +1,77 @@
+{
+  "run_id": "pilot_gemma_20261005-1529_ccc7919",
+  "phase": "pilot_gemma",
+  "calibration_round": 0,
+  "active_instructions": {
+    "T1": "T1_FORMAT",
+    "T2": "T2_LENGTH",
+    "T3": "T3_CARDINALITY",
+    "T4": "T4_NO_COMMA",
+    "T5": "T5_VERBATIM"
+  },
+  "models": {
+    "gemma4e4b": {
+      "format_strict": 0.0,
+      "length": 1.0,
+      "cardinality": 0.868421052631579,
+      "t4": 1.0,
+      "verbatim": 0.43157894736842106,
+      "pcr": 0.0,
+      "evaluable": 1.0,
+      "truncated": 0.0,
+      "n": 190,
+      "parse_rule": {
+        "fence": 190
+      },
+      "code_fence_rate": 1.0,
+      "error_tags": {
+        "code_fence": 190,
+        "evidence_not_verbatim": 108,
+        "evidence_count_1": 25
+      },
+      "verbatim_min3": 0.23157894736842105
+    }
+  },
+  "calibration": {
+    "applicable": false,
+    "models_used": [],
+    "note": "no calibration model in this run (D06 §4): this pilot never changes the prompt strings",
+    "decisions": {},
+    "any_string_change": false
+  },
+  "f2_label_status": {
+    "single": 38
+  },
+  "f1_char_token_disagreements": 0,
+  "compute": {
+    "smoke_20261004-1558_51d293c": {
+      "phase": "smoke",
+      "generation_seconds": 18.1
+    },
+    "smoke_20261004-1601_51d293c": {
+      "phase": "smoke",
+      "generation_seconds": 17.9
+    },
+    "pilot_20261004-2020_d9e9fc2": {
+      "phase": "pilot",
+      "generation_seconds": 199.4
+    },
+    "pilot_bs1_20261004-2033_d9e9fc2": {
+      "phase": "pilot_bs1",
+      "generation_seconds": 1094.0
+    },
+    "smoke_gemma_20261004-2123_38dc8cd": {
+      "phase": "smoke_gemma",
+      "generation_seconds": 12.2
+    },
+    "smoke_gemma_20261004-2125_38dc8cd": {
+      "phase": "smoke_gemma",
+      "generation_seconds": 11.9
+    },
+    "pilot_gemma_20261005-1529_ccc7919": {
+      "phase": "pilot_gemma",
+      "generation_seconds": 1961.7
+    },
+    "total_generation_hours": 0.921
+  }
+}

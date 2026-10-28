@@ -1,0 +1,50 @@
+{
+  "bundle_name": "colab_bundle_pilot_bs1_d9e9fc2.zip",
+  "phase": "pilot_bs1",
+  "gitsha": "d9e9fc2f8d02cdc864bd9fe644802686955e4a00",
+  "gitsha7": "d9e9fc2",
+  "dirty": false,
+  "created_utc": "2026-10-04T16:17:48Z",
+  "prompts_file": "data/benchmark_v1/prompts_pilot.jsonl",
+  "prompt_arms": [
+    "order"
+  ],
+  "n_prompt_ids": 100,
+  "n_unique_texts": 100,
+  "models": [
+    "smollm2",
+    "qwen25",
+    "phi4mini"
+  ],
+  "passes": 1,
+  "batch_size": 1,
+  "files": {
+    "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/build_prompts.py": "d282d1256d0cfa39768b6f31598d04e2ccf20e4acfe0d89d8df3ed449df87a17",
+    "src/common.py": "95516e02c82482cf9c05561a518f06b3667e0fa502d4a0f101585bb5b8fc6c80",
+    "src/evaluate.py": "045e0bed7645a087f61026d4422b39863b318d7ce4ac960a5d7564d86a40731b",
+    "src/evaluators/README.md": "2436564928249d5462c91a060ba54d10eab298241767b4c14b51bcdf790c7cf6",
+    "src/evaluators/__init__.py": "87fad03ffe240f47421010dace9ea23028461a47bbaf89782a60a2268ce43f7d",
+    "src/evaluators/constraints.py": "2df1ba6dc280e6d33233835c0bd5df61f744129f7f31284ee4ff965c18e5b788",
+    "src/evaluators/format.py": "a6ba52738a38fd2b57d88f54659aac147a312f4b84392643b92c7a1cd5bc45b5",
+    "src/evaluators/quality.py": "b857f0ef70f06f7bfdc1cd07933cc9e95ac192b5e107e7eff325565b408a9658",
+    "src/evaluators/record.py": "26ce02ac66c1019197676262a3de4d1afbfba14e52110844ad5a70e5b20d08c8",
+    "src/evaluators/tags.py": "eae71a6b90ebde14d7a016b77a8d646431d451043ce494eac4d2522b1ac540b9",
+    "src/genconfig.py": "404412d40622d43440bb8de81c0779675d9d9675d0268fc1c29169ee2c557bf5",
+    "src/generate.py": "0b9e7d661bfc68ed9cb02dd8d09ca2404ab13744d9c3690d6531a8eaab60df83",
+    "src/generate_synthetic.py": "2beecd72edab66f63db64503d0acbe577e12410ee60165c8f790c5932e1372a6",
+    "src/orders.py": "bea18e14034d3e843b017bfd165a8eeacb1332409785892ca284eee78e309178",
+    "src/phases.py": "1143ca1f6bb4f90000eed2131b544a4624c9e4887f84785a2b527c7bbcbf8549",
+    "src/prepare_tasks.py": "61d4698c88bd1c3c375477594ddb0da039e256392a5c400cd98fe77483298a4f",
+    "src/privacy.py": "1482b070dd1f34c384a00b7f50e46b3e73b603603451242e99b6f3fc8dfaddc1",
+    "src/prompt_builder.py": "48ac2142a39ce2a14e839b7b4a717932c5be64109116cb5c06697d23071c1817",
+    "src/runs.py": "dc9ce0c2dd93e3335d81ef489b100fcb8eb07cfc8c64132e6e428823369705e7",
+    "src/validate_integrity.py": "f3a5bb5e51ba4f78219b6a5b28f73cb5e684f93d955b7599c8dd6861271ec74b",
+    "configs/prompt_strings.yaml": "53a23a8772ad252681faa1af78ccb0f21e32658758e6a362bfbe412536d9d5e8",
+    "configs/models.yaml": "e2e7df6bbdcf7ddd8557d5898b84669a483a11b8e5fe98fe4d751e7520e002f3",
+    "configs/experiment.yaml": "2bac9ad00cc2a8fa7118cfbb0487db789c6d99ea4adfaef9376399b36d7beae3",
+    "data/benchmark_v1/prompts_pilot.jsonl": "44630a1e12be66197a950d8bff1856231aa4f75d94f353ada04bac59750b3453",
+    "requirements-colab.txt": "3ac03b93a96d5f2911b848bf4b6e95f2414bb1c2f5659d162b05f5a5e284ede4",
+    "colab/run_generation.ipynb": "c67225de48f696ff28b1ecb0fa16ab67fe6bf8be52d66dd94f7723bbcefc8b2e"
+  }
+}

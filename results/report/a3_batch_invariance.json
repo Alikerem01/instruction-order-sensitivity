@@ -1,0 +1,206 @@
+{
+  "check": "A3 batch invariance",
+  "phases": [
+    "pilot",
+    "pilot_bs1"
+  ],
+  "runs": {
+    "pilot": "pilot_20261004-2020_d9e9fc2",
+    "pilot_bs1": "pilot_bs1_20261004-2033_d9e9fc2"
+  },
+  "threshold_vector_agreement": 0.98,
+  "models": {
+    "phi4mini": {
+      "n_texts": 100,
+      "exact_output_agreement": 0.7,
+      "n_exact_output_agreement": 70,
+      "n_prompt_ids": 100,
+      "vector_agreement": 0.9,
+      "n_vector_agreement": 90,
+      "mean_csr_batch16": 0.8839999999999997,
+      "mean_csr_batch1": 0.8759999999999997,
+      "vector_disagreements": [
+        "ext_p02__P03",
+        "ext_p02__P09",
+        "sum_p01__P04",
+        "sum_p01__P06",
+        "sum_p01__P10",
+        "sum_p02__P01",
+        "sum_p02__P09",
+        "sum_p02__P10",
+        "trf_p02__P07",
+        "trf_p02__P10"
+      ],
+      "differing_texts_by_family": {
+        "F1_QA": 3,
+        "F2_CLASSIFICATION": 1,
+        "F3_SUMMARIZATION": 14,
+        "F4_EXTRACTION": 6,
+        "F5_TRANSFORMATION": 6
+      },
+      "first_difference_char": {
+        "median": 49.0,
+        "min": 22,
+        "max": 206,
+        "n_at_first_char": 0
+      },
+      "constraint_flips": {
+        "format_strict": {
+          "batch16_pass_batch1_fail": 0,
+          "batch1_pass_batch16_fail": 0
+        },
+        "length": {
+          "batch16_pass_batch1_fail": 0,
+          "batch1_pass_batch16_fail": 1
+        },
+        "cardinality": {
+          "batch16_pass_batch1_fail": 1,
+          "batch1_pass_batch16_fail": 2
+        },
+        "t4": {
+          "batch16_pass_batch1_fail": 4,
+          "batch1_pass_batch16_fail": 0
+        },
+        "verbatim": {
+          "batch16_pass_batch1_fail": 2,
+          "batch1_pass_batch16_fail": 0
+        }
+      },
+      "csr_change_batch1_minus_batch16": {
+        "mean": -0.008,
+        "n_higher_batch1": 3,
+        "n_lower_batch1": 7
+      },
+      "generation_seconds_per_text": {
+        "batch16": 0.326,
+        "batch1": 3.695
+      }
+    },
+    "qwen25": {
+      "n_texts": 100,
+      "exact_output_agreement": 0.8,
+      "n_exact_output_agreement": 80,
+      "n_prompt_ids": 100,
+      "vector_agreement": 0.95,
+      "n_vector_agreement": 95,
+      "mean_csr_batch16": 0.6339999999999992,
+      "mean_csr_batch1": 0.6479999999999992,
+      "vector_disagreements": [
+        "cls_p01__P09",
+        "cls_p02__P07",
+        "cls_p02__P09",
+        "cls_p02__P10",
+        "sum_p02__P02"
+      ],
+      "differing_texts_by_family": {
+        "F1_QA": 1,
+        "F2_CLASSIFICATION": 8,
+        "F3_SUMMARIZATION": 7,
+        "F4_EXTRACTION": 2,
+        "F5_TRANSFORMATION": 2
+      },
+      "first_difference_char": {
+        "median": 74.5,
+        "min": 4,
+        "max": 476,
+        "n_at_first_char": 0
+      },
+      "constraint_flips": {
+        "format_strict": {
+          "batch16_pass_batch1_fail": 0,
+          "batch1_pass_batch16_fail": 0
+        },
+        "length": {
+          "batch16_pass_batch1_fail": 0,
+          "batch1_pass_batch16_fail": 1
+        },
+        "cardinality": {
+          "batch16_pass_batch1_fail": 1,
+          "batch1_pass_batch16_fail": 1
+        },
+        "t4": {
+          "batch16_pass_batch1_fail": 0,
+          "batch1_pass_batch16_fail": 2
+        },
+        "verbatim": {
+          "batch16_pass_batch1_fail": 0,
+          "batch1_pass_batch16_fail": 4
+        }
+      },
+      "csr_change_batch1_minus_batch16": {
+        "mean": 0.013999999999999999,
+        "n_higher_batch1": 4,
+        "n_lower_batch1": 1
+      },
+      "generation_seconds_per_text": {
+        "batch16": 0.544,
+        "batch1": 5.535
+      }
+    },
+    "smollm2": {
+      "n_texts": 100,
+      "exact_output_agreement": 0.77,
+      "n_exact_output_agreement": 77,
+      "n_prompt_ids": 100,
+      "vector_agreement": 0.93,
+      "n_vector_agreement": 93,
+      "mean_csr_batch16": 0.3340000000000001,
+      "mean_csr_batch1": 0.3320000000000001,
+      "vector_disagreements": [
+        "cls_p02__P07",
+        "cls_p02__P09",
+        "ext_p02__P02",
+        "trf_p01__P09",
+        "trf_p02__P01",
+        "trf_p02__P03",
+        "trf_p02__P08"
+      ],
+      "differing_texts_by_family": {
+        "F1_QA": 1,
+        "F2_CLASSIFICATION": 3,
+        "F3_SUMMARIZATION": 10,
+        "F4_EXTRACTION": 5,
+        "F5_TRANSFORMATION": 4
+      },
+      "first_difference_char": {
+        "median": 69,
+        "min": 0,
+        "max": 208,
+        "n_at_first_char": 1
+      },
+      "constraint_flips": {
+        "format_strict": {
+          "batch16_pass_batch1_fail": 2,
+          "batch1_pass_batch16_fail": 1
+        },
+        "length": {
+          "batch16_pass_batch1_fail": 0,
+          "batch1_pass_batch16_fail": 0
+        },
+        "cardinality": {
+          "batch16_pass_batch1_fail": 2,
+          "batch1_pass_batch16_fail": 2
+        },
+        "t4": {
+          "batch16_pass_batch1_fail": 0,
+          "batch1_pass_batch16_fail": 0
+        },
+        "verbatim": {
+          "batch16_pass_batch1_fail": 2,
+          "batch1_pass_batch16_fail": 2
+        }
+      },
+      "csr_change_batch1_minus_batch16": {
+        "mean": -0.0019999999999999983,
+        "n_higher_batch1": 3,
+        "n_lower_batch1": 4
+      },
+      "generation_seconds_per_text": {
+        "batch16": 0.18,
+        "batch1": 1.71
+      }
+    }
+  },
+  "rule": "keep batch size 16 for the main run if vector agreement >= 98% for every model; otherwise the study team decides at G2",
+  "keep_batch_size_16": false
+}

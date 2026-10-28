@@ -1,0 +1,29 @@
+{
+  "run_id": "smoke_gemma_20261004-2123_38dc8cd",
+  "phase": "smoke_gemma",
+  "analysis_eligible": false,
+  "fixture": false,
+  "replicate_of": null,
+  "models": {
+    "gemma4e4b": {
+      "n_prompt_ids": 5,
+      "parse_rule": {
+        "fence": 5
+      },
+      "evaluable_rate": 1.0,
+      "format_strict_rate": 0.0,
+      "truncated_rate": 0.0,
+      "verbatim_vs_min3_disagreements": 1,
+      "f1_token_vs_char_containment_disagreements": 0,
+      "f2_label_status": {
+        "single": 1
+      },
+      "error_tags": {
+        "code_fence": 5,
+        "evidence_not_verbatim": 4
+      },
+      "eval_file_sha256": "984e4ecaa6a64c02b41000fa8af9f4d3f984745e1e8a99ab4168d0202f1c03fe"
+    }
+  },
+  "note": "CHECK ONLY: this phase never enters any main analysis."
+}

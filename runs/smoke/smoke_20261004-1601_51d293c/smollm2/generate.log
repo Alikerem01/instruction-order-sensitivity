@@ -1,0 +1,4 @@
+[2026-10-04T16:01:18Z] smollm2: new run smoke_20261004-1601_51d293c: 5 unique prompts (5 ids), 1 batches of 16
+[2026-10-04T16:01:19Z] R4 check passed: effective generation config matches the allow-list
+[2026-10-04T16:01:24Z] batch 1/1 done in 4.1s (5 prompts, 0 hit the length limit)
+[2026-10-04T16:01:24Z] smollm2: complete -- 5 records in generations.jsonl

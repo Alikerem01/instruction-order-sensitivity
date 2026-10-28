@@ -1,0 +1,30 @@
+{
+  "run_id": "pilot_gemma_20261005-1529_ccc7919",
+  "phase": "pilot_gemma",
+  "analysis_eligible": false,
+  "fixture": false,
+  "replicate_of": null,
+  "models": {
+    "gemma4e4b": {
+      "n_prompt_ids": 200,
+      "parse_rule": {
+        "fence": 200
+      },
+      "evaluable_rate": 1.0,
+      "format_strict_rate": 0.0,
+      "truncated_rate": 0.0,
+      "verbatim_vs_min3_disagreements": 40,
+      "f1_token_vs_char_containment_disagreements": 0,
+      "f2_label_status": {
+        "single": 40
+      },
+      "error_tags": {
+        "code_fence": 200,
+        "evidence_count_1": 26,
+        "evidence_not_verbatim": 115
+      },
+      "eval_file_sha256": "897d800676dc9b247a71a26492432dd817e92f25e9f96300e5b92a57827ecf70"
+    }
+  },
+  "note": "CHECK ONLY: this phase never enters any main analysis."
+}

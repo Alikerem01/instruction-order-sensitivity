@@ -1,0 +1,14 @@
+{
+  "run_id": "main_20261006-1354_63a1c79",
+  "phase": "main",
+  "gitsha": "63a1c7987d8f31f7ba5ac2589df5912c3fe55083",
+  "gitsha7": "63a1c79",
+  "bundle": "colab_bundle_main_63a1c79.zip",
+  "created_utc": "2026-10-06T13:54:35Z",
+  "models": [
+    "smollm2",
+    "phi4mini"
+  ],
+  "replicate_of": null,
+  "pass": 1
+}

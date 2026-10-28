@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+data/cache/
+dist/
+*.tmp
+.ipynb_checkpoints/
+# Public-release tree, rebuilt by make release from a commit (decision D03)
+release/
+# Zip archives of run folders (the unpacked folders are committed)
+runs/**/*.zip

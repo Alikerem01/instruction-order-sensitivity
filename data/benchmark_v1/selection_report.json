@@ -1,0 +1,687 @@
+{
+  "seed": 20261003,
+  "shuffle": "pool sorted by source id, then random.Random(seed).shuffle (fresh generator per family)",
+  "software": {
+    "python": "3.11.16",
+    "pyarrow": "25.0.1",
+    "huggingface_hub": "1.33.0"
+  },
+  "counts": {
+    "main": 100,
+    "pilot": 10
+  },
+  "families": {
+    "F1_QA": {
+      "source": {
+        "hf_id": "rajpurkar/squad",
+        "config": "plain_text",
+        "split": "validation",
+        "revision": "7b6d24c440a36b6815f21b70d25016731768db1f",
+        "file": "plain_text/validation-00000-of-00001.parquet",
+        "file_sha256": "8c6646d36bd5a95061e076788cf3161d11f6f3e7d625dac7a83bbed0a49f69f7",
+        "license": "CC BY-SA 4.0"
+      },
+      "filter_steps": [
+        {
+          "step": "all_rows",
+          "rule": "all rows of the split",
+          "n": 10570
+        },
+        {
+          "step": "context_words",
+          "rule": "context has 80-350 words",
+          "n": 9157
+        },
+        {
+          "step": "answer_words",
+          "rule": "every gold answer has 1-10 words",
+          "n": 8605
+        },
+        {
+          "step": "consistent_answers",
+          "rule": "every normalized gold answer is a substring of the longest normalized gold answer",
+          "n": 7695
+        },
+        {
+          "step": "nonempty_normalized_answers",
+          "rule": "[clarification] no gold answer normalizes to the empty string",
+          "n": 7694
+        },
+        {
+          "step": "no_encoding_artifacts",
+          "rule": "context has no U+FFFD, mojibake, or [clarification] invisible control/format characters",
+          "n": 7677
+        },
+        {
+          "step": "no_pipe_or_tab",
+          "rule": "context has no '|' or tab characters",
+          "n": 7668
+        },
+        {
+          "step": "no_list_like_lines",
+          "rule": "no context line starts with a bullet, dash or enumeration marker",
+          "n": 7629
+        },
+        {
+          "step": "no_gold_leakage",
+          "rule": "[clarification] no gold answer occurs (whole-token, SQuAD-normalized) in the INSTRUCTIONS or TASK text",
+          "n": 7547
+        }
+      ],
+      "eligible_pool": {
+        "n_questions": 7547,
+        "n_distinct_contexts": 1774
+      },
+      "selection_walk": {
+        "one_question_per_context": true,
+        "skipped_same_context": 0
+      },
+      "selected": {
+        "main": [
+          {
+            "task_id": "qa_001",
+            "source_id": "56de16ca4396321400ee25c8"
+          },
+          {
+            "task_id": "qa_002",
+            "source_id": "572a0f073f37b3190047867f"
+          },
+          {
+            "task_id": "qa_003",
+            "source_id": "57309cd6069b5314008321c5"
+          },
+          {
+            "task_id": "qa_004",
+            "source_id": "57379a4b1c456719005744cf"
+          },
+          {
+            "task_id": "qa_005",
+            "source_id": "572837402ca10214002da0f5"
+          },
+          {
+            "task_id": "qa_006",
+            "source_id": "57277373dd62a815002e9d27"
+          },
+          {
+            "task_id": "qa_007",
+            "source_id": "572a1ba46aef05140015528e"
+          },
+          {
+            "task_id": "qa_008",
+            "source_id": "56f84485aef2371900625f74"
+          },
+          {
+            "task_id": "qa_009",
+            "source_id": "572805363acd2414000df26f"
+          },
+          {
+            "task_id": "qa_010",
+            "source_id": "57096505ed30961900e84082"
+          },
+          {
+            "task_id": "qa_011",
+            "source_id": "5726778df1498d1400e8e0af"
+          },
+          {
+            "task_id": "qa_012",
+            "source_id": "572756715951b619008f8877"
+          },
+          {
+            "task_id": "qa_013",
+            "source_id": "5729779b6aef051400154f62"
+          },
+          {
+            "task_id": "qa_014",
+            "source_id": "5728804b4b864d1900164a48"
+          },
+          {
+            "task_id": "qa_015",
+            "source_id": "572671e55951b619008f72d9"
+          },
+          {
+            "task_id": "qa_016",
+            "source_id": "5725d16aec44d21400f3d61c"
+          },
+          {
+            "task_id": "qa_017",
+            "source_id": "5729f1fcaf94a219006aa6d3"
+          },
+          {
+            "task_id": "qa_018",
+            "source_id": "56e089ab231d4119001ac287"
+          },
+          {
+            "task_id": "qa_019",
+            "source_id": "570d4329fed7b91900d45ddb"
+          },
+          {
+            "task_id": "qa_020",
+            "source_id": "5733e8ae4776f419006614a7"
+          }
+        ],
+        "pilot": [
+          {
+            "task_id": "qa_p01",
+            "source_id": "5726241189a1e219009ac2e1"
+          },
+          {
+            "task_id": "qa_p02",
+            "source_id": "571a4b0f10f8ca1400304fd5"
+          }
+        ]
+      }
+    },
+    "F2_CLASSIFICATION": {
+      "source": {
+        "hf_id": "fancyzhx/ag_news",
+        "config": "default",
+        "split": "test",
+        "revision": "eb185aade064a813bc0b7f42de02595523103ca4",
+        "file": "data/test-00000-of-00001.parquet",
+        "file_sha256": "71de87ec66bc5737752a2502204dfa6d7fe9856ade3ea444dc6317789a4f13fb",
+        "license": "unknown (Hugging Face metadata)"
+      },
+      "filter_steps": [
+        {
+          "step": "all_rows",
+          "rule": "all rows of the split",
+          "n": 7600,
+          "n_by_class": {
+            "Business": 1900,
+            "Sci/Tech": 1900,
+            "Sports": 1900,
+            "World": 1900
+          }
+        },
+        {
+          "step": "text_words",
+          "rule": "text has 40-250 words",
+          "n": 2985,
+          "n_by_class": {
+            "Business": 756,
+            "Sci/Tech": 653,
+            "Sports": 700,
+            "World": 876
+          }
+        },
+        {
+          "step": "no_html_entity_artifacts",
+          "rule": "no HTML-entity artifacts such as '#39;', '&lt;', 'quot;'",
+          "n": 1882,
+          "n_by_class": {
+            "Business": 405,
+            "Sci/Tech": 436,
+            "Sports": 377,
+            "World": 664
+          }
+        },
+        {
+          "step": "no_other_encoding_artifacts",
+          "rule": "[clarification] no backslash sequences, U+FFFD, mojibake or invisible control/format characters",
+          "n": 1648,
+          "n_by_class": {
+            "Business": 297,
+            "Sci/Tech": 362,
+            "Sports": 366,
+            "World": 623
+          }
+        }
+      ],
+      "eligible_pool": {
+        "n": 1648,
+        "n_by_class": {
+          "Business": 297,
+          "Sci/Tech": 362,
+          "Sports": 366,
+          "World": 623
+        }
+      },
+      "min_words_used": "text has 40-250 words",
+      "selection_walk": {
+        "main_quota_per_class": 5,
+        "pilot_rule": "next items after main is complete; the two pilot items differ in class",
+        "items_walked": 26
+      },
+      "deviations": [],
+      "selected": {
+        "main": [
+          {
+            "task_id": "cls_001",
+            "source_id": "test/62"
+          },
+          {
+            "task_id": "cls_002",
+            "source_id": "test/6875"
+          },
+          {
+            "task_id": "cls_003",
+            "source_id": "test/721"
+          },
+          {
+            "task_id": "cls_004",
+            "source_id": "test/2128"
+          },
+          {
+            "task_id": "cls_005",
+            "source_id": "test/4638"
+          },
+          {
+            "task_id": "cls_006",
+            "source_id": "test/1281"
+          },
+          {
+            "task_id": "cls_007",
+            "source_id": "test/4136"
+          },
+          {
+            "task_id": "cls_008",
+            "source_id": "test/6367"
+          },
+          {
+            "task_id": "cls_009",
+            "source_id": "test/780"
+          },
+          {
+            "task_id": "cls_010",
+            "source_id": "test/1664"
+          },
+          {
+            "task_id": "cls_011",
+            "source_id": "test/7429"
+          },
+          {
+            "task_id": "cls_012",
+            "source_id": "test/3510"
+          },
+          {
+            "task_id": "cls_013",
+            "source_id": "test/3693"
+          },
+          {
+            "task_id": "cls_014",
+            "source_id": "test/325"
+          },
+          {
+            "task_id": "cls_015",
+            "source_id": "test/2336"
+          },
+          {
+            "task_id": "cls_016",
+            "source_id": "test/3649"
+          },
+          {
+            "task_id": "cls_017",
+            "source_id": "test/1451"
+          },
+          {
+            "task_id": "cls_018",
+            "source_id": "test/977"
+          },
+          {
+            "task_id": "cls_019",
+            "source_id": "test/3207"
+          },
+          {
+            "task_id": "cls_020",
+            "source_id": "test/2474"
+          }
+        ],
+        "pilot": [
+          {
+            "task_id": "cls_p01",
+            "source_id": "test/4910"
+          },
+          {
+            "task_id": "cls_p02",
+            "source_id": "test/6070"
+          }
+        ]
+      }
+    },
+    "F3_SUMMARIZATION": {
+      "source": {
+        "hf_id": "EdinburghNLP/xsum",
+        "config": "default",
+        "split": "test",
+        "revision_ref": "refs/convert/parquet",
+        "revision": "03339c27cd655c3369346bacb533293f222a9d42",
+        "file": "default/test/0000.parquet",
+        "file_sha256": "224e9dbc6fed987759c1954603b43cb280b8d475d78893779130aa707d967ed7",
+        "license": "unknown (Hugging Face metadata)"
+      },
+      "filter_steps": [
+        {
+          "step": "all_rows",
+          "rule": "all rows of the split",
+          "n": 11334
+        },
+        {
+          "step": "nonempty_document",
+          "rule": "document is not empty",
+          "n": 11333
+        },
+        {
+          "step": "document_words",
+          "rule": "document has 120-450 words",
+          "n": 6486
+        },
+        {
+          "step": "summary_words",
+          "rule": "reference summary is non-empty and has at most 30 words",
+          "n": 6362
+        },
+        {
+          "step": "no_encoding_artifacts",
+          "rule": "[clarification] document and summary have no U+FFFD, mojibake or invisible control/format characters",
+          "n": 5605
+        },
+        {
+          "step": "no_list_or_table_artifacts",
+          "rule": "no list or table artifacts: no line starting with a bullet/dash/enumeration, no '|' or tab, [clarification] no line of 1-4 words without sentence-final punctuation",
+          "n": 5311
+        }
+      ],
+      "eligible_pool": {
+        "n": 5311
+      },
+      "selected": {
+        "main": [
+          {
+            "task_id": "sum_001",
+            "source_id": "38925731"
+          },
+          {
+            "task_id": "sum_002",
+            "source_id": "37194495"
+          },
+          {
+            "task_id": "sum_003",
+            "source_id": "39301835"
+          },
+          {
+            "task_id": "sum_004",
+            "source_id": "32837393"
+          },
+          {
+            "task_id": "sum_005",
+            "source_id": "39480042"
+          },
+          {
+            "task_id": "sum_006",
+            "source_id": "40418395"
+          },
+          {
+            "task_id": "sum_007",
+            "source_id": "18320190"
+          },
+          {
+            "task_id": "sum_008",
+            "source_id": "38495526"
+          },
+          {
+            "task_id": "sum_009",
+            "source_id": "35673426"
+          },
+          {
+            "task_id": "sum_010",
+            "source_id": "35097124"
+          },
+          {
+            "task_id": "sum_011",
+            "source_id": "39676552"
+          },
+          {
+            "task_id": "sum_012",
+            "source_id": "37347677"
+          },
+          {
+            "task_id": "sum_013",
+            "source_id": "37550158"
+          },
+          {
+            "task_id": "sum_014",
+            "source_id": "34126692"
+          },
+          {
+            "task_id": "sum_015",
+            "source_id": "37162764"
+          },
+          {
+            "task_id": "sum_016",
+            "source_id": "34670343"
+          },
+          {
+            "task_id": "sum_017",
+            "source_id": "35620981"
+          },
+          {
+            "task_id": "sum_018",
+            "source_id": "28243554"
+          },
+          {
+            "task_id": "sum_019",
+            "source_id": "37025848"
+          },
+          {
+            "task_id": "sum_020",
+            "source_id": "11557915"
+          }
+        ],
+        "pilot": [
+          {
+            "task_id": "sum_p01",
+            "source_id": "38132684"
+          },
+          {
+            "task_id": "sum_p02",
+            "source_id": "38894313"
+          }
+        ]
+      }
+    },
+    "F4_EXTRACTION": {
+      "generator": "src/generate_synthetic.py",
+      "n_records": 22,
+      "all_records_distinct": true,
+      "comma_free_values": true,
+      "selected": {
+        "main": [
+          {
+            "task_id": "ext_001",
+            "source_id": "synthetic/F4_EXTRACTION/01"
+          },
+          {
+            "task_id": "ext_002",
+            "source_id": "synthetic/F4_EXTRACTION/02"
+          },
+          {
+            "task_id": "ext_003",
+            "source_id": "synthetic/F4_EXTRACTION/03"
+          },
+          {
+            "task_id": "ext_004",
+            "source_id": "synthetic/F4_EXTRACTION/04"
+          },
+          {
+            "task_id": "ext_005",
+            "source_id": "synthetic/F4_EXTRACTION/05"
+          },
+          {
+            "task_id": "ext_006",
+            "source_id": "synthetic/F4_EXTRACTION/06"
+          },
+          {
+            "task_id": "ext_007",
+            "source_id": "synthetic/F4_EXTRACTION/07"
+          },
+          {
+            "task_id": "ext_008",
+            "source_id": "synthetic/F4_EXTRACTION/08"
+          },
+          {
+            "task_id": "ext_009",
+            "source_id": "synthetic/F4_EXTRACTION/09"
+          },
+          {
+            "task_id": "ext_010",
+            "source_id": "synthetic/F4_EXTRACTION/10"
+          },
+          {
+            "task_id": "ext_011",
+            "source_id": "synthetic/F4_EXTRACTION/11"
+          },
+          {
+            "task_id": "ext_012",
+            "source_id": "synthetic/F4_EXTRACTION/12"
+          },
+          {
+            "task_id": "ext_013",
+            "source_id": "synthetic/F4_EXTRACTION/13"
+          },
+          {
+            "task_id": "ext_014",
+            "source_id": "synthetic/F4_EXTRACTION/14"
+          },
+          {
+            "task_id": "ext_015",
+            "source_id": "synthetic/F4_EXTRACTION/15"
+          },
+          {
+            "task_id": "ext_016",
+            "source_id": "synthetic/F4_EXTRACTION/16"
+          },
+          {
+            "task_id": "ext_017",
+            "source_id": "synthetic/F4_EXTRACTION/17"
+          },
+          {
+            "task_id": "ext_018",
+            "source_id": "synthetic/F4_EXTRACTION/18"
+          },
+          {
+            "task_id": "ext_019",
+            "source_id": "synthetic/F4_EXTRACTION/19"
+          },
+          {
+            "task_id": "ext_020",
+            "source_id": "synthetic/F4_EXTRACTION/20"
+          }
+        ],
+        "pilot": [
+          {
+            "task_id": "ext_p01",
+            "source_id": "synthetic/F4_EXTRACTION/21"
+          },
+          {
+            "task_id": "ext_p02",
+            "source_id": "synthetic/F4_EXTRACTION/22"
+          }
+        ]
+      }
+    },
+    "F5_TRANSFORMATION": {
+      "generator": "src/generate_synthetic.py",
+      "n_records": 22,
+      "all_records_distinct": true,
+      "comma_free_values": true,
+      "selected": {
+        "main": [
+          {
+            "task_id": "trf_001",
+            "source_id": "synthetic/F5_TRANSFORMATION/01"
+          },
+          {
+            "task_id": "trf_002",
+            "source_id": "synthetic/F5_TRANSFORMATION/02"
+          },
+          {
+            "task_id": "trf_003",
+            "source_id": "synthetic/F5_TRANSFORMATION/03"
+          },
+          {
+            "task_id": "trf_004",
+            "source_id": "synthetic/F5_TRANSFORMATION/04"
+          },
+          {
+            "task_id": "trf_005",
+            "source_id": "synthetic/F5_TRANSFORMATION/05"
+          },
+          {
+            "task_id": "trf_006",
+            "source_id": "synthetic/F5_TRANSFORMATION/06"
+          },
+          {
+            "task_id": "trf_007",
+            "source_id": "synthetic/F5_TRANSFORMATION/07"
+          },
+          {
+            "task_id": "trf_008",
+            "source_id": "synthetic/F5_TRANSFORMATION/08"
+          },
+          {
+            "task_id": "trf_009",
+            "source_id": "synthetic/F5_TRANSFORMATION/09"
+          },
+          {
+            "task_id": "trf_010",
+            "source_id": "synthetic/F5_TRANSFORMATION/10"
+          },
+          {
+            "task_id": "trf_011",
+            "source_id": "synthetic/F5_TRANSFORMATION/11"
+          },
+          {
+            "task_id": "trf_012",
+            "source_id": "synthetic/F5_TRANSFORMATION/12"
+          },
+          {
+            "task_id": "trf_013",
+            "source_id": "synthetic/F5_TRANSFORMATION/13"
+          },
+          {
+            "task_id": "trf_014",
+            "source_id": "synthetic/F5_TRANSFORMATION/14"
+          },
+          {
+            "task_id": "trf_015",
+            "source_id": "synthetic/F5_TRANSFORMATION/15"
+          },
+          {
+            "task_id": "trf_016",
+            "source_id": "synthetic/F5_TRANSFORMATION/16"
+          },
+          {
+            "task_id": "trf_017",
+            "source_id": "synthetic/F5_TRANSFORMATION/17"
+          },
+          {
+            "task_id": "trf_018",
+            "source_id": "synthetic/F5_TRANSFORMATION/18"
+          },
+          {
+            "task_id": "trf_019",
+            "source_id": "synthetic/F5_TRANSFORMATION/19"
+          },
+          {
+            "task_id": "trf_020",
+            "source_id": "synthetic/F5_TRANSFORMATION/20"
+          }
+        ],
+        "pilot": [
+          {
+            "task_id": "trf_p01",
+            "source_id": "synthetic/F5_TRANSFORMATION/21"
+          },
+          {
+            "task_id": "trf_p02",
+            "source_id": "synthetic/F5_TRANSFORMATION/22"
+          }
+        ]
+      }
+    }
+  },
+  "files": {
+    "tasks_main.jsonl": "09ffb002f1ddb648d59ffdb289b16e0fe72dc83abeaca63a7e49a58216fad2a6",
+    "tasks_pilot.jsonl": "e5b09564d4feef9bc9cebdc5b3b0fba7aa04f28de78ec531f3605ba88a2c7574"
+  }
+}

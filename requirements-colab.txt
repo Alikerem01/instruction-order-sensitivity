@@ -1,0 +1,9 @@
+# Colab (A100) generation environment. Installed by colab/run_generation.ipynb on top of Colab's image.
+# torch is deliberately NOT listed: Colab's preinstalled torch is kept and its version is logged in env.json.
+# These pins must match requirements.txt (generation-critical libraries).
+transformers==5.17.0
+tokenizers==0.23.2
+huggingface-hub==1.33.0
+safetensors==0.8.0
+accelerate==1.15.0
+pyyaml==6.0.3

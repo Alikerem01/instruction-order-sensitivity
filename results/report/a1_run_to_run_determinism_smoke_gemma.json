@@ -1,0 +1,19 @@
+{
+  "check": "A1 run-to-run determinism",
+  "phase": "smoke_gemma",
+  "runs": [
+    "smoke_gemma_20261004-2123_38dc8cd",
+    "smoke_gemma_20261004-2125_38dc8cd"
+  ],
+  "models": {
+    "gemma4e4b": {
+      "n_compared": 5,
+      "n_only_in_one_run": 0,
+      "n_output_text_identical": 5,
+      "n_fully_identical": 5,
+      "byte_identical": true,
+      "same_environment": true,
+      "differing_prompt_ids": []
+    }
+  }
+}

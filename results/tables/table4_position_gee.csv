@@ -1,0 +1,6 @@
+instruction,status,wald_chi2,df,p,q,excluded_models,reason,or_pos2_estimate,or_pos2_ci_low,or_pos2_ci_high,or_pos3_estimate,or_pos3_ci_low,or_pos3_ci_high,or_pos4_estimate,or_pos4_ci_low,or_pos4_ci_high,or_pos5_estimate,or_pos5_ci_low,or_pos5_ci_high
+format,estimated,89.1457703335676,4,1.9996245206011874e-18,1.9996245206011874e-18,gemma4e4b=0.0,,0.7694689337856266,0.44486669304829746,1.3309210361516297,0.2753318817617136,0.16279328488017472,0.46566813348747793,0.5800429448250896,0.3402035747106411,0.9889661451309791,6.053401675787881,3.055898055226384,11.991130327715375
+length,not estimable,,,,,,separation: family=F5_TRANSFORMATION: all pass,,,,,,,,,,,,
+cardinality,not estimable,,,,,,did not converge: the iterations diverged to non-finite estimates (working correlation nan); no factor level has a constant outcome,,,,,,,,,,,,
+t4,not estimable,,,,,,did not converge: the iterations diverged to non-finite estimates (working correlation nan); no factor level has a constant outcome,,,,,,,,,,,,
+verbatim,not estimable,,,,,,did not converge: the iterations diverged to non-finite estimates (working correlation nan); no factor level has a constant outcome,,,,,,,,,,,,

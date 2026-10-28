@@ -1,0 +1,15 @@
+{
+  "run_id": "pilot_20261004-2020_d9e9fc2",
+  "phase": "pilot",
+  "gitsha": "d9e9fc2f8d02cdc864bd9fe644802686955e4a00",
+  "gitsha7": "d9e9fc2",
+  "bundle": "colab_bundle_pilot_d9e9fc2.zip",
+  "created_utc": "2026-10-04T20:20:36Z",
+  "models": [
+    "smollm2",
+    "qwen25",
+    "phi4mini"
+  ],
+  "replicate_of": null,
+  "pass": 1
+}

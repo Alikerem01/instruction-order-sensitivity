@@ -1,0 +1,4 @@
+[2026-10-04T21:25:36Z] gemma4e4b: new run smoke_gemma_20261004-2125_38dc8cd: 5 unique prompts (5 ids), 1 batches of 16
+[2026-10-04T21:25:43Z] R4 check passed: effective generation config matches the allow-list
+[2026-10-04T21:25:55Z] batch 1/1 done in 11.9s (5 prompts, 0 hit the length limit)
+[2026-10-04T21:25:55Z] gemma4e4b: complete -- 5 records in generations.jsonl

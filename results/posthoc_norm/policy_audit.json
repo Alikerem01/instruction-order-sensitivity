@@ -1,0 +1,168 @@
+{
+  "rule": "a normalized output reads no strict key; only an output labelled 'comparison' reads both",
+  "all_ok": true,
+  "outputs": [
+    {
+      "output": "tables/tableN1_overall.md",
+      "policy": "normalized",
+      "keys_read": 75,
+      "normalized": 75,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN1b_stability.md",
+      "policy": "normalized",
+      "keys_read": 60,
+      "normalized": 60,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN1c_format_arm.md",
+      "policy": "normalized",
+      "keys_read": 45,
+      "normalized": 45,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN2_order_tests.md",
+      "policy": "normalized",
+      "keys_read": 52,
+      "normalized": 52,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN3_position_format.md",
+      "policy": "normalized",
+      "keys_read": 227,
+      "normalized": 227,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN3b_position_all.csv",
+      "policy": "normalized",
+      "keys_read": 375,
+      "normalized": 375,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN4_order_vs_format.md",
+      "policy": "normalized",
+      "keys_read": 40,
+      "normalized": 40,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN5_model_pairs.md",
+      "policy": "normalized",
+      "keys_read": 90,
+      "normalized": 90,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN6_order_level.md",
+      "policy": "normalized",
+      "keys_read": 836,
+      "normalized": 836,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN7_format_changes.md",
+      "policy": "normalized",
+      "keys_read": 169,
+      "normalized": 169,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN8_constraints.md",
+      "policy": "normalized",
+      "keys_read": 90,
+      "normalized": 90,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN9_exploratory.md",
+      "policy": "normalized",
+      "keys_read": 148,
+      "normalized": 148,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "tables/tableN10_strict_vs_norm.md",
+      "policy": "comparison",
+      "keys_read": 90,
+      "normalized": 45,
+      "strict": 45,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "figures/fig_order_level_norm.png",
+      "policy": "normalized",
+      "keys_read": 240,
+      "normalized": 240,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "figures/fig_noise_floor_norm.png",
+      "policy": "normalized",
+      "keys_read": 36,
+      "normalized": 36,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "figures/fig_position_norm.png",
+      "policy": "normalized",
+      "keys_read": 375,
+      "normalized": 375,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "figures/fig_constraints_norm.png",
+      "policy": "normalized",
+      "keys_read": 72,
+      "normalized": 72,
+      "strict": 0,
+      "neutral": 0,
+      "ok": true
+    },
+    {
+      "output": "figures/fig_overall_strict_vs_norm.png",
+      "policy": "comparison",
+      "keys_read": 72,
+      "normalized": 36,
+      "strict": 36,
+      "neutral": 0,
+      "ok": true
+    }
+  ]
+}

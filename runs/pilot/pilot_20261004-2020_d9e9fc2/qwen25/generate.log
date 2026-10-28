@@ -1,0 +1,15 @@
+[2026-10-04T20:21:59Z] qwen25: new run pilot_20261004-2020_d9e9fc2: 190 unique prompts (200 ids), 12 batches of 16
+[2026-10-04T20:22:25Z] R4 check passed: effective generation config matches the allow-list
+[2026-10-04T20:22:32Z] batch 1/12 done in 7.1s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:22:39Z] batch 2/12 done in 6.9s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:22:45Z] batch 3/12 done in 6.9s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:22:51Z] batch 4/12 done in 5.7s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:22:59Z] batch 5/12 done in 7.4s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:23:07Z] batch 6/12 done in 8.3s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:23:19Z] batch 7/12 done in 12.4s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:23:25Z] batch 8/12 done in 5.9s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:23:29Z] batch 9/12 done in 3.6s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:23:44Z] batch 10/12 done in 14.7s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:24:00Z] batch 11/12 done in 16.7s (16 prompts, 0 hit the length limit)
+[2026-10-04T20:24:08Z] batch 12/12 done in 7.8s (14 prompts, 0 hit the length limit)
+[2026-10-04T20:24:08Z] qwen25: complete -- 190 records in generations.jsonl

@@ -1,0 +1,380 @@
+{
+  "run_id": "smoke_20261004-1601_51d293c",
+  "phase": "smoke",
+  "imported_utc": "2026-10-04T16:13:35Z",
+  "verified_utc": "2026-10-04T16:13:35Z",
+  "passed": true,
+  "bundle_gitsha": "51d293c27491d0d9f333f12b31f97bfd9fb14931",
+  "fixture": false,
+  "replicate_of": "smoke_20261004-1558_51d293c",
+  "models": {
+    "phi4mini": {
+      "n_records": 5,
+      "finish_reason": {
+        "eos": 5
+      },
+      "environment": {
+        "device": "cuda",
+        "gpu_name": "NVIDIA A100-SXM4-80GB",
+        "cuda_version": "13.0",
+        "cudnn_version": 92700,
+        "python_version": "3.13.15",
+        "torch_version": "2.11.0+cu130",
+        "transformers_version": "5.17.0",
+        "tokenizers_version": "0.23.2",
+        "accelerate_version": "1.15.0",
+        "safetensors_version": "0.8.0",
+        "huggingface_hub_version": "1.33.0"
+      },
+      "generation_seconds_total": 6.03,
+      "n_sessions": 1,
+      "retries": 0
+    },
+    "qwen25": {
+      "n_records": 5,
+      "finish_reason": {
+        "eos": 5
+      },
+      "environment": {
+        "device": "cuda",
+        "gpu_name": "NVIDIA A100-SXM4-80GB",
+        "cuda_version": "13.0",
+        "cudnn_version": 92700,
+        "python_version": "3.13.15",
+        "torch_version": "2.11.0+cu130",
+        "transformers_version": "5.17.0",
+        "tokenizers_version": "0.23.2",
+        "accelerate_version": "1.15.0",
+        "safetensors_version": "0.8.0",
+        "huggingface_hub_version": "1.33.0"
+      },
+      "generation_seconds_total": 7.74,
+      "n_sessions": 1,
+      "retries": 0
+    },
+    "smollm2": {
+      "n_records": 5,
+      "finish_reason": {
+        "eos": 5
+      },
+      "environment": {
+        "device": "cuda",
+        "gpu_name": "NVIDIA A100-SXM4-80GB",
+        "cuda_version": "13.0",
+        "cudnn_version": 92700,
+        "python_version": "3.13.15",
+        "torch_version": "2.11.0+cu130",
+        "transformers_version": "5.17.0",
+        "tokenizers_version": "0.23.2",
+        "accelerate_version": "1.15.0",
+        "safetensors_version": "0.8.0",
+        "huggingface_hub_version": "1.33.0"
+      },
+      "generation_seconds_total": 4.14,
+      "n_sessions": 1,
+      "retries": 0
+    }
+  },
+  "models_not_in_run": [],
+  "checks": [
+    {
+      "check": "run_info phase and id match",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "bundle commit exists in this repository",
+      "passed": true,
+      "detail": "51d293c27491"
+    },
+    {
+      "check": "every bundled file matches the commit (SHA-256)",
+      "passed": true,
+      "detail": "26 files"
+    },
+    {
+      "check": "local prompts file equals the bundled one",
+      "passed": true,
+      "detail": "data/benchmark_v1/prompts_smoke.jsonl"
+    },
+    {
+      "check": "env.json present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "models present in the run",
+      "passed": true,
+      "detail": "present=['phi4mini', 'qwen25', 'smollm2']; not in this run=[]"
+    },
+    {
+      "check": "phi4mini: run_meta status is complete",
+      "passed": true,
+      "detail": "complete"
+    },
+    {
+      "check": "phi4mini: generations.jsonl present and hash matches run_meta",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "phi4mini: generations.jsonl equals the concatenated batch files",
+      "passed": true,
+      "detail": "1 batches"
+    },
+    {
+      "check": "phi4mini: one record per unique prompt text (0 missing, 0 extra, 0 duplicate)",
+      "passed": true,
+      "detail": "5 records, 5 expected, missing=0, extra=0, duplicates=0"
+    },
+    {
+      "check": "phi4mini: prompt id groups and task ids match the prompts file",
+      "passed": true,
+      "detail": "5 prompt ids covered"
+    },
+    {
+      "check": "phi4mini: one environment and one setting for all records",
+      "passed": true,
+      "detail": "gpu_name=\"NVIDIA A100-SXM4-80GB\"; torch_version=\"2.11.0+cu130\"; transformers_version=\"5.17.0\"; dtype=\"bfloat16\""
+    },
+    {
+      "check": "phi4mini: every session ran in the run's first environment",
+      "passed": true,
+      "detail": "1 session(s)"
+    },
+    {
+      "check": "phi4mini: no session used the environment-override test hook (R5)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "phi4mini: records agree with run_meta environment",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "phi4mini: model id and revision match the pinned specification",
+      "passed": true,
+      "detail": "microsoft/Phi-4-mini-instruct@cfbefacb9925"
+    },
+    {
+      "check": "phi4mini: greedy generation config, identical for all records",
+      "passed": true,
+      "detail": "max_new_tokens=512, eos=[200020, 199999]"
+    },
+    {
+      "check": "phi4mini: R4 fail-fast checks passed for every batch",
+      "passed": true,
+      "detail": "batches checked=1/1; logits processors=[]; stopping=['MaxLengthCriteria', 'EosTokenCriteria']"
+    },
+    {
+      "check": "phi4mini: output text, token counts and finish reasons are consistent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "phi4mini: batch size as configured for the phase (16)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "phi4mini: experimental phase ran on A100 in bfloat16",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "phi4mini: chat-template rendering re-computed locally matches",
+      "passed": true,
+      "detail": "0 mismatches"
+    },
+    {
+      "check": "qwen25: run_meta status is complete",
+      "passed": true,
+      "detail": "complete"
+    },
+    {
+      "check": "qwen25: generations.jsonl present and hash matches run_meta",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "qwen25: generations.jsonl equals the concatenated batch files",
+      "passed": true,
+      "detail": "1 batches"
+    },
+    {
+      "check": "qwen25: one record per unique prompt text (0 missing, 0 extra, 0 duplicate)",
+      "passed": true,
+      "detail": "5 records, 5 expected, missing=0, extra=0, duplicates=0"
+    },
+    {
+      "check": "qwen25: prompt id groups and task ids match the prompts file",
+      "passed": true,
+      "detail": "5 prompt ids covered"
+    },
+    {
+      "check": "qwen25: one environment and one setting for all records",
+      "passed": true,
+      "detail": "gpu_name=\"NVIDIA A100-SXM4-80GB\"; torch_version=\"2.11.0+cu130\"; transformers_version=\"5.17.0\"; dtype=\"bfloat16\""
+    },
+    {
+      "check": "qwen25: every session ran in the run's first environment",
+      "passed": true,
+      "detail": "1 session(s)"
+    },
+    {
+      "check": "qwen25: no session used the environment-override test hook (R5)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "qwen25: records agree with run_meta environment",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "qwen25: model id and revision match the pinned specification",
+      "passed": true,
+      "detail": "Qwen/Qwen2.5-3B-Instruct@aa8e72537993"
+    },
+    {
+      "check": "qwen25: greedy generation config, identical for all records",
+      "passed": true,
+      "detail": "max_new_tokens=512, eos=[151645, 151643]"
+    },
+    {
+      "check": "qwen25: R4 fail-fast checks passed for every batch",
+      "passed": true,
+      "detail": "batches checked=1/1; logits processors=[]; stopping=['MaxLengthCriteria', 'EosTokenCriteria']"
+    },
+    {
+      "check": "qwen25: output text, token counts and finish reasons are consistent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "qwen25: batch size as configured for the phase (16)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "qwen25: experimental phase ran on A100 in bfloat16",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "qwen25: chat-template rendering re-computed locally matches",
+      "passed": true,
+      "detail": "0 mismatches"
+    },
+    {
+      "check": "smollm2: run_meta status is complete",
+      "passed": true,
+      "detail": "complete"
+    },
+    {
+      "check": "smollm2: generations.jsonl present and hash matches run_meta",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "smollm2: generations.jsonl equals the concatenated batch files",
+      "passed": true,
+      "detail": "1 batches"
+    },
+    {
+      "check": "smollm2: one record per unique prompt text (0 missing, 0 extra, 0 duplicate)",
+      "passed": true,
+      "detail": "5 records, 5 expected, missing=0, extra=0, duplicates=0"
+    },
+    {
+      "check": "smollm2: prompt id groups and task ids match the prompts file",
+      "passed": true,
+      "detail": "5 prompt ids covered"
+    },
+    {
+      "check": "smollm2: one environment and one setting for all records",
+      "passed": true,
+      "detail": "gpu_name=\"NVIDIA A100-SXM4-80GB\"; torch_version=\"2.11.0+cu130\"; transformers_version=\"5.17.0\"; dtype=\"bfloat16\""
+    },
+    {
+      "check": "smollm2: every session ran in the run's first environment",
+      "passed": true,
+      "detail": "1 session(s)"
+    },
+    {
+      "check": "smollm2: no session used the environment-override test hook (R5)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "smollm2: records agree with run_meta environment",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "smollm2: model id and revision match the pinned specification",
+      "passed": true,
+      "detail": "HuggingFaceTB/SmolLM2-1.7B-Instruct@31b70e2e869a"
+    },
+    {
+      "check": "smollm2: greedy generation config, identical for all records",
+      "passed": true,
+      "detail": "max_new_tokens=512, eos=[2]"
+    },
+    {
+      "check": "smollm2: R4 fail-fast checks passed for every batch",
+      "passed": true,
+      "detail": "batches checked=1/1; logits processors=[]; stopping=['MaxLengthCriteria', 'EosTokenCriteria']"
+    },
+    {
+      "check": "smollm2: output text, token counts and finish reasons are consistent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "smollm2: batch size as configured for the phase (16)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "smollm2: experimental phase ran on A100 in bfloat16",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "smollm2: chat-template rendering re-computed locally matches",
+      "passed": true,
+      "detail": "0 mismatches"
+    }
+  ],
+  "raw_files_sha256": {
+    "phi4mini/batches/batch_00000.jsonl": "78b982dfeced65b8e648b9f41da0dc7252a5606e5e0b3f2df022bf7e2429f5ce",
+    "phi4mini/generations.jsonl": "78b982dfeced65b8e648b9f41da0dc7252a5606e5e0b3f2df022bf7e2429f5ce",
+    "qwen25/batches/batch_00000.jsonl": "523ccd9e976bb3814dc756cc328477f747f9085f4a1c3ff48b86451a90aa8e18",
+    "qwen25/generations.jsonl": "523ccd9e976bb3814dc756cc328477f747f9085f4a1c3ff48b86451a90aa8e18",
+    "smollm2/batches/batch_00000.jsonl": "7f596ae6daf7b03535db91eb93f795076eca271cd84df4ccc29f935119e559af",
+    "smollm2/generations.jsonl": "7f596ae6daf7b03535db91eb93f795076eca271cd84df4ccc29f935119e559af"
+  },
+  "all_files_sha256": {
+    "bundle_manifest.json": "5a6a1b6fec310bbfac8587285e5eded6cb7170565170ae21b099e3385aba4e74",
+    "env.json": "72ff86bef53c1817de824a8536b6a3b5c710706158334e16f22eb267db5a0089",
+    "phi4mini/batch_plan.json": "6ee7caafb0007e17404f56ab71c26d2a35a34fb45e10b88efba85c9c85799ca7",
+    "phi4mini/batches/batch_00000.jsonl": "78b982dfeced65b8e648b9f41da0dc7252a5606e5e0b3f2df022bf7e2429f5ce",
+    "phi4mini/generate.log": "03e1a41e50790a76a2691b6d08721f6c86cbcd5ba9321ef54a59d52e11651846",
+    "phi4mini/generations.jsonl": "78b982dfeced65b8e648b9f41da0dc7252a5606e5e0b3f2df022bf7e2429f5ce",
+    "phi4mini/run_meta.json": "4e6ce10de3df9f0aceca4a2ef0c7ad6611d2352fe50db74235df5a9ef3be2f1b",
+    "qwen25/batch_plan.json": "0a42fdadbe9942972935fb6f19f5ae55287cf877215fdd0406328fe5adb784f3",
+    "qwen25/batches/batch_00000.jsonl": "523ccd9e976bb3814dc756cc328477f747f9085f4a1c3ff48b86451a90aa8e18",
+    "qwen25/generate.log": "769c5f0df3c831443a50e31fe5972e46ca5ef45778269f2fec4bf797f5492628",
+    "qwen25/generations.jsonl": "523ccd9e976bb3814dc756cc328477f747f9085f4a1c3ff48b86451a90aa8e18",
+    "qwen25/run_meta.json": "51aae038c6c7e3b6441d8e9834bc7dbcc2dff3a3d98c10606ccff556242ea66a",
+    "run_info.json": "47ff80826ce72d745406abcb9ba9d8555ed314495219981eba41f7aa1d373efb",
+    "smollm2/batch_plan.json": "b5a8a19a69d4332d35576938b9a4c0b894bb9b818d9ca54361b83045dfd32ab6",
+    "smollm2/batches/batch_00000.jsonl": "7f596ae6daf7b03535db91eb93f795076eca271cd84df4ccc29f935119e559af",
+    "smollm2/generate.log": "e49b9ec5cb826ad85eb5e5c5def5f1aca7d22ed8b4f724e489e2ea18f0bbd98f",
+    "smollm2/generations.jsonl": "7f596ae6daf7b03535db91eb93f795076eca271cd84df4ccc29f935119e559af",
+    "smollm2/run_meta.json": "215f55bd48e02f6d0bcd16ead264884325c016e0bf91942a69b960c8bc8b445b"
+  },
+  "analysis_eligible": false
+}

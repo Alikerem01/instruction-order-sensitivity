@@ -1,0 +1,71 @@
+{
+  "run_id": "smoke_20261004-1558_51d293c",
+  "phase": "smoke",
+  "analysis_eligible": false,
+  "fixture": false,
+  "replicate_of": null,
+  "models": {
+    "phi4mini": {
+      "n_prompt_ids": 5,
+      "parse_rule": {
+        "strict": 5
+      },
+      "evaluable_rate": 1.0,
+      "format_strict_rate": 1.0,
+      "truncated_rate": 0.0,
+      "verbatim_vs_min3_disagreements": 1,
+      "f1_token_vs_char_containment_disagreements": 0,
+      "f2_label_status": {
+        "single": 1
+      },
+      "error_tags": {
+        "evidence_not_verbatim": 2
+      },
+      "eval_file_sha256": "2c283841cc577ade1d66974bbf814bff7c10c6a4bf8aa55c028ba156870f3b73"
+    },
+    "qwen25": {
+      "n_prompt_ids": 5,
+      "parse_rule": {
+        "strict": 4,
+        "none": 1
+      },
+      "evaluable_rate": 0.8,
+      "format_strict_rate": 0.8,
+      "truncated_rate": 0.0,
+      "verbatim_vs_min3_disagreements": 1,
+      "f1_token_vs_char_containment_disagreements": 0,
+      "f2_label_status": {
+        "single": 1
+      },
+      "error_tags": {
+        "invalid_json": 1,
+        "evidence_count_1": 1
+      },
+      "eval_file_sha256": "75f23ae350a2f931ddc8297f836ac070bbfb85c6b838e79e788160d4ccd38ae9"
+    },
+    "smollm2": {
+      "n_prompt_ids": 5,
+      "parse_rule": {
+        "strict": 3,
+        "none": 2
+      },
+      "evaluable_rate": 0.6,
+      "format_strict_rate": 0.4,
+      "truncated_rate": 0.0,
+      "verbatim_vs_min3_disagreements": 1,
+      "f1_token_vs_char_containment_disagreements": 0,
+      "f2_label_status": {
+        "single": 1
+      },
+      "error_tags": {
+        "invalid_json": 2,
+        "missing_evidence": 1,
+        "evidence_count_3plus": 2,
+        "evidence_not_verbatim": 1,
+        "evidence_duplicate": 1
+      },
+      "eval_file_sha256": "abd51e11ac453da9c66d36677a44fa565ab7902591fe061bbed87786904904a9"
+    }
+  },
+  "note": "CHECK ONLY: this phase never enters any main analysis."
+}

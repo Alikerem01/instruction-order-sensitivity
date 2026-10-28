@@ -1,0 +1,33 @@
+model,outcome,mean,ci_low,ci_high,key
+smollm2,"VSR, format arm",0.47,0.42,0.52,main.format.smollm2.vsr
+smollm2,"Flip rate, format arm",0.26822222222222225,0.23488888888888887,0.3035555555555555,main.format.smollm2.flip_rate
+smollm2,QA max token F1,0.025,0.0,0.075,main.secondary.order.F1_QA.smollm2.max_token_f1
+smollm2,CLS unresolved label,0.0,0.0,0.0,main.secondary.order.F2_CLASSIFICATION.smollm2.unresolved_rate
+smollm2,CLS no label (post-hoc),0.105,0.015,0.23,main.secondary.order.F2_CLASSIFICATION.smollm2.no_label_rate
+smollm2,EXT exact all fields,0.665,0.495,0.825,main.secondary.order.F4_EXTRACTION.smollm2.exact_all_fields
+smollm2,TRF exact all fields,0.84,0.69,0.96,main.secondary.order.F5_TRANSFORMATION.smollm2.exact_all_fields
+smollm2,VERBATIM case-insensitive,0.281,0.244,0.316,main.robustness.diagnostics.order.smollm2.verbatim_case_insensitive
+qwen25,"VSR, format arm",0.7,0.63,0.77,main.format.qwen25.vsr
+qwen25,"Flip rate, format arm",0.12288888888888888,0.09044444444444444,0.1577777777777778,main.format.qwen25.flip_rate
+qwen25,QA max token F1,0.5883692210034921,0.45415221458617405,0.7205407055575852,main.secondary.order.F1_QA.qwen25.max_token_f1
+qwen25,CLS unresolved label,0.0,0.0,0.0,main.secondary.order.F2_CLASSIFICATION.qwen25.unresolved_rate
+qwen25,CLS no label (post-hoc),0.065,0.0,0.175,main.secondary.order.F2_CLASSIFICATION.qwen25.no_label_rate
+qwen25,EXT exact all fields,0.825,0.685,0.945,main.secondary.order.F4_EXTRACTION.qwen25.exact_all_fields
+qwen25,TRF exact all fields,0.935,0.87,0.985,main.secondary.order.F5_TRANSFORMATION.qwen25.exact_all_fields
+qwen25,VERBATIM case-insensitive,0.722,0.688,0.75,main.robustness.diagnostics.order.qwen25.verbatim_case_insensitive
+phi4mini,"VSR, format arm",0.47,0.39,0.55,main.format.phi4mini.vsr
+phi4mini,"Flip rate, format arm",0.2311111111111111,0.1877777777777778,0.2737777777777778,main.format.phi4mini.flip_rate
+phi4mini,QA max token F1,0.38605235237472085,0.3111627444529728,0.4577112329674539,main.secondary.order.F1_QA.phi4mini.max_token_f1
+phi4mini,CLS unresolved label,0.0,0.0,0.0,main.secondary.order.F2_CLASSIFICATION.phi4mini.unresolved_rate
+phi4mini,CLS no label (post-hoc),0.005,0.0,0.015,main.secondary.order.F2_CLASSIFICATION.phi4mini.no_label_rate
+phi4mini,EXT exact all fields,0.925,0.82,1.0,main.secondary.order.F4_EXTRACTION.phi4mini.exact_all_fields
+phi4mini,TRF exact all fields,0.98,0.95,1.0,main.secondary.order.F5_TRANSFORMATION.phi4mini.exact_all_fields
+phi4mini,VERBATIM case-insensitive,0.807,0.759,0.853,main.robustness.diagnostics.order.phi4mini.verbatim_case_insensitive
+gemma4e4b,"VSR, format arm",0.87,0.81,0.93,main.format.gemma4e4b.vsr
+gemma4e4b,"Flip rate, format arm",0.046666666666666676,0.022883333333333356,0.07511111111111111,main.format.gemma4e4b.flip_rate
+gemma4e4b,QA max token F1,0.3518070086312784,0.2902491127664494,0.41438753267342576,main.secondary.order.F1_QA.gemma4e4b.max_token_f1
+gemma4e4b,CLS unresolved label,0.0,0.0,0.0,main.secondary.order.F2_CLASSIFICATION.gemma4e4b.unresolved_rate
+gemma4e4b,CLS no label (post-hoc),0.045,0.0,0.135,main.secondary.order.F2_CLASSIFICATION.gemma4e4b.no_label_rate
+gemma4e4b,EXT exact all fields,0.96,0.89,1.0,main.secondary.order.F4_EXTRACTION.gemma4e4b.exact_all_fields
+gemma4e4b,TRF exact all fields,1.0,1.0,1.0,main.secondary.order.F5_TRANSFORMATION.gemma4e4b.exact_all_fields
+gemma4e4b,VERBATIM case-insensitive,0.654,0.585,0.722,main.robustness.diagnostics.order.gemma4e4b.verbatim_case_insensitive

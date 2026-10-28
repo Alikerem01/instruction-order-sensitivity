@@ -1,0 +1,22 @@
+{
+  "phase": "golden_fixture",
+  "description": "Hand-written outputs with hand-written expected flags (design decision G1, R6). Never analysed.",
+  "analysis_eligible": false,
+  "batch_size": 16,
+  "max_new_tokens": 512,
+  "models": [
+    "fixture_model"
+  ],
+  "model_specs": {
+    "fixture_model": {
+      "hf_id": "fixture/hand-written-outputs",
+      "revision": "0000000000000000000000000000000000000000",
+      "eos_token_ids": [
+        0
+      ],
+      "pad_token_id": 0
+    }
+  },
+  "prompts_file": "prompts.jsonl",
+  "tasks_file": "tasks.jsonl"
+}

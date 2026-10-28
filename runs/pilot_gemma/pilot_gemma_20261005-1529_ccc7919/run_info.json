@@ -1,0 +1,13 @@
+{
+  "run_id": "pilot_gemma_20261005-1529_ccc7919",
+  "phase": "pilot_gemma",
+  "gitsha": "ccc79190e2a8963a597782afa20be743df8913e1",
+  "gitsha7": "ccc7919",
+  "bundle": "colab_bundle_pilot_gemma_ccc7919.zip",
+  "created_utc": "2026-10-05T15:29:04Z",
+  "models": [
+    "gemma4e4b"
+  ],
+  "replicate_of": null,
+  "pass": 1
+}

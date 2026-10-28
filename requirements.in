@@ -1,0 +1,22 @@
+# Direct dependencies for the local (Mac) environment. Compiled into requirements.txt with:
+#   uv pip compile requirements.in -o requirements.txt --python-version 3.11
+# Generation-critical pins (must match requirements-colab.txt):
+transformers==5.17.0
+tokenizers==0.23.2
+huggingface-hub==1.33.0
+safetensors==0.8.0
+accelerate==1.15.0
+# Local-only (dry-run on CPU/MPS; Colab keeps its preinstalled torch):
+torch==2.14.1
+# Data, evaluation, statistics, figures, tests:
+numpy
+pandas
+pyarrow
+pyyaml
+rouge-score==0.1.2
+nltk
+scipy
+statsmodels
+matplotlib
+pytest
+nbformat

@@ -1,0 +1,73 @@
+{
+  "tag": "benchmark-v1.0.0",
+  "decisions": "brief §5 with the approved changes in DESIGN_DEVIATIONS.md (G1, D02-D06, G2)",
+  "counts": {
+    "tasks_main": 100,
+    "tasks_pilot": 10,
+    "prompts_main_ids": 2000,
+    "prompts_main_unique_texts": 1900,
+    "models_main": [
+      "smollm2",
+      "qwen25",
+      "phi4mini",
+      "gemma4e4b"
+    ]
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 512,
+    "repetition_penalty": 1.0,
+    "dtype": "bfloat16",
+    "padding_side": "left",
+    "attn_implementation": "sdpa",
+    "main_batch_size": 1
+  },
+  "calibration": {
+    "round": 0,
+    "active_instructions": {
+      "T1": "T1_FORMAT",
+      "T2": "T2_LENGTH",
+      "T3": "T3_CARDINALITY",
+      "T4": "T4_NO_COMMA",
+      "T5": "T5_VERBATIM"
+    },
+    "length_limit_words": 25
+  },
+  "files_sha256": {
+    "data/benchmark_v1/README.md": "70669049ec43f192ef447f98d931b715b4b7e61da98d87486d6cfa283e3364db",
+    "data/benchmark_v1/prompts_main.jsonl": "0105f01e00642a41d058ee2e303d2ab52809db97fa95be93f5976943f7574a99",
+    "data/benchmark_v1/prompts_pilot.jsonl": "44630a1e12be66197a950d8bff1856231aa4f75d94f353ada04bac59750b3453",
+    "data/benchmark_v1/prompts_smoke.jsonl": "ed50bb41d1ad1be0bb7a2d0bae719204322d16d943804463b12f1ab95bac16f0",
+    "data/benchmark_v1/selection_report.json": "900c101c230da7dbf5c3608159055215e1ab197eb59cf3cfc543a375c71fbc9b",
+    "data/benchmark_v1/tasks_main.jsonl": "09ffb002f1ddb648d59ffdb289b16e0fe72dc83abeaca63a7e49a58216fad2a6",
+    "data/benchmark_v1/tasks_pilot.jsonl": "e5b09564d4feef9bc9cebdc5b3b0fba7aa04f28de78ec531f3605ba88a2c7574",
+    "configs/experiment.yaml": "7c3493787bf54f7785a4421a94fbdde24f401c9c9333dc4ca4ebabdf1d1d961f",
+    "configs/models.yaml": "1d48f9fbf4fcd33ba39aecece8a90888a0044f1276c99782378955c24d626225",
+    "configs/prompt_strings.yaml": "53a23a8772ad252681faa1af78ccb0f21e32658758e6a362bfbe412536d9d5e8",
+    "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/build_prompts.py": "d282d1256d0cfa39768b6f31598d04e2ccf20e4acfe0d89d8df3ed449df87a17",
+    "src/common.py": "95516e02c82482cf9c05561a518f06b3667e0fa502d4a0f101585bb5b8fc6c80",
+    "src/evaluate.py": "045e0bed7645a087f61026d4422b39863b318d7ce4ac960a5d7564d86a40731b",
+    "src/evaluators/README.md": "2436564928249d5462c91a060ba54d10eab298241767b4c14b51bcdf790c7cf6",
+    "src/evaluators/__init__.py": "87fad03ffe240f47421010dace9ea23028461a47bbaf89782a60a2268ce43f7d",
+    "src/evaluators/constraints.py": "2df1ba6dc280e6d33233835c0bd5df61f744129f7f31284ee4ff965c18e5b788",
+    "src/evaluators/format.py": "a6ba52738a38fd2b57d88f54659aac147a312f4b84392643b92c7a1cd5bc45b5",
+    "src/evaluators/quality.py": "b857f0ef70f06f7bfdc1cd07933cc9e95ac192b5e107e7eff325565b408a9658",
+    "src/evaluators/record.py": "26ce02ac66c1019197676262a3de4d1afbfba14e52110844ad5a70e5b20d08c8",
+    "src/evaluators/tags.py": "eae71a6b90ebde14d7a016b77a8d646431d451043ce494eac4d2522b1ac540b9",
+    "src/genconfig.py": "404412d40622d43440bb8de81c0779675d9d9675d0268fc1c29169ee2c557bf5",
+    "src/generate.py": "977639fd8c8f51755d5145fb09f4dcaabf10bcd1ca83ba41a867260f01163de0",
+    "src/generate_synthetic.py": "2beecd72edab66f63db64503d0acbe577e12410ee60165c8f790c5932e1372a6",
+    "src/orders.py": "bea18e14034d3e843b017bfd165a8eeacb1332409785892ca284eee78e309178",
+    "src/phases.py": "478a8a9c1b50701114eb431210dd3a216625168358a2325c4ba261dfe481e481",
+    "src/prepare_tasks.py": "61d4698c88bd1c3c375477594ddb0da039e256392a5c400cd98fe77483298a4f",
+    "src/privacy.py": "1482b070dd1f34c384a00b7f50e46b3e73b603603451242e99b6f3fc8dfaddc1",
+    "src/prompt_builder.py": "48ac2142a39ce2a14e839b7b4a717932c5be64109116cb5c06697d23071c1817",
+    "src/runs.py": "dc9ce0c2dd93e3335d81ef489b100fcb8eb07cfc8c64132e6e428823369705e7",
+    "src/validate_integrity.py": "f3a5bb5e51ba4f78219b6a5b28f73cb5e684f93d955b7599c8dd6861271ec74b",
+    "ANALYSIS_PLAN.md": "b1c4b4bd0c41c696ff0fc1a69dc5600467b21b318484631cf6077979599f1fb0",
+    "requirements.txt": "6fb79c74899e562266f664078d8b4acf598d9e7a036c43ae5955ef1514d8430a",
+    "requirements-colab.txt": "3ac03b93a96d5f2911b848bf4b6e95f2414bb1c2f5659d162b05f5a5e284ede4"
+  }
+}
