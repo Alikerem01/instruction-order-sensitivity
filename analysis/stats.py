@@ -21,6 +21,8 @@ import statsmodels.formula.api as smf
 from statsmodels.stats.contingency_tables import cochrans_q
 from statsmodels.stats.multitest import multipletests
 
+from analysis.numerics import canonical
+
 NOT_APPLICABLE = "no variation; test not applicable"
 NOT_ESTIMABLE = "not estimable"
 
@@ -145,7 +147,8 @@ def p2_tests(csr: np.ndarray, pcr: np.ndarray) -> dict:
 
 def p3_test(d: np.ndarray) -> dict:
     """Wilcoxon signed-rank test of d = PS_order − PS_format per task (decision D05 §2)."""
-    d = np.asarray(d, dtype=float)
+    # Restore exact equalities before Pratt zero handling and absolute ranks.
+    d = canonical(d)
     out = {"n": int(d.size), "n_zero": int((d == 0).sum()), "n_pos": int((d > 0).sum()), "n_neg": int((d < 0).sum())}
     if np.all(d == 0):
         return {**out, "status": "no difference; test not applicable"}

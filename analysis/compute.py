@@ -16,6 +16,7 @@ import scipy.stats as st
 
 from analysis.bootstrap import TaskBootstrap, bootstrap_p
 from analysis.data import ARM_IDS, CONSTRAINTS, FAMILIES, ORDER_IDS, SLOT
+from analysis.numerics import canonical
 from analysis.stats import NOT_APPLICABLE, NOT_ESTIMABLE, bh, gee_position, p2_tests, p3_test
 from src.evaluators.tags import TAG_ORDER
 from src.orders import e2_informative_positions
@@ -75,7 +76,10 @@ class Analysis:
             assert len(g) == 10, (model, arm, task)
             vec = [tuple(v) for v in g[f].to_numpy()]
             pairs = list(itertools.combinations(vec, 2))
-            rows[task] = {"ps": g._csr.max() - g._csr.min(), "vsr": float(len(set(vec)) == 1),
+            # Range the integer pass counts before division: equal ranges such
+            # as 4/5 - 3/5 and 2/5 - 1/5 must have the same representation.
+            counts = g[f].sum(axis=1).to_numpy(dtype=np.int64)
+            rows[task] = {"ps": float(counts.max() - counts.min()) / len(f), "vsr": float(len(set(vec)) == 1),
                           "flip_rate": sum(a != b for a, b in pairs) / len(pairs), "csr": g._csr.mean(),
                           "pcr": g._pcr.mean()}
         self._tv[(arm, model)] = pd.DataFrame.from_dict(rows, orient="index").reindex(self.tasks)
@@ -244,7 +248,7 @@ class Analysis:
             self.s[f"{p}.difficulty_source"] = f"{difficulties[m]['phase']}/{difficulties[m]['run_id']} (order arm)"
             for c in CONSTRAINTS:
                 self.s[f"{p}.difficulty.{c}"] = d[c]
-            dv = np.array([d[c] for c in CONSTRAINTS])
+            dv = canonical([d[c] for c in CONSTRAINTS])
             if np.all(dv == dv[0]):
                 self.s[f"{p}.status"] = "HE not estimable: all five difficulties are tied"
                 continue
@@ -257,7 +261,7 @@ class Analysis:
             for outcome, col in (("csr", "_csr"), ("pcr", "_pcr")):
                 mat = sub.pivot(index="task_id", columns="condition_id", values=col).reindex(self.tasks)[list(ORDER_IDS)]
                 mat = mat.to_numpy(dtype=float)
-                level = mat.mean(axis=0)
+                level = canonical(mat.mean(axis=0))
                 key = f"{p}.he_vs_{outcome}"
                 if np.all(hev == hev[0]) or np.all(level == level[0]):
                     self.s[f"{key}.status"] = NOT_APPLICABLE
@@ -265,7 +269,7 @@ class Analysis:
                 rho = float(st.spearmanr(hev, level).statistic)
                 reps_levels = (self.bs.counts @ mat) / self.bs.counts.sum(axis=1, keepdims=True)
                 ra = st.rankdata(hev)
-                rb = st.rankdata(reps_levels, axis=1)
+                rb = st.rankdata(canonical(reps_levels), axis=1)
                 ra_c = ra - ra.mean()
                 rb_c = rb - rb.mean(axis=1, keepdims=True)
                 with np.errstate(invalid="ignore", divide="ignore"):

@@ -9,7 +9,7 @@ smollm2,TRF exact all fields,0.84,0.69,0.96,main.secondary.order.F5_TRANSFORMATI
 smollm2,VERBATIM case-insensitive,0.281,0.244,0.316,main.robustness.diagnostics.order.smollm2.verbatim_case_insensitive
 qwen25,"VSR, format arm",0.7,0.63,0.77,main.format.qwen25.vsr
 qwen25,"Flip rate, format arm",0.12288888888888888,0.09044444444444444,0.1577777777777778,main.format.qwen25.flip_rate
-qwen25,QA max token F1,0.5883692210034921,0.45415221458617405,0.7205407055575852,main.secondary.order.F1_QA.qwen25.max_token_f1
+qwen25,QA max token F1,0.5883692210034921,0.45415221458617394,0.7205407055575852,main.secondary.order.F1_QA.qwen25.max_token_f1
 qwen25,CLS unresolved label,0.0,0.0,0.0,main.secondary.order.F2_CLASSIFICATION.qwen25.unresolved_rate
 qwen25,CLS no label (post-hoc),0.065,0.0,0.175,main.secondary.order.F2_CLASSIFICATION.qwen25.no_label_rate
 qwen25,EXT exact all fields,0.825,0.685,0.945,main.secondary.order.F4_EXTRACTION.qwen25.exact_all_fields
@@ -17,14 +17,14 @@ qwen25,TRF exact all fields,0.935,0.87,0.985,main.secondary.order.F5_TRANSFORMAT
 qwen25,VERBATIM case-insensitive,0.722,0.688,0.75,main.robustness.diagnostics.order.qwen25.verbatim_case_insensitive
 phi4mini,"VSR, format arm",0.47,0.39,0.55,main.format.phi4mini.vsr
 phi4mini,"Flip rate, format arm",0.2311111111111111,0.1877777777777778,0.2737777777777778,main.format.phi4mini.flip_rate
-phi4mini,QA max token F1,0.38605235237472085,0.3111627444529728,0.4577112329674539,main.secondary.order.F1_QA.phi4mini.max_token_f1
+phi4mini,QA max token F1,0.38605235237472085,0.31116274445297276,0.4577112329674539,main.secondary.order.F1_QA.phi4mini.max_token_f1
 phi4mini,CLS unresolved label,0.0,0.0,0.0,main.secondary.order.F2_CLASSIFICATION.phi4mini.unresolved_rate
 phi4mini,CLS no label (post-hoc),0.005,0.0,0.015,main.secondary.order.F2_CLASSIFICATION.phi4mini.no_label_rate
 phi4mini,EXT exact all fields,0.925,0.82,1.0,main.secondary.order.F4_EXTRACTION.phi4mini.exact_all_fields
 phi4mini,TRF exact all fields,0.98,0.95,1.0,main.secondary.order.F5_TRANSFORMATION.phi4mini.exact_all_fields
 phi4mini,VERBATIM case-insensitive,0.807,0.759,0.853,main.robustness.diagnostics.order.phi4mini.verbatim_case_insensitive
 gemma4e4b,"VSR, format arm",0.87,0.81,0.93,main.format.gemma4e4b.vsr
-gemma4e4b,"Flip rate, format arm",0.046666666666666676,0.022883333333333356,0.07511111111111111,main.format.gemma4e4b.flip_rate
+gemma4e4b,"Flip rate, format arm",0.046666666666666676,0.022883333333333356,0.0751111111111111,main.format.gemma4e4b.flip_rate
 gemma4e4b,QA max token F1,0.3518070086312784,0.2902491127664494,0.41438753267342576,main.secondary.order.F1_QA.gemma4e4b.max_token_f1
 gemma4e4b,CLS unresolved label,0.0,0.0,0.0,main.secondary.order.F2_CLASSIFICATION.gemma4e4b.unresolved_rate
 gemma4e4b,CLS no label (post-hoc),0.045,0.0,0.135,main.secondary.order.F2_CLASSIFICATION.gemma4e4b.no_label_rate

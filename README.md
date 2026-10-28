@@ -59,6 +59,34 @@ their original SHA-256.
 
 ## Reproducing
 
+### v3.1 numerical correction (2026-10-28)
+
+This local revision corrects floating-point tie handling in sign, rank and order-level comparisons under both
+strict and normalized scoring. It does not change the scoring policies, raw outputs or stored evaluation flags.
+The earlier summaries are retained in `results/archive/pre_v3_1/`. The complete before/after audit is
+`results/report/NUMERICAL_CORRECTION_V31.json`; see also `DESIGN_DEVIATIONS.md` §9.
+
+To reproduce this correction directly from the released records, without downloading source datasets or running
+any model:
+
+```bash
+python -m analysis.correct_numerics
+python -m pytest -q tests/test_analysis.py tests/test_posthoc_r1.py tests/test_posthoc_norm.py tests/test_numerical_ties.py tests/test_constraints.py tests/test_format.py
+```
+
+This route rechecks strict and normalized FORMAT on the raw outputs and verifies parsed-object invariance. It
+reuses the stored content flags and quality scores, so it is not a fresh end-to-end evaluation of the omitted
+source texts. Input-text comma-spillover, tokenizer edit distances and prior generation checks are explicitly
+carried forward. The audit verifies that all inputs are unchanged and lists the retained keys. Numerical
+recomputation used Python 3.12.14 with the analysis-library versions recorded in the summaries; the original
+environment files are preserved.
+
+These six test modules cover the analyses, normalized-policy checks, numerical regressions and constraint/FORMAT
+evaluators (120 tests). They are not a substitute for the full suite after the complete environment and omitted
+source data have been restored.
+
+### Full evaluation and analysis
+
 ```
 make setup                 # Python 3.11 virtual environment with the pinned requirements
 make tasks prompts         # rebuild the full task and prompt files (downloads the pinned datasets)

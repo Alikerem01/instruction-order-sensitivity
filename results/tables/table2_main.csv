@@ -4,28 +4,28 @@ smollm2,PCR,0.058,0.037,0.08,main.order.smollm2.pcr
 smollm2,PS_order,0.29600000000000004,0.26,0.33599999999999997,main.order.smollm2.ps
 smollm2,PS_format,0.30999999999999994,0.28,0.3440000000000001,main.format.smollm2.ps
 smollm2,VSR,0.4,0.36,0.44,main.order.smollm2.vsr
-smollm2,Flip rate,0.3602222222222223,0.33000000000000007,0.3913333333333333,main.order.smollm2.flip_rate
+smollm2,Flip rate,0.3602222222222223,0.33,0.3913333333333333,main.order.smollm2.flip_rate
 qwen25,CSR,0.6336,0.621,0.6452,main.order.qwen25.csr
 qwen25,PCR,0.081,0.05597500000000011,0.108,main.order.qwen25.pcr
-qwen25,PS_order,0.31600000000000006,0.29200000000000004,0.342,main.order.qwen25.ps
+qwen25,PS_order,0.316,0.29200000000000004,0.342,main.order.qwen25.ps
 qwen25,PS_format,0.068,0.05199999999999999,0.086,main.format.qwen25.ps
 qwen25,VSR,0.2,0.16,0.24,main.order.qwen25.vsr
 qwen25,Flip rate,0.3322222222222223,0.3006611111111111,0.3635555555555555,main.order.qwen25.flip_rate
-phi4mini,CSR,0.8522000000000001,0.8364,0.8677999999999999,main.order.phi4mini.csr
+phi4mini,CSR,0.8522000000000001,0.8364000000000001,0.8677999999999999,main.order.phi4mini.csr
 phi4mini,PCR,0.457,0.402,0.509,main.order.phi4mini.pcr
-phi4mini,PS_order,0.26399999999999996,0.23799999999999996,0.292,main.order.phi4mini.ps
-phi4mini,PS_format,0.14799999999999996,0.118,0.18,main.format.phi4mini.ps
+phi4mini,PS_order,0.26399999999999996,0.23800000000000002,0.292,main.order.phi4mini.ps
+phi4mini,PS_format,0.14799999999999996,0.11800000000000001,0.18,main.format.phi4mini.ps
 phi4mini,VSR,0.18,0.12,0.24,main.order.phi4mini.vsr
-phi4mini,Flip rate,0.47555555555555556,0.44088333333333335,0.5111111111111111,main.order.phi4mini.flip_rate
+phi4mini,Flip rate,0.47555555555555556,0.4408833333333333,0.5111111111111111,main.order.phi4mini.flip_rate
 gemma4e4b,CSR,0.6958000000000001,0.6802,0.711,main.order.gemma4e4b.csr
 gemma4e4b,PCR,0.0,0.0,0.0,main.order.gemma4e4b.pcr
-gemma4e4b,PS_order,0.11200000000000003,0.09,0.136,main.order.gemma4e4b.ps
-gemma4e4b,PS_format,0.028000000000000008,0.015950000000000217,0.04200000000000001,main.format.gemma4e4b.ps
+gemma4e4b,PS_order,0.11199999999999999,0.09,0.136,main.order.gemma4e4b.ps
+gemma4e4b,PS_format,0.028000000000000004,0.015950000000000217,0.04200000000000001,main.format.gemma4e4b.ps
 gemma4e4b,VSR,0.56,0.48,0.64,main.order.gemma4e4b.vsr
 gemma4e4b,Flip rate,0.19088888888888889,0.15088888888888888,0.23111666666666658,main.order.gemma4e4b.flip_rate
-pooled,CSR,0.6306,0.62159875,0.6390012500000001,main.order.pooled.csr
+pooled,CSR,0.6306,0.6215987500000001,0.6390012500000001,main.order.pooled.csr
 pooled,PCR,0.149,0.134,0.16375,main.order.pooled.pcr
-pooled,PS_order,0.247,0.2324875,0.26150000000000007,main.order.pooled.ps
-pooled,PS_format,0.13849999999999998,0.1265,0.15150000000000002,main.format.pooled.ps
+pooled,PS_order,0.247,0.23248750000000007,0.2615,main.order.pooled.ps
+pooled,PS_format,0.13849999999999998,0.1265,0.1515,main.format.pooled.ps
 pooled,VSR,0.335,0.305,0.365,main.order.pooled.vsr
-pooled,Flip rate,0.33972222222222215,0.3209444444444445,0.35816666666666663,main.order.pooled.flip_rate
+pooled,Flip rate,0.33972222222222215,0.3209444444444444,0.35816666666666663,main.order.pooled.flip_rate

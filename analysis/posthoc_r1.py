@@ -19,6 +19,7 @@ import scipy.stats as st
 from analysis.bootstrap import bootstrap_p
 from analysis.compute import Analysis, _put
 from analysis.data import ARM_IDS, CONSTRAINTS, FAMILIES, ORDER_IDS
+from analysis.numerics import canonical
 from analysis.stats import NOT_APPLICABLE, p2_tests
 from src.common import RUNS_DIR, read_jsonl
 from src.evaluators.format import _FENCE_RE, format_strict, lenient_parse
@@ -71,7 +72,7 @@ def order_level(a: Analysis, prefix: str = f"{P}.order_level") -> None:
                     _put(a.s, f"{prefix}.{arm}.{m}.{cid}.{metric}", a.bs.estimate(mat[:, j]))
                 if metric in ("csr", "pcr"):
                     point = mat.mean(axis=0)
-                    means[(m, metric)] = point
+                    means[(m, metric)] = canonical(point)
                     reps = (a.bs.counts @ mat) / a.bs.counts.sum(axis=1, keepdims=True)
                     span_reps = reps.max(axis=1) - reps.min(axis=1)
                     lo, hi = a.bs.percentile_ci(span_reps)
@@ -80,7 +81,7 @@ def order_level(a: Analysis, prefix: str = f"{P}.order_level") -> None:
         for metric in ("csr", "pcr"):
             # the arm-level ranking (mean over the ten conditions) and the number of conditions that reproduce it
             # strictly (a tie between any two models does not reproduce it)
-            overall = sorted(a.models, key=lambda m: -means[(m, metric)].mean())
+            overall = sorted(a.models, key=lambda m: -float(canonical(means[(m, metric)].mean())))
             k = f"{prefix}.{arm}.rank.overall.{metric}"
             a.s[f"{k}.ranking"] = overall
             a.s[f"{k}.n_conditions_reproducing"] = int(sum(

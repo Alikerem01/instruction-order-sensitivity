@@ -1,12 +1,12 @@
 model,arm,metric,mean,ci_low,ci_high
 smollm2,format,compliance.format,0.46,0.434,0.488
-smollm2,format,csr,0.37500000000000006,0.35320000000000007,0.3998
+smollm2,format,csr,0.37500000000000006,0.35320000000000007,0.39980000000000004
 smollm2,format,pcr,0.125,0.08,0.173
 qwen25,format,compliance.format,0.8,0.8,0.8
 qwen25,format,csr,0.6538,0.6386000000000002,0.6676
 qwen25,format,pcr,0.135,0.09,0.18202499999999963
 phi4mini,format,compliance.format,0.999,0.997,1.0
-phi4mini,format,csr,0.9017999999999998,0.883,0.9194000000000001
+phi4mini,format,csr,0.9017999999999998,0.8830000000000001,0.9194
 phi4mini,format,pcr,0.624,0.555,0.689
 gemma4e4b,format,compliance.format,1.0,1.0,1.0
 gemma4e4b,format,csr,0.9034,0.8832000000000001,0.9222

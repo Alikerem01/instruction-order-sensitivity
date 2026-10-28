@@ -9,10 +9,10 @@ Table N9. Normalized scoring (post-hoc): exploratory and robustness analyses.
 
 **Hard-to-easy index with normalized pilot difficulties** (ten fixed orders, not a test):
 
-- SmolLM2-1.7B: difficulties FORMAT 0.62, LENGTH 0.41, CARDINALITY 0.88, NO_COMMA 0.70, VERBATIM 0.73; ρ(HE, order-level CSR) = -0.08 [-0.15, 0.03]; ρ(HE, order-level PCR) = -0.23 [-0.61, 0.26].
+- SmolLM2-1.7B: difficulties FORMAT 0.62, LENGTH 0.41, CARDINALITY 0.88, NO_COMMA 0.70, VERBATIM 0.73; ρ(HE, order-level CSR) = -0.09 [-0.15, 0.04]; ρ(HE, order-level PCR) = -0.23 [-0.61, 0.26].
 - Qwen2.5-3B: difficulties FORMAT 0.18, LENGTH 0.17, CARDINALITY 0.46, NO_COMMA 0.61, VERBATIM 0.34; ρ(HE, order-level CSR) = -0.12 [-0.42, 0.01]; ρ(HE, order-level PCR) = -0.20 [-0.30, 0.28].
-- Phi-4-mini: difficulties FORMAT 0.00, LENGTH 0.00, CARDINALITY 0.09, NO_COMMA 0.31, VERBATIM 0.22; ρ(HE, order-level CSR) = -0.62 [-0.67, -0.21]; ρ(HE, order-level PCR) = -0.41 [-0.72, -0.17].
-- Gemma 4 E4B: difficulties FORMAT 0.00, LENGTH 0.00, CARDINALITY 0.16, NO_COMMA 0.00, VERBATIM 0.52; ρ(HE, order-level CSR) = 0.67 [0.39, 0.78]; ρ(HE, order-level PCR) = 0.62 [0.37, 0.78].
+- Phi-4-mini: difficulties FORMAT 0.00, LENGTH 0.00, CARDINALITY 0.09, NO_COMMA 0.31, VERBATIM 0.22; ρ(HE, order-level CSR) = -0.62 [-0.68, -0.22]; ρ(HE, order-level PCR) = -0.41 [-0.72, -0.17].
+- Gemma 4 E4B: difficulties FORMAT 0.00, LENGTH 0.00, CARDINALITY 0.16, NO_COMMA 0.00, VERBATIM 0.52; ρ(HE, order-level CSR) = 0.66 [0.39, 0.78]; ρ(HE, order-level PCR) = 0.62 [0.37, 0.78].
 
 **Normalized FORMAT failures by type, with the raw-output code_fence tag** (order arm):
 

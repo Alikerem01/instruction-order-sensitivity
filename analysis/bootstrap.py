@@ -13,6 +13,8 @@ from __future__ import annotations
 
 import numpy as np
 
+from analysis.numerics import canonical
+
 
 class TaskBootstrap:
     def __init__(self, task_ids: list[str], families: list[str], n_boot: int = 5000, seed: int = 20261003,
@@ -62,6 +64,8 @@ class TaskBootstrap:
 def bootstrap_p(reps: np.ndarray) -> float:
     """Two-sided bootstrap p-value of a difference (decision D05 §3):
     p = min(1, 2 · min(#{Δ*_b ≤ 0} + 1, #{Δ*_b ≥ 0} + 1) / (B + 1))."""
-    reps = np.asarray(reps, dtype=float)
+    # Include mathematically zero replicates in BOTH tails as specified above.
+    # Otherwise machine-level residuals silently change the test's tie rule.
+    reps = canonical(reps)
     b = reps.size
     return float(min(1.0, 2 * min((reps <= 0).sum() + 1, (reps >= 0).sum() + 1) / (b + 1)))

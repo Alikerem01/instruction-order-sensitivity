@@ -1,6 +1,6 @@
 # SUMMARY_NORM — normalized FORMAT scoring (post-hoc re-analysis)
 
-Run `main_20261006-1354_63a1c79`; bootstrap 5000 task-clustered replicates stratified by family, seed 20261003; generated 2026-10-26T15:15:18Z. Every value is a key of `results/posthoc_norm/summary_norm.json`. These results are a post-hoc re-analysis. The pre-specified strict results are unchanged in `results/metrics/summary.json`.
+Run `main_20261006-1354_63a1c79`; bootstrap 5000 task-clustered replicates stratified by family, seed 20261003; generated 2026-10-28T13:56:30Z. Every value is a key of `results/posthoc_norm/summary_norm.json`. These results are a post-hoc re-analysis. The pre-specified strict results are in `results/metrics/summary.json`; both policies include the documented v3.1 numerical correction, with pre-correction summaries archived separately.
 
 ## Rule
 
@@ -17,9 +17,9 @@ Rejected (strict value kept): text before or after the fence; more than one fenc
 
 ## Checks
 
-- Fresh evaluation of the raw outputs against the stored evaluation records: 8000 records, 0 differences.
-- Strict results recomputed from the fresh records against `summary.json`: 977 keys, 0 differences (S1 (both arms), position rates, P1 GEE, P2, P3, S2 pairs and task quality recomputed from the fresh records and compared with summary.json).
-- Other four flags and task quality after normalization (each output evaluated as generated and after the fence is removed): 8000 records, 0 differences in the flags and quality scores, 0 in the quality details.
+- Strict FORMAT rechecked from raw outputs against the stored evaluation records: 8000 records, 0 differences.
+- Strict results recomputed against `summary.json`: 977 keys, 0 differences (S1, position rates, P1, P2, P3, S2 pairs and quality from stored records; numeric tolerance 1e-12 absolute/1e-10 relative).
+- Other four flags and task quality retained from the stored records; parsed objects before and after normalization checked for equality: 8000 records, 0 differences in the flags and quality scores, 0 in the quality details.
 - FORMAT changed from pass to fail: 0 records.
 - Constraint rates, position rates and GEE status of LENGTH, CARDINALITY, NO_COMMA and VERBATIM equal the strict values: 424 keys, 0 differences.
 - Task quality (Q and TQS) equals the strict values: 120 keys, 0 differences.
@@ -56,7 +56,7 @@ Table N1. Normalized scoring (post-hoc): FORMAT, CSR and PCR (order arm) and PS 
 | Qwen2.5-3B | 82.3% [81.5%, 83.0%] | 63.6% [62.4%, 64.7%] | 8.1% [5.6%, 10.8%] | 0.308 [0.284, 0.334] | 0.068 [0.052, 0.086] |
 | Phi-4-mini | 99.7% [99.2%, 100.0%] | 85.2% [83.6%, 86.8%] | 45.7% [40.2%, 50.9%] | 0.264 [0.238, 0.292] | 0.148 [0.118, 0.180] |
 | Gemma 4 E4B | 100.0% [100.0%, 100.0%] | 89.6% [88.0%, 91.1%] | 53.7% [47.1%, 60.3%] | 0.112 [0.090, 0.136] | 0.028 [0.016, 0.042] |
-| Pooled | 80.5% [79.7%, 81.3%] | 68.1% [67.2%, 69.0%] | 28.3% [25.7%, 30.9%] | 0.245 [0.230, 0.260] | 0.138 [0.126, 0.151] |
+| Pooled | 80.5% [79.7%, 81.3%] | 68.1% [67.2%, 69.0%] | 28.3% [25.7%, 30.9%] | 0.245 [0.230, 0.260] | 0.138 [0.127, 0.151] |
 
 PS is a range of CSR (0-1). CSR, PCR and FORMAT are shown as percentages.
 
@@ -134,10 +134,10 @@ Table N4. Normalized scoring (post-hoc): PS_order − PS_format per model (100 t
 
 | Model | Mean difference [95% CI] | Tasks + / − / 0 | Wilcoxon statistic | p | q |
 |---|---:|---:|---:|---:|---:|
-| SmolLM2-1.7B | -0.014 [-0.048, 0.018] | 28 / 32 / 40 | 2000.0 | .682 | .682 |
-| Qwen2.5-3B | 0.240 [0.212, 0.270] | 69 / 3 / 28 | 132.5 | < .001 | < .001 |
-| Phi-4-mini | 0.116 [0.084, 0.148] | 55 / 7 / 38 | 480.5 | < .001 | < .001 |
-| Gemma 4 E4B | 0.084 [0.060, 0.110] | 35 / 2 / 63 | 150.0 | < .001 | < .001 |
+| SmolLM2-1.7B | -0.014 [-0.048, 0.018] | 24 / 27 / 49 | 1822.0 | .740 | .740 |
+| Qwen2.5-3B | 0.240 [0.212, 0.270] | 60 / 2 / 38 | 111.0 | < .001 | < .001 |
+| Phi-4-mini | 0.116 [0.084, 0.148] | 55 / 7 / 38 | 481.5 | < .001 | < .001 |
+| Gemma 4 E4B | 0.084 [0.060, 0.110] | 35 / 2 / 63 | 155.0 | < .001 | < .001 |
 
 
 ## Table N5
@@ -146,10 +146,10 @@ Table N5. Normalized scoring (post-hoc): paired differences between models, orde
 
 | Pair | Mean CSR | Mean PS_order | Mean PCR |
 |---|---:|---:|---:|
-| SmolLM2-1.7B − Qwen2.5-3B | -29.6% [-32.2%, -27.0%], q < .001 | -0.012 [-0.058, 0.034], q = .565 | -2.3% [-6.5%, 1.8%], q = .280 |
-| SmolLM2-1.7B − Phi-4-mini | -51.1% [-53.7%, -48.7%], q < .001 | 0.032 [-0.014, 0.078], q = .192 | -39.9% [-45.5%, -34.3%], q < .001 |
+| SmolLM2-1.7B − Qwen2.5-3B | -29.6% [-32.2%, -27.0%], q < .001 | -0.012 [-0.058, 0.034], q = .618 | -2.3% [-6.5%, 1.8%], q = .286 |
+| SmolLM2-1.7B − Phi-4-mini | -51.1% [-53.7%, -48.7%], q < .001 | 0.032 [-0.014, 0.078], q = .222 | -39.9% [-45.5%, -34.3%], q < .001 |
 | SmolLM2-1.7B − Gemma 4 E4B | -55.5% [-58.0%, -53.1%], q < .001 | 0.184 [0.144, 0.226], q < .001 | -47.9% [-54.8%, -41.0%], q < .001 |
-| Qwen2.5-3B − Phi-4-mini | -21.6% [-23.4%, -19.8%], q < .001 | 0.044 [0.006, 0.084], q = .029 | -37.6% [-43.5%, -31.2%], q < .001 |
+| Qwen2.5-3B − Phi-4-mini | -21.6% [-23.4%, -19.8%], q < .001 | 0.044 [0.006, 0.084], q = .039 | -37.6% [-43.5%, -31.2%], q < .001 |
 | Qwen2.5-3B − Gemma 4 E4B | -25.9% [-27.7%, -24.2%], q < .001 | 0.196 [0.162, 0.230], q < .001 | -45.6% [-52.6%, -38.5%], q < .001 |
 | Phi-4-mini − Gemma 4 E4B | -4.4% [-6.3%, -2.3%], q < .001 | 0.152 [0.116, 0.186], q < .001 | -8.0% [-14.9%, -1.0%], q = .033 |
 
@@ -171,7 +171,7 @@ Rankings:
 
 - CSR, order arm: Gemma 4 E4B > Phi-4-mini > Qwen2.5-3B > SmolLM2-1.7B (mean over the ten conditions) in 9 of 10 conditions.
 - PCR, order arm: Gemma 4 E4B > Phi-4-mini > Qwen2.5-3B > SmolLM2-1.7B (mean over the ten conditions) in 6 of 10 conditions.
-- CSR, format arm: Gemma 4 E4B > Phi-4-mini > Qwen2.5-3B > SmolLM2-1.7B (mean over the ten conditions) in 4 of 10 conditions.
+- CSR, format arm: Gemma 4 E4B > Phi-4-mini > Qwen2.5-3B > SmolLM2-1.7B (mean over the ten conditions) in 2 of 10 conditions.
 - PCR, format arm: Phi-4-mini > Gemma 4 E4B > Qwen2.5-3B > SmolLM2-1.7B (mean over the ten conditions) in 2 of 10 conditions.
 - SmolLM2-1.7B vs Qwen2.5-3B, order arm: CSR 0 / 10 / 0; PCR 3 / 6 / 1 (higher / lower / tied).
 - SmolLM2-1.7B vs Phi-4-mini, order arm: CSR 0 / 10 / 0; PCR 0 / 10 / 0 (higher / lower / tied).
@@ -180,7 +180,7 @@ Rankings:
 - Qwen2.5-3B vs Gemma 4 E4B, order arm: CSR 0 / 10 / 0; PCR 0 / 10 / 0 (higher / lower / tied).
 - Phi-4-mini vs Gemma 4 E4B, order arm: CSR 1 / 9 / 0; PCR 2 / 8 / 0 (higher / lower / tied).
 
-Ties: the counts compare the per-condition means. A ranking holds in a condition only if every adjacent pair is strictly ordered, and `n_ties` counts equal means. Because the means are compared as floating-point numbers, an exact tie can be counted as higher or lower. Phi-4-mini and Gemma 4 E4B have exactly equal mean CSR in V07 and V09 (format arm). Rounding error decides these ties, so the stored counts are 6 / 4 / 0 (higher / lower / tied) and the CSR ranking holds in 4 of 10 conditions. Counting exact ties as ties gives 6 / 2 / 2 and 2 of 10. No other count is affected; the stored values are unchanged.
+Ties: the counts compare the per-condition means. A ranking holds in a condition only if every adjacent pair is strictly ordered, and `n_ties` counts equal means. Means are canonicalized to 12 decimal places before comparisons to remove machine-precision artifacts (v3.1 numerical correction). SmolLM2-1.7B and Qwen2.5-3B have exactly equal mean PCR in O01 (order arm). Counts are 3 / 6 / 1 (higher / lower / tied). Phi-4-mini and Gemma 4 E4B have exactly equal mean CSR in V07 and V09 (format arm). Counts are 6 / 2 / 2 (higher / lower / tied). SmolLM2-1.7B and Qwen2.5-3B have exactly equal mean PCR in V01 and V09 (format arm). Counts are 5 / 3 / 2 (higher / lower / tied).
 
 
 ## Table N8
@@ -209,10 +209,10 @@ Table N9. Normalized scoring (post-hoc): exploratory and robustness analyses.
 
 **Hard-to-easy index with normalized pilot difficulties** (ten fixed orders, not a test):
 
-- SmolLM2-1.7B: difficulties FORMAT 0.62, LENGTH 0.41, CARDINALITY 0.88, NO_COMMA 0.70, VERBATIM 0.73; ρ(HE, order-level CSR) = -0.08 [-0.15, 0.03]; ρ(HE, order-level PCR) = -0.23 [-0.61, 0.26].
+- SmolLM2-1.7B: difficulties FORMAT 0.62, LENGTH 0.41, CARDINALITY 0.88, NO_COMMA 0.70, VERBATIM 0.73; ρ(HE, order-level CSR) = -0.09 [-0.15, 0.04]; ρ(HE, order-level PCR) = -0.23 [-0.61, 0.26].
 - Qwen2.5-3B: difficulties FORMAT 0.18, LENGTH 0.17, CARDINALITY 0.46, NO_COMMA 0.61, VERBATIM 0.34; ρ(HE, order-level CSR) = -0.12 [-0.42, 0.01]; ρ(HE, order-level PCR) = -0.20 [-0.30, 0.28].
-- Phi-4-mini: difficulties FORMAT 0.00, LENGTH 0.00, CARDINALITY 0.09, NO_COMMA 0.31, VERBATIM 0.22; ρ(HE, order-level CSR) = -0.62 [-0.67, -0.21]; ρ(HE, order-level PCR) = -0.41 [-0.72, -0.17].
-- Gemma 4 E4B: difficulties FORMAT 0.00, LENGTH 0.00, CARDINALITY 0.16, NO_COMMA 0.00, VERBATIM 0.52; ρ(HE, order-level CSR) = 0.67 [0.39, 0.78]; ρ(HE, order-level PCR) = 0.62 [0.37, 0.78].
+- Phi-4-mini: difficulties FORMAT 0.00, LENGTH 0.00, CARDINALITY 0.09, NO_COMMA 0.31, VERBATIM 0.22; ρ(HE, order-level CSR) = -0.62 [-0.68, -0.22]; ρ(HE, order-level PCR) = -0.41 [-0.72, -0.17].
+- Gemma 4 E4B: difficulties FORMAT 0.00, LENGTH 0.00, CARDINALITY 0.16, NO_COMMA 0.00, VERBATIM 0.52; ρ(HE, order-level CSR) = 0.66 [0.39, 0.78]; ρ(HE, order-level PCR) = 0.62 [0.37, 0.78].
 
 **Normalized FORMAT failures by type, with the raw-output code_fence tag** (order arm):
 
@@ -250,7 +250,7 @@ In `results/posthoc_norm/figures/` (300 dpi PNG and PDF, 16 cm wide):
 - `main.posthoc_norm.p3.<model>.{mean_diff,ci_low,ci_high,wilcoxon_stat,p,q,n,n_pos,n_neg,n_zero,status}`: PS_order − PS_format
 - `main.posthoc_norm.s2.<a>_vs_<b>.{csr,ps,pcr}_diff.{mean,ci_low,ci_high,p,q}`: model pairs
 - `main.posthoc_norm.order_level.<arm>.<model>.<condition>.{csr,pcr,format}.<stat>`, `.span.{csr,pcr}.<stat>`, `main.posthoc_norm.order_level.<arm>.rank.*`: order-level profiles
-- `main.posthoc_norm.order_level.<arm>.rank.<a>_vs_<b>.<metric>.{n_a_higher,n_b_higher,n_ties}` and `main.posthoc_norm.order_level.<arm>.rank.overall.<metric>.n_conditions_reproducing`: counts over the ten conditions; the per-condition means are compared as floating-point numbers, so an exact tie can be counted as higher or lower (listed in the note to Table N6: normalized format arm, CSR, Phi-4-mini and Gemma 4 E4B in V07 and V09)
+- `main.posthoc_norm.order_level.<arm>.rank.<a>_vs_<b>.<metric>.{n_a_higher,n_b_higher,n_ties}` and `main.posthoc_norm.order_level.<arm>.rank.overall.<metric>.n_conditions_reproducing`: counts over the ten conditions; the per-condition means are canonicalized to 12 decimal places before comparison; exact ties count as ties (normalized format arm, CSR, Phi-4-mini and Gemma 4 E4B tie in V07 and V09)
 - `main.posthoc_norm.robustness.constraint_instability.<arm>.<model>.<c>.<stat>`: constraint-level instability
 - `main.posthoc_norm.robustness.cascade.*`, `main.posthoc_norm.robustness.norm_format_subset.*`: cascade and subset analyses
 - `main.posthoc_norm.exploratory.e3.<model>.*`: hard-to-easy index with normalized pilot difficulties

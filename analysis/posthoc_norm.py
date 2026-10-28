@@ -43,6 +43,7 @@ from analysis.data import (ARM_IDS, CONSTRAINTS, FAMILIES, ORDER_IDS, _row, chec
 from analysis.posthoc_r1 import failure_type, kendall_companion, order_level  # noqa: E402
 from analysis.report import CNAMES, FNAMES, NAMES, _md_table, _write_csv, dec, olabel, pct, pval  # noqa: E402
 from analysis.stats import bh  # noqa: E402
+from analysis.numerics import canonical  # noqa: E402
 from src.common import RESULTS_DIR, RUNS_DIR, atomic_write_text, read_jsonl, sha256_file, write_json  # noqa: E402
 from src.evaluators import evaluate_output  # noqa: E402
 from src.evaluators.format import _FENCE_RE, format_strict  # noqa: E402
@@ -704,9 +705,7 @@ def tables(n: Tracked, models: list[str], audit: Audit) -> dict[str, str]:
 
 
 def tie_note(n: dict, models: list[str]) -> str:
-    """How the ranking counts treat ties. The stored counts compare the per-condition means as floating-point
-    numbers, so two means that are exactly equal (same counts of passes) may be counted as higher or lower. This note
-    lists every such case; the stored values are not changed."""
+    """Document ties and verify the corrected counts instead of accepting misclassified ties."""
     cases = []
     for arm, ids in ARM_IDS.items():
         for metric in ("csr", "pcr"):
@@ -716,25 +715,17 @@ def tie_note(n: dict, models: list[str]) -> str:
                          round(n.get(f"{P}.order_level.{arm}.{y}.{cid}.{metric}.mean"), 9)) for cid in ids]
                 exact = (sum(a > b for _, a, b in vals), sum(a < b for _, a, b in vals), sum(a == b for _, a, b in vals))
                 stored = (n.get(k + ".n_a_higher"), n.get(k + ".n_b_higher"), n.get(k + ".n_ties"))
-                if exact != stored:
+                assert exact == stored, (k, exact, stored)
+                if exact[2]:
                     tied = [olabel(c) if arm == "order" else c for c, a, b in vals if a == b]
-                    o = f"{P}.order_level.{arm}.rank.overall.{metric}"
-                    rk = n.get(o + ".ranking")
-                    strict_count = sum(all(round(n.get(f"{P}.order_level.{arm}.{rk[i]}.{cid}.{metric}.mean"), 9)
-                                           > round(n.get(f"{P}.order_level.{arm}.{rk[i + 1]}.{cid}.{metric}.mean"), 9)
-                                           for i in range(len(rk) - 1)) for cid in ids)
                     cases.append(
                         f"{NAMES[x]} and {NAMES[y]} have exactly equal mean {metric.upper()} in "
                         f"{', '.join(tied[:-1]) + ' and ' + tied[-1] if len(tied) > 1 else tied[0]} ({arm} "
-                        f"arm). Rounding error decides these ties, so the stored counts are {' / '.join(map(str, stored))} "
-                        f"(higher / lower / tied) and the {metric.upper()} ranking holds in "
-                        f"{n.get(o + '.n_conditions_reproducing')} of 10 conditions. Counting exact ties as ties gives "
-                        f"{' / '.join(map(str, exact))} and {strict_count} of 10.")
+                        f"arm). Counts are {' / '.join(map(str, stored))} (higher / lower / tied).")
     head = ("Ties: the counts compare the per-condition means. A ranking holds in a condition only if every adjacent "
-            "pair is strictly ordered, and `n_ties` counts equal means. Because the means are compared as floating-point "
-            "numbers, an exact tie can be counted as higher or lower.")
-    return head + (" " + " ".join(cases) + " No other count is affected; the stored values are unchanged." if cases else
-                   " No count is affected.")
+            "pair is strictly ordered, and `n_ties` counts equal means. Means are canonicalized to 12 decimal places "
+            "before comparisons to remove machine-precision artifacts (v3.1 numerical correction).")
+    return head + (" " + " ".join(cases) if cases else " No ties occur.")
 
 
 def comparison_table(c: Tracked, models: list[str], audit: Audit) -> str:
@@ -801,8 +792,8 @@ def key_index() -> list[str]:
         f"`{P}.order_level.<arm>.rank.*`: order-level profiles",
         f"`{P}.order_level.<arm>.rank.<a>_vs_<b>.<metric>.{{n_a_higher,n_b_higher,n_ties}}` and "
         f"`{P}.order_level.<arm>.rank.overall.<metric>.n_conditions_reproducing`: counts over the ten conditions; the "
-        "per-condition means are compared as floating-point numbers, so an exact tie can be counted as higher or lower "
-        "(listed in the note to Table N6: normalized format arm, CSR, Phi-4-mini and Gemma 4 E4B in V07 and V09)",
+        "per-condition means are canonicalized to 12 decimal places before comparison; exact ties count as ties "
+        "(normalized format arm, CSR, Phi-4-mini and Gemma 4 E4B tie in V07 and V09)",
         f"`{P}.robustness.constraint_instability.<arm>.<model>.<c>.<stat>`: constraint-level instability",
         f"`{P}.robustness.cascade.*`, `{P}.robustness.norm_format_subset.*`: cascade and subset analyses",
         f"`{P}.exploratory.e3.<model>.*`: hard-to-easy index with normalized pilot difficulties",
@@ -813,11 +804,19 @@ def key_index() -> list[str]:
 
 
 def summary_md(n: dict, models: list[str], md: dict, audit_ok: bool) -> str:
+    correction = n['_meta'].get('recomputation_mode') == 'stored-evaluation-records'
+    records_check = ("Strict FORMAT rechecked from raw outputs against the stored evaluation records" if correction
+                     else "Fresh evaluation of the raw outputs against the stored evaluation records")
+    content_check = ("Other four flags and task quality retained from the stored records; parsed objects before and "
+                     "after normalization checked for equality" if correction else
+                     "Other four flags and task quality after normalization (each output evaluated as generated and "
+                     "after the fence is removed)")
     L = ["# SUMMARY_NORM — normalized FORMAT scoring (post-hoc re-analysis)", "",
          f"Run `{n['_meta']['run_id']}`; bootstrap {n['_meta']['n_boot']} task-clustered replicates stratified by family, "
          f"seed {n['_meta']['seed']}; generated {n['_meta']['generated_utc']}. Every value is a key of "
          "`results/posthoc_norm/summary_norm.json`. These results are a post-hoc re-analysis. The pre-specified strict "
-         "results are unchanged in `results/metrics/summary.json`.", "", "## Rule", "", FENCE_RULE, "",
+         "results are in `results/metrics/summary.json`; both policies include the documented v3.1 numerical "
+         "correction, with pre-correction summaries archived separately.", "", "## Rule", "", FENCE_RULE, "",
          "Rejected (strict value kept): " + "; ".join(REJECTED_CASES) + ".", "", "## Inventory", ""]
     for m in models:
         forms = {k.split(".fence_form.")[1]: v for k, v in n.items() if k.startswith(f"{P}.inventory.{m}.fence_form.")}
@@ -827,12 +826,11 @@ def summary_md(n: dict, models: list[str], md: dict, audit_ok: bool) -> str:
                  + "; ".join(f"{k}: {v}" for k, v in forms.items()) + ".")
     ck = lambda k: n.get(f"{P}.checks.{k}")  # noqa: E731
     L += ["", "## Checks", "",
-          f"- Fresh evaluation of the raw outputs against the stored evaluation records: {ck('strict_records.n')} records, "
+          f"- {records_check}: {ck('strict_records.n')} records, "
           f"{ck('strict_records.n_mismatch')} differences.",
-          f"- Strict results recomputed from the fresh records against `summary.json`: {ck('strict_keys.n')} keys, "
+          f"- Strict results recomputed against `summary.json`: {ck('strict_keys.n')} keys, "
           f"{ck('strict_keys.n_mismatch')} differences ({ck('strict_keys.scope')}).",
-          f"- Other four flags and task quality after normalization (each output evaluated as generated and after the "
-          f"fence is removed): {ck('content_unchanged.n')} records, {ck('content_unchanged.n_mismatch')} differences in "
+          f"- {content_check}: {ck('content_unchanged.n')} records, {ck('content_unchanged.n_mismatch')} differences in "
           f"the flags and quality scores, {ck('content_unchanged.n_quality_detail_mismatch')} in the quality details.",
           f"- FORMAT changed from pass to fail: {ck('format_direction.n_strict_pass_norm_fail')} records.",
           f"- Constraint rates, position rates and GEE status of LENGTH, CARDINALITY, NO_COMMA and VERBATIM equal the "

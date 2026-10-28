@@ -11,7 +11,7 @@ Rankings:
 
 - CSR, order arm: Gemma 4 E4B > Phi-4-mini > Qwen2.5-3B > SmolLM2-1.7B (mean over the ten conditions) in 9 of 10 conditions.
 - PCR, order arm: Gemma 4 E4B > Phi-4-mini > Qwen2.5-3B > SmolLM2-1.7B (mean over the ten conditions) in 6 of 10 conditions.
-- CSR, format arm: Gemma 4 E4B > Phi-4-mini > Qwen2.5-3B > SmolLM2-1.7B (mean over the ten conditions) in 4 of 10 conditions.
+- CSR, format arm: Gemma 4 E4B > Phi-4-mini > Qwen2.5-3B > SmolLM2-1.7B (mean over the ten conditions) in 2 of 10 conditions.
 - PCR, format arm: Phi-4-mini > Gemma 4 E4B > Qwen2.5-3B > SmolLM2-1.7B (mean over the ten conditions) in 2 of 10 conditions.
 - SmolLM2-1.7B vs Qwen2.5-3B, order arm: CSR 0 / 10 / 0; PCR 3 / 6 / 1 (higher / lower / tied).
 - SmolLM2-1.7B vs Phi-4-mini, order arm: CSR 0 / 10 / 0; PCR 0 / 10 / 0 (higher / lower / tied).
@@ -20,4 +20,4 @@ Rankings:
 - Qwen2.5-3B vs Gemma 4 E4B, order arm: CSR 0 / 10 / 0; PCR 0 / 10 / 0 (higher / lower / tied).
 - Phi-4-mini vs Gemma 4 E4B, order arm: CSR 1 / 9 / 0; PCR 2 / 8 / 0 (higher / lower / tied).
 
-Ties: the counts compare the per-condition means. A ranking holds in a condition only if every adjacent pair is strictly ordered, and `n_ties` counts equal means. Because the means are compared as floating-point numbers, an exact tie can be counted as higher or lower. Phi-4-mini and Gemma 4 E4B have exactly equal mean CSR in V07 and V09 (format arm). Rounding error decides these ties, so the stored counts are 6 / 4 / 0 (higher / lower / tied) and the CSR ranking holds in 4 of 10 conditions. Counting exact ties as ties gives 6 / 2 / 2 and 2 of 10. No other count is affected; the stored values are unchanged.
+Ties: the counts compare the per-condition means. A ranking holds in a condition only if every adjacent pair is strictly ordered, and `n_ties` counts equal means. Means are canonicalized to 12 decimal places before comparisons to remove machine-precision artifacts (v3.1 numerical correction). SmolLM2-1.7B and Qwen2.5-3B have exactly equal mean PCR in O01 (order arm). Counts are 3 / 6 / 1 (higher / lower / tied). Phi-4-mini and Gemma 4 E4B have exactly equal mean CSR in V07 and V09 (format arm). Counts are 6 / 2 / 2 (higher / lower / tied). SmolLM2-1.7B and Qwen2.5-3B have exactly equal mean PCR in V01 and V09 (format arm). Counts are 5 / 3 / 2 (higher / lower / tied).

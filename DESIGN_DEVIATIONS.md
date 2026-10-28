@@ -283,3 +283,42 @@ re-analysis writes only to `results/posthoc_norm/` (keys `main.posthoc_norm.*`).
 | N-5 | **Additional post-hoc test family:** the six model pairs for mean PCR (order arm), paired over tasks, Benjamini-Hochberg across the six, set before these tests were computed. | `pcr_pairs` |
 | N-6 | **Figures** from the normalized keys only (order level, PS by arm, position profiles, constraint profiles) and one labelled comparison of strict and normalized scoring. The strict figures are kept unchanged. An automatic audit checks that no table or figure reads keys of the other policy, except the labelled comparison. | `results/posthoc_norm/figures/`, `results/posthoc_norm/policy_audit.json` |
 | N-7 | **Code changes without effect on earlier values:** optional key prefixes for the order-level analysis and the Kendall companion, an option to compute the model pairs without the interaction GEE, and file-name and note options for the figure functions. Every earlier figure and key is unchanged. | `analysis/compute.py`, `analysis/posthoc_r1.py`, `analysis/figures.py` |
+
+## 9. Numerical tie correction (v3.1, 2026-10-28)
+
+During the final review, floating-point residuals were found to split mathematically equal compliance-derived
+values. This correction was made after the results were known. It is a numerical implementation correction,
+not a new scoring policy, pre-registration or experiment. Earlier sections record their historical state;
+statements that earlier values were unchanged there do not apply to the present correction.
+
+Per-task PS is now computed from the integer range of passed-constraint counts divided by five. Before sign
+and rank decisions, compliance-derived differences and means are rounded to 12 decimal places, far below the
+resolution of the study. This applies to Wilcoxon zeros and tied ranks, bootstrap zero-tail counts, order-level
+rankings and the hard-to-easy analysis. Strict and normalized results use the same correction. The bootstrap
+size (5,000), seed (20261003), stratification, test families and multiplicity adjustments are unchanged.
+
+`analysis/correct_numerics.py` recomputes the affected statistics and dependent reports from the released
+evaluation records. No task, prompt, raw output, evaluator, stored evaluation record, frozen analysis plan or
+environment file is changed. The driver independently checks FORMAT against all 8,000 evaluation records and
+checks equality of parsed objects before and after normalization. Other content flags and quality scores are
+retained, not newly evaluated against the omitted source texts. Comma-spillover measurements requiring the
+source inputs, tokenizer edit distances and prior generation checks are explicitly retained in the audit.
+
+Selected changes at manuscript precision:
+
+| Quantity | Earlier | Corrected |
+|---|---:|---:|
+| SmolLM2 PS_order vs PS_format, q (both policies) | .682 | .740 |
+| Qwen vs Phi PS_order, q (normalized) | .029 | .039 |
+| Qwen vs Phi PS_order, q (strict) | .014 | .017 |
+| SmolLM2 vs Qwen PCR, q (normalized) | .280 | .286 |
+| Phi vs Gemma format-arm CSR variants (higher / lower / tied) | 6 / 4 / 0 | 6 / 2 / 2 |
+| HE vs CSR, Spearman rho for Gemma (normalized) | .67 | .66 |
+| HE vs CSR, Spearman rho for SmolLM2 (both policies) | -.08 | -.09 |
+
+The primary compliance estimates, PS means, manuscript confidence intervals, GEE results and decisions at
+q < .05 are unchanged. Additional exploratory correlations and bootstrap intervals changed where ties had
+been split. The full key-level differences, unchanged-input hashes and scope of the rerun are recorded in
+`results/report/NUMERICAL_CORRECTION_V31.json`. Original summaries remain in `results/archive/pre_v3_1/`.
+Regression tests in `tests/test_numerical_ties.py` compare the corrected inferential results with integer-count
+calculations and check exact-tie rankings.

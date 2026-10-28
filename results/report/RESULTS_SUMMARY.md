@@ -1,6 +1,6 @@
 # RESULTS_SUMMARY — main run
 
-Run `main_20261006-1354_63a1c79`; analysis plan frozen at tag `benchmark-v1.0.0`; bootstrap 5000 replicates, seed 20261003; generated 2026-10-26T15:15:13Z. Every number below is a key of `results/metrics/summary.json` (key index at the end). Proportions are shown as percentages with one decimal, 95% CIs in brackets (task-clustered bootstrap, percentile), p to three decimals or "< .001"; q = Benjamini-Hochberg within the families of ANALYSIS_PLAN §7. Model differences are descriptive of these four models and are not attributed to size or family (D06 §5).
+Run `main_20261006-1354_63a1c79`; analysis plan frozen at tag `benchmark-v1.0.0`; bootstrap 5000 replicates, seed 20261003; generated 2026-10-28T13:56:30Z. Every number below is a key of `results/metrics/summary.json` (key index at the end). Proportions are shown as percentages with one decimal, 95% CIs in brackets (task-clustered bootstrap, percentile), p to three decimals or "< .001"; q = Benjamini-Hochberg within the families of ANALYSIS_PLAN §7. Model differences are descriptive of these four models and are not attributed to size or family (D06 §5).
 
 **Reading note (decision G3 §4).** Gemma 4 E4B's strict FORMAT score is driven by fenced JSON: it wrapped 100.0% of its order-arm outputs and 100.0% of its format-arm outputs in a ```json fence (E5, descriptive), so its strict FORMAT compliance and PCR are 0 and its CSR is at most 0.8.
 
@@ -34,13 +34,13 @@ Task-level sensitivity (S1):
 | Qwen2.5-3B | 63.4% [62.1%, 64.5%] | 8.1% [5.6%, 10.8%] | 0.316 [0.292, 0.342] | 0.068 [0.052, 0.086] | 20.0% [16.0%, 24.0%] | 33.2% [30.1%, 36.4%] |
 | Phi-4-mini | 85.2% [83.6%, 86.8%] | 45.7% [40.2%, 50.9%] | 0.264 [0.238, 0.292] | 0.148 [0.118, 0.180] | 18.0% [12.0%, 24.0%] | 47.6% [44.1%, 51.1%] |
 | Gemma 4 E4B | 69.6% [68.0%, 71.1%] | 0.0% [0.0%, 0.0%] | 0.112 [0.090, 0.136] | 0.028 [0.016, 0.042] | 56.0% [48.0%, 64.0%] | 19.1% [15.1%, 23.1%] |
-| Pooled | 63.1% [62.2%, 63.9%] | 14.9% [13.4%, 16.4%] | 0.247 [0.232, 0.262] | 0.138 [0.127, 0.152] | 33.5% [30.5%, 36.5%] | 34.0% [32.1%, 35.8%] |
+| Pooled | 63.1% [62.2%, 63.9%] | 14.9% [13.4%, 16.4%] | 0.247 [0.232, 0.262] | 0.138 [0.127, 0.151] | 33.5% [30.5%, 36.5%] | 34.0% [32.1%, 35.8%] |
 
 - SmolLM2-1.7B: PS_order 0.296 [0.260, 0.336], PS_format 0.310 [0.280, 0.344]; VSR order 40.0% [36.0%, 44.0%], format 47.0% [42.0%, 52.0%]; flip rate order 36.0% [33.0%, 39.1%], format 26.8% [23.5%, 30.4%].
 - Qwen2.5-3B: PS_order 0.316 [0.292, 0.342], PS_format 0.068 [0.052, 0.086]; VSR order 20.0% [16.0%, 24.0%], format 70.0% [63.0%, 77.0%]; flip rate order 33.2% [30.1%, 36.4%], format 12.3% [9.0%, 15.8%].
 - Phi-4-mini: PS_order 0.264 [0.238, 0.292], PS_format 0.148 [0.118, 0.180]; VSR order 18.0% [12.0%, 24.0%], format 47.0% [39.0%, 55.0%]; flip rate order 47.6% [44.1%, 51.1%], format 23.1% [18.8%, 27.4%].
 - Gemma 4 E4B: PS_order 0.112 [0.090, 0.136], PS_format 0.028 [0.016, 0.042]; VSR order 56.0% [48.0%, 64.0%], format 87.0% [81.0%, 93.0%]; flip rate order 19.1% [15.1%, 23.1%], format 4.7% [2.3%, 7.5%].
-- Pooled: PS_order 0.247 [0.232, 0.262], PS_format 0.138 [0.127, 0.152]; VSR order 33.5% [30.5%, 36.5%], format 62.7% [59.0%, 66.2%]; flip rate order 34.0% [32.1%, 35.8%], format 16.7% [15.0%, 18.6%].
+- Pooled: PS_order 0.247 [0.232, 0.262], PS_format 0.138 [0.127, 0.151]; VSR order 33.5% [30.5%, 36.5%], format 62.7% [59.0%, 66.2%]; flip rate order 34.0% [32.1%, 35.8%], format 16.7% [15.0%, 18.6%].
 
 ## RQ2 — Does an instruction's position change its compliance? (P1)
 
@@ -122,10 +122,10 @@ GEE (P1): not estimable (did not converge: the iterations diverged to non-finite
 
 ## RQ3 — Do the models differ? (S2; descriptive of these four models)
 
-- mean PS_order, SmolLM2-1.7B − Qwen2.5-3B: -0.020 [-0.064, 0.028], bootstrap p = .369, q = .369.
-- mean PS_order, SmolLM2-1.7B − Phi-4-mini: 0.032 [-0.014, 0.078], bootstrap p = .160, q = .192.
+- mean PS_order, SmolLM2-1.7B − Qwen2.5-3B: -0.020 [-0.064, 0.028], bootstrap p = .418, q = .418.
+- mean PS_order, SmolLM2-1.7B − Phi-4-mini: 0.032 [-0.014, 0.078], bootstrap p = .185, q = .222.
 - mean PS_order, SmolLM2-1.7B − Gemma 4 E4B: 0.184 [0.144, 0.226], bootstrap p < .001, q < .001.
-- mean PS_order, Qwen2.5-3B − Phi-4-mini: 0.052 [0.014, 0.094], bootstrap p = .009, q = .014.
+- mean PS_order, Qwen2.5-3B − Phi-4-mini: 0.052 [0.014, 0.094], bootstrap p = .011, q = .017.
 - mean PS_order, Qwen2.5-3B − Gemma 4 E4B: 0.204 [0.170, 0.238], bootstrap p < .001, q < .001.
 - mean PS_order, Phi-4-mini − Gemma 4 E4B: 0.152 [0.116, 0.186], bootstrap p < .001, q < .001.
 - mean CSR (order arm), SmolLM2-1.7B − Qwen2.5-3B: -29.3% [-31.9%, -26.7%], bootstrap p < .001, q < .001.
@@ -145,10 +145,10 @@ Gemma 4 E4B's lower PS_order has two sources (Table A3; post-hoc and descriptive
 
 ## RQ4 — Is reordering more disruptive than reformatting? (P3)
 
-- SmolLM2-1.7B: mean PS_order − PS_format = -0.014 [-0.048, 0.018] over 100 tasks (28 positive, 32 negative, 40 zero); Wilcoxon signed-rank statistic 2000.00, p = .682, q = .682.
-- Qwen2.5-3B: mean PS_order − PS_format = 0.248 [0.220, 0.280] over 100 tasks (70 positive, 3 negative, 27 zero); Wilcoxon signed-rank statistic 129.50, p < .001, q < .001.
-- Phi-4-mini: mean PS_order − PS_format = 0.116 [0.084, 0.148] over 100 tasks (55 positive, 7 negative, 38 zero); Wilcoxon signed-rank statistic 480.50, p < .001, q < .001.
-- Gemma 4 E4B: mean PS_order − PS_format = 0.084 [0.060, 0.110] over 100 tasks (35 positive, 2 negative, 63 zero); Wilcoxon signed-rank statistic 160.00, p < .001, q < .001.
+- SmolLM2-1.7B: mean PS_order − PS_format = -0.014 [-0.048, 0.018] over 100 tasks (24 positive, 27 negative, 49 zero); Wilcoxon signed-rank statistic 1822.00, p = .740, q = .740.
+- Qwen2.5-3B: mean PS_order − PS_format = 0.248 [0.220, 0.280] over 100 tasks (61 positive, 2 negative, 37 zero); Wilcoxon signed-rank statistic 109.00, p < .001, q < .001.
+- Phi-4-mini: mean PS_order − PS_format = 0.116 [0.084, 0.148] over 100 tasks (55 positive, 7 negative, 38 zero); Wilcoxon signed-rank statistic 481.50, p < .001, q < .001.
+- Gemma 4 E4B: mean PS_order − PS_format = 0.084 [0.060, 0.110] over 100 tasks (35 positive, 2 negative, 63 zero); Wilcoxon signed-rank statistic 155.00, p < .001, q < .001.
 
 ## Task quality (S3)
 
@@ -189,19 +189,19 @@ TQS (max Q − min Q over the 10 orders, per task)
 
 **E3 — hard-to-easy order index** (difficulty from the batch-1 order-arm pilot outputs, decision G2 §2.3). The Williams design was not built to vary HE, and 10 orders give it a limited range.
 
-- SmolLM2-1.7B: difficulties FORMAT 0.62, LENGTH 0.41, CARDINALITY 0.88, NO_COMMA 0.70, VERBATIM 0.73; ρ(HE, order-level CSR) = -0.08 [-0.15, 0.03]; ρ(HE, order-level PCR) = -0.23 [-0.61, 0.26].
+- SmolLM2-1.7B: difficulties FORMAT 0.62, LENGTH 0.41, CARDINALITY 0.88, NO_COMMA 0.70, VERBATIM 0.73; ρ(HE, order-level CSR) = -0.09 [-0.15, 0.04]; ρ(HE, order-level PCR) = -0.23 [-0.61, 0.26].
 - Qwen2.5-3B: difficulties FORMAT 0.18, LENGTH 0.17, CARDINALITY 0.46, NO_COMMA 0.61, VERBATIM 0.34; ρ(HE, order-level CSR) = -0.06 [-0.41, 0.02]; ρ(HE, order-level PCR) = -0.20 [-0.30, 0.28].
-- Phi-4-mini: difficulties FORMAT 0.00, LENGTH 0.00, CARDINALITY 0.09, NO_COMMA 0.31, VERBATIM 0.22; ρ(HE, order-level CSR) = -0.62 [-0.67, -0.21]; ρ(HE, order-level PCR) = -0.41 [-0.72, -0.17].
-- Gemma 4 E4B: difficulties FORMAT 1.00, LENGTH 0.00, CARDINALITY 0.16, NO_COMMA 0.00, VERBATIM 0.52; ρ(HE, order-level CSR) = 0.67 [0.54, 0.88]; ρ(HE, order-level PCR): no variation; test not applicable.
+- Phi-4-mini: difficulties FORMAT 0.00, LENGTH 0.00, CARDINALITY 0.09, NO_COMMA 0.31, VERBATIM 0.22; ρ(HE, order-level CSR) = -0.62 [-0.68, -0.22]; ρ(HE, order-level PCR) = -0.41 [-0.72, -0.17].
+- Gemma 4 E4B: difficulties FORMAT 1.00, LENGTH 0.00, CARDINALITY 0.16, NO_COMMA 0.00, VERBATIM 0.52; ρ(HE, order-level CSR) = 0.68 [0.54, 0.88]; ρ(HE, order-level PCR): no variation; test not applicable.
 
 **E4 — task-quality impact**: Spearman ρ between TQS and PS_order across the 20 tasks of each family:
 
 | Family | SmolLM2-1.7B | Qwen2.5-3B | Phi-4-mini | Gemma 4 E4B |
 |---|---:|---:|---:|---:|
-| QA | 0.69 | 0.35 | -0.35 | 0.36 |
+| QA | 0.69 | 0.35 | -0.35 | 0.34 |
 | CLS | -0.20 | -0.03 | 0.00 | n/a |
-| SUM | n/a | 0.04 | 0.47 | 0.09 |
-| EXT | 0.25 | -0.16 | 0.61 | -0.19 |
+| SUM | n/a | 0.04 | 0.43 | 0.16 |
+| EXT | 0.21 | -0.27 | 0.61 | -0.19 |
 | TRF | 0.41 | -0.17 | 0.13 | n/a |
 
 **E5 — error taxonomy** (share of outputs with each tag; order arm):
@@ -288,7 +288,7 @@ Further R1 tables: secondary outcomes (Table R1c, pre-specified), FORMAT failure
 - A1 run-to-run determinism (smoke, two passes): byte-identical for SmolLM2-1.7B yes, Qwen2.5-3B yes, Phi-4-mini yes, Gemma 4 E4B yes.
 - A3 batch invariance (pilot, three original models): below the pre-specified 98% rule, so all main outputs were generated at batch size 1 (decision G2).
 - A6 determinism at batch size 1 (start of each model's main run): byte-identical to the batch-1 pilot for SmolLM2-1.7B yes, Qwen2.5-3B yes, Phi-4-mini yes, Gemma 4 E4B yes; one environment per model (NVIDIA A100-SXM4-80GB).
-- Analysis software: Python 3.11.16, NumPy 2.4.6, SciPy 1.17.1, statsmodels 0.15.0, pandas 3.0.6, pyarrow 25.0.1, Matplotlib 3.11.2.
+- Analysis software: Python 3.12.14, NumPy 2.4.6, SciPy 1.17.1, statsmodels 0.15.0, pandas 3.0.6, pyarrow 25.0.1, Matplotlib 3.11.2.
 
 ## Anomalies and caveats
 
@@ -438,7 +438,7 @@ Numbers in the text, in order of appearance:
 - 0.262 → `main.order.pooled.ps.ci_high`
 - 0.138 → `main.format.pooled.ps.mean`
 - 0.127 → `main.format.pooled.ps.ci_low`
-- 0.152 → `main.format.pooled.ps.ci_high`
+- 0.151 → `main.format.pooled.ps.ci_high`
 - 33.5% → `main.order.pooled.vsr.mean`
 - 30.5% → `main.order.pooled.vsr.ci_low`
 - 36.5% → `main.order.pooled.vsr.ci_high`
@@ -501,13 +501,13 @@ Numbers in the text, in order of appearance:
 - -0.020 → `main.s2.smollm2_vs_qwen25.ps_diff.mean`
 - -0.064 → `main.s2.smollm2_vs_qwen25.ps_diff.ci_low`
 - 0.028 → `main.s2.smollm2_vs_qwen25.ps_diff.ci_high`
-- .369 → `main.s2.smollm2_vs_qwen25.ps_diff.p`
-- .369 → `main.s2.smollm2_vs_qwen25.ps_diff.q`
+- .418 → `main.s2.smollm2_vs_qwen25.ps_diff.p`
+- .418 → `main.s2.smollm2_vs_qwen25.ps_diff.q`
 - 0.032 → `main.s2.smollm2_vs_phi4mini.ps_diff.mean`
 - -0.014 → `main.s2.smollm2_vs_phi4mini.ps_diff.ci_low`
 - 0.078 → `main.s2.smollm2_vs_phi4mini.ps_diff.ci_high`
-- .160 → `main.s2.smollm2_vs_phi4mini.ps_diff.p`
-- .192 → `main.s2.smollm2_vs_phi4mini.ps_diff.q`
+- .185 → `main.s2.smollm2_vs_phi4mini.ps_diff.p`
+- .222 → `main.s2.smollm2_vs_phi4mini.ps_diff.q`
 - 0.184 → `main.s2.smollm2_vs_gemma4e4b.ps_diff.mean`
 - 0.144 → `main.s2.smollm2_vs_gemma4e4b.ps_diff.ci_low`
 - 0.226 → `main.s2.smollm2_vs_gemma4e4b.ps_diff.ci_high`
@@ -516,8 +516,8 @@ Numbers in the text, in order of appearance:
 - 0.052 → `main.s2.qwen25_vs_phi4mini.ps_diff.mean`
 - 0.014 → `main.s2.qwen25_vs_phi4mini.ps_diff.ci_low`
 - 0.094 → `main.s2.qwen25_vs_phi4mini.ps_diff.ci_high`
-- .009 → `main.s2.qwen25_vs_phi4mini.ps_diff.p`
-- .014 → `main.s2.qwen25_vs_phi4mini.ps_diff.q`
+- .011 → `main.s2.qwen25_vs_phi4mini.ps_diff.p`
+- .017 → `main.s2.qwen25_vs_phi4mini.ps_diff.q`
 - 0.204 → `main.s2.qwen25_vs_gemma4e4b.ps_diff.mean`
 - 0.170 → `main.s2.qwen25_vs_gemma4e4b.ps_diff.ci_low`
 - 0.238 → `main.s2.qwen25_vs_gemma4e4b.ps_diff.ci_high`
@@ -569,27 +569,27 @@ Numbers in the text, in order of appearance:
 - 52.0% → `main.robustness.constraint_instability.order.phi4mini.verbatim.mean`
 - 83.2% → `main.order.gemma4e4b.compliance.cardinality.mean`
 - 80.0% → `main.order.phi4mini.compliance.cardinality.mean`
-- 2000.00 → `main.p3.smollm2.wilcoxon_stat`
-- .682 → `main.p3.smollm2.p`
-- .682 → `main.p3.smollm2.q`
+- 1822.00 → `main.p3.smollm2.wilcoxon_stat`
+- .740 → `main.p3.smollm2.p`
+- .740 → `main.p3.smollm2.q`
 - -0.014 → `main.p3.smollm2.mean_diff`
 - -0.048 → `main.p3.smollm2.ci_low`
 - 0.018 → `main.p3.smollm2.ci_high`
 - 100 → `main.p3.smollm2.n`
-- 28 → `main.p3.smollm2.n_pos`
-- 32 → `main.p3.smollm2.n_neg`
-- 40 → `main.p3.smollm2.n_zero`
-- 129.50 → `main.p3.qwen25.wilcoxon_stat`
+- 24 → `main.p3.smollm2.n_pos`
+- 27 → `main.p3.smollm2.n_neg`
+- 49 → `main.p3.smollm2.n_zero`
+- 109.00 → `main.p3.qwen25.wilcoxon_stat`
 - < .001 → `main.p3.qwen25.p`
 - < .001 → `main.p3.qwen25.q`
 - 0.248 → `main.p3.qwen25.mean_diff`
 - 0.220 → `main.p3.qwen25.ci_low`
 - 0.280 → `main.p3.qwen25.ci_high`
 - 100 → `main.p3.qwen25.n`
-- 70 → `main.p3.qwen25.n_pos`
-- 3 → `main.p3.qwen25.n_neg`
-- 27 → `main.p3.qwen25.n_zero`
-- 480.50 → `main.p3.phi4mini.wilcoxon_stat`
+- 61 → `main.p3.qwen25.n_pos`
+- 2 → `main.p3.qwen25.n_neg`
+- 37 → `main.p3.qwen25.n_zero`
+- 481.50 → `main.p3.phi4mini.wilcoxon_stat`
 - < .001 → `main.p3.phi4mini.p`
 - < .001 → `main.p3.phi4mini.q`
 - 0.116 → `main.p3.phi4mini.mean_diff`
@@ -599,7 +599,7 @@ Numbers in the text, in order of appearance:
 - 55 → `main.p3.phi4mini.n_pos`
 - 7 → `main.p3.phi4mini.n_neg`
 - 38 → `main.p3.phi4mini.n_zero`
-- 160.00 → `main.p3.gemma4e4b.wilcoxon_stat`
+- 155.00 → `main.p3.gemma4e4b.wilcoxon_stat`
 - < .001 → `main.p3.gemma4e4b.p`
 - < .001 → `main.p3.gemma4e4b.q`
 - 0.084 → `main.p3.gemma4e4b.mean_diff`
@@ -719,9 +719,9 @@ Numbers in the text, in order of appearance:
 - 0.88 → `main.exploratory.e3.smollm2.difficulty.cardinality`
 - 0.70 → `main.exploratory.e3.smollm2.difficulty.t4`
 - 0.73 → `main.exploratory.e3.smollm2.difficulty.verbatim`
-- -0.08 → `main.exploratory.e3.smollm2.he_vs_csr.rho`
+- -0.09 → `main.exploratory.e3.smollm2.he_vs_csr.rho`
 - -0.15 → `main.exploratory.e3.smollm2.he_vs_csr.ci_low`
-- 0.03 → `main.exploratory.e3.smollm2.he_vs_csr.ci_high`
+- 0.04 → `main.exploratory.e3.smollm2.he_vs_csr.ci_high`
 - -0.23 → `main.exploratory.e3.smollm2.he_vs_pcr.rho`
 - -0.61 → `main.exploratory.e3.smollm2.he_vs_pcr.ci_low`
 - 0.26 → `main.exploratory.e3.smollm2.he_vs_pcr.ci_high`
@@ -742,8 +742,8 @@ Numbers in the text, in order of appearance:
 - 0.31 → `main.exploratory.e3.phi4mini.difficulty.t4`
 - 0.22 → `main.exploratory.e3.phi4mini.difficulty.verbatim`
 - -0.62 → `main.exploratory.e3.phi4mini.he_vs_csr.rho`
-- -0.67 → `main.exploratory.e3.phi4mini.he_vs_csr.ci_low`
-- -0.21 → `main.exploratory.e3.phi4mini.he_vs_csr.ci_high`
+- -0.68 → `main.exploratory.e3.phi4mini.he_vs_csr.ci_low`
+- -0.22 → `main.exploratory.e3.phi4mini.he_vs_csr.ci_high`
 - -0.41 → `main.exploratory.e3.phi4mini.he_vs_pcr.rho`
 - -0.72 → `main.exploratory.e3.phi4mini.he_vs_pcr.ci_low`
 - -0.17 → `main.exploratory.e3.phi4mini.he_vs_pcr.ci_high`
@@ -752,21 +752,21 @@ Numbers in the text, in order of appearance:
 - 0.16 → `main.exploratory.e3.gemma4e4b.difficulty.cardinality`
 - 0.00 → `main.exploratory.e3.gemma4e4b.difficulty.t4`
 - 0.52 → `main.exploratory.e3.gemma4e4b.difficulty.verbatim`
-- 0.67 → `main.exploratory.e3.gemma4e4b.he_vs_csr.rho`
+- 0.68 → `main.exploratory.e3.gemma4e4b.he_vs_csr.rho`
 - 0.54 → `main.exploratory.e3.gemma4e4b.he_vs_csr.ci_low`
 - 0.88 → `main.exploratory.e3.gemma4e4b.he_vs_csr.ci_high`
 - 0.69 → `main.exploratory.e4.F1_QA.smollm2.rho_tqs_ps`
 - 0.35 → `main.exploratory.e4.F1_QA.qwen25.rho_tqs_ps`
 - -0.35 → `main.exploratory.e4.F1_QA.phi4mini.rho_tqs_ps`
-- 0.36 → `main.exploratory.e4.F1_QA.gemma4e4b.rho_tqs_ps`
+- 0.34 → `main.exploratory.e4.F1_QA.gemma4e4b.rho_tqs_ps`
 - -0.20 → `main.exploratory.e4.F2_CLASSIFICATION.smollm2.rho_tqs_ps`
 - -0.03 → `main.exploratory.e4.F2_CLASSIFICATION.qwen25.rho_tqs_ps`
 - 0.00 → `main.exploratory.e4.F2_CLASSIFICATION.phi4mini.rho_tqs_ps`
 - 0.04 → `main.exploratory.e4.F3_SUMMARIZATION.qwen25.rho_tqs_ps`
-- 0.47 → `main.exploratory.e4.F3_SUMMARIZATION.phi4mini.rho_tqs_ps`
-- 0.09 → `main.exploratory.e4.F3_SUMMARIZATION.gemma4e4b.rho_tqs_ps`
-- 0.25 → `main.exploratory.e4.F4_EXTRACTION.smollm2.rho_tqs_ps`
-- -0.16 → `main.exploratory.e4.F4_EXTRACTION.qwen25.rho_tqs_ps`
+- 0.43 → `main.exploratory.e4.F3_SUMMARIZATION.phi4mini.rho_tqs_ps`
+- 0.16 → `main.exploratory.e4.F3_SUMMARIZATION.gemma4e4b.rho_tqs_ps`
+- 0.21 → `main.exploratory.e4.F4_EXTRACTION.smollm2.rho_tqs_ps`
+- -0.27 → `main.exploratory.e4.F4_EXTRACTION.qwen25.rho_tqs_ps`
 - 0.61 → `main.exploratory.e4.F4_EXTRACTION.phi4mini.rho_tqs_ps`
 - -0.19 → `main.exploratory.e4.F4_EXTRACTION.gemma4e4b.rho_tqs_ps`
 - 0.41 → `main.exploratory.e4.F5_TRANSFORMATION.smollm2.rho_tqs_ps`
